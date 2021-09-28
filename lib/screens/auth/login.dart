@@ -11,25 +11,95 @@ class _SignInState extends State<SignIn> {
   bool visible = false;
   late double width;
 
+  resetButton() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: fixPadding * 2.0,
+        vertical: fixPadding * 1.5,
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10.0),
+        onTap: () {
+          // }=> Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => Otp()
+          // ),
+          // ),
+        },
+        child: Container(
+          height: 40,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: primaryColor,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: primaryColor.withOpacity(0.2),
+                spreadRadius: 2.5,
+                blurRadius: 2.5,
+              ),
+            ],
+          ),
+          child: Text(
+            'Get Password Reset Link',
+            style: whiteColor15BoldTextStyle,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showDialog(context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: Container(
+              height: 250,
+              padding: EdgeInsets.symmetric(horizontal: 7),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: Icon(Icons.cancel_outlined)),
+                  ),
+                  Text(
+                    "Forgot Password",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      decoration: InputDecoration(hintText: "Email"),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  resetButton(),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      // backgroundColor: bgColor,
       backgroundColor: bgColor,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          //  () => Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-          // ),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-        ),
-      ),
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -41,7 +111,7 @@ class _SignInState extends State<SignIn> {
               heightSpace,
               heightSpace,
               SizedBox(
-                height: 30,
+                height: 50,
               ),
               Align(
                 alignment: Alignment.center,
@@ -62,7 +132,7 @@ class _SignInState extends State<SignIn> {
                   padding: const EdgeInsets.fromLTRB(fixPadding * 2.0,
                       fixPadding, fixPadding * 2.0, fixPadding * 2.0),
                   child: Text(
-                    'Sign In',
+                    'Log In',
                     style: darkBlueColor22BoldTextStyle,
                   ),
                 ),
@@ -78,7 +148,7 @@ class _SignInState extends State<SignIn> {
               signinButton(),
               // otherSigninOptions(),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,9 +157,15 @@ class _SignInState extends State<SignIn> {
                     "Not a memeber Already?",
                     style: greyColor16MediumTextStyle,
                   ),
-                  Text(
-                    " Register",
-                    style: TextStyle(fontSize: 17, color: primaryColor),
+                  TextButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    ),
+                    child: Text(
+                      " Register",
+                      style: TextStyle(fontSize: 17, color: accentColor),
+                    ),
                   ),
                 ],
               )
@@ -137,7 +213,7 @@ class _SignInState extends State<SignIn> {
                 isDense: true,
                 contentPadding: EdgeInsets.zero,
                 hintStyle: greyColor16MediumTextStyle,
-                hintText: 'User Name',
+                hintText: 'Email',
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
@@ -212,10 +288,21 @@ class _SignInState extends State<SignIn> {
             ),
           ),
           heightSpace,
-          Text(
-            'Forget Password?',
-            style: greyColor16MediumTextStyle,
-          ),
+          // GestureDetector(
+          //   onTap: () => _showDialog,
+          //   child: Text('Forgot Password?',
+
+          //     style:greyColor16MediumTextStyle,)
+          //   ),
+          TextButton(
+              onPressed: () {
+                // ignore: unnecessary_statements
+                _showDialog(context);
+              },
+              child: Text(
+                'Forgot Password?',
+                style: greyColor16MediumTextStyle,
+              )),
         ],
       ),
     );
@@ -248,7 +335,7 @@ class _SignInState extends State<SignIn> {
             ],
           ),
           child: Text(
-            'Sign In',
+            'Log In',
             style: whiteColor20BoldTextStyle,
           ),
         ),

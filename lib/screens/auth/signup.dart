@@ -125,6 +125,8 @@
 // }
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/auth/login.dart';
+import 'package:cozina/screens/auth/verification.dart';
+// import 'package:cozina/screens/auth/login.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -140,12 +142,13 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios),
-        ),
-      ),
+      backgroundColor: bgColor,
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //     onPressed: () => Navigator.pop(context),
+      //     icon: Icon(Icons.arrow_back_ios),
+      //   ),
+      // ),
       body: Stack(
         children: [
           // cornerImage(),
@@ -155,19 +158,83 @@ class _SignUpState extends State<SignUp> {
             children: [
               heightSpace,
               heightSpace,
-              Padding(
-                padding: const EdgeInsets.fromLTRB(fixPadding * 2.0, fixPadding,
-                    fixPadding * 2.0, fixPadding * 2.0),
+              SizedBox(
+                height: 20,
+              ),
+              Align(
+                alignment: Alignment.center,
                 child: Text(
-                  'Sign Up',
-                  style: darkBlueColor22BoldTextStyle,
+                  "Cozina",
+                  style: TextStyle(
+                      fontSize: 40,
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(fixPadding * 2.0,
+                      fixPadding, fixPadding * 2.0, fixPadding * 2.0),
+                  child: Text(
+                    'Register',
+                    style: darkBlueColor22BoldTextStyle,
+                  ),
                 ),
               ),
               userNameTextField(),
               emailTextField(),
               phoneNumberTextField(),
-              passwordTextField(),
+              passwordTextField("Password"),
+              passwordTextField("Confirm password"),
+
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.check_box),
+                    color: primaryColor,
+                  ),
+                  Text(
+                    "I agree to all",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  widthSpace,
+                  Text(
+                    "T & C",
+                    style: TextStyle(color: accentColor, fontSize: 15),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
               signupButton(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Already a member?", style: greyColor16MediumTextStyle),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                    ),
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: accentColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
+              )
               // otherSigninOptions(),
             ],
           ),
@@ -213,7 +280,7 @@ class _SignUpState extends State<SignUp> {
                 isDense: true,
                 contentPadding: EdgeInsets.zero,
                 hintStyle: greyColor16MediumTextStyle,
-                hintText: 'Full Name',
+                hintText: 'Name',
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
@@ -260,7 +327,7 @@ class _SignUpState extends State<SignUp> {
                 isDense: true,
                 contentPadding: EdgeInsets.zero,
                 hintStyle: greyColor16MediumTextStyle,
-                hintText: 'Email Address',
+                hintText: 'Email',
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
@@ -307,7 +374,7 @@ class _SignUpState extends State<SignUp> {
                 isDense: true,
                 contentPadding: EdgeInsets.zero,
                 hintStyle: greyColor16MediumTextStyle,
-                hintText: 'Phone Number',
+                hintText: 'Mobile No.',
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
@@ -317,7 +384,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  passwordTextField() {
+  passwordTextField(String title) {
     return Padding(
       padding: EdgeInsets.fromLTRB(
         fixPadding * 2.0,
@@ -355,7 +422,7 @@ class _SignUpState extends State<SignUp> {
                   isDense: true,
                   contentPadding: EdgeInsets.zero,
                   hintStyle: greyColor16MediumTextStyle,
-                  hintText: 'Password',
+                  hintText: title,
                   border: UnderlineInputBorder(borderSide: BorderSide.none),
                 ),
               ),
@@ -390,11 +457,8 @@ class _SignUpState extends State<SignUp> {
       child: InkWell(
         borderRadius: BorderRadius.circular(10.0),
         onTap: () {
-          // }=> Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => Otp()
-          // ),
-          // ),
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AccountVerificaton()));
         },
         child: Container(
           height: 50,
@@ -411,7 +475,7 @@ class _SignUpState extends State<SignUp> {
             ],
           ),
           child: Text(
-            'Sign Up',
+            'Register',
             style: whiteColor20BoldTextStyle,
           ),
         ),

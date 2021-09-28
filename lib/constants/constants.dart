@@ -50,6 +50,24 @@ TextStyle whiteColor18BoldTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+TextStyle whiteColor26BoldTextStyle = TextStyle(
+  color: whiteColor,
+  fontSize: 26,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle blackColor18BoldTextStyle = TextStyle(
+  color: blackColor,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle blackColor16RegularTextStyle = TextStyle(
+  color: blackColor,
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+);
+
 TextStyle darkBlueColor18SemiBoldTextStyle = TextStyle(
   color: darkBlueColor,
   fontSize: 18,
@@ -61,7 +79,11 @@ TextStyle darkBlueColor18MediumTextStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.w500,
 );
-
+TextStyle blackColor17SemiBoldTextStyle = TextStyle(
+  color: blackColor,
+  fontSize: 17,
+  fontWeight: FontWeight.w600,
+);
 TextStyle darkBlueColor17SemiBoldTextStyle = TextStyle(
   color: darkBlueColor,
   fontSize: 17,
@@ -161,6 +183,11 @@ TextStyle greyColor14SemiBoldTextStyle = TextStyle(
 TextStyle darkBlueColor11SemiBoldTextStyle = TextStyle(
   color: darkBlueColor,
   fontSize: 11,
+  fontWeight: FontWeight.w600,
+);
+TextStyle blackColor13SemiBoldTextStyle = TextStyle(
+  color: blackColor,
+  fontSize: 13,
   fontWeight: FontWeight.w600,
 );
 
@@ -302,3 +329,5 @@ TextStyle primaryColorColor9MediumTextStyle = TextStyle(
   fontSize: 9,
   fontWeight: FontWeight.w500,
 );
+
+

@@ -1,5 +1,6 @@
 import 'package:cozina/screens/auth/login.dart';
-import 'package:cozina/screens/auth/signup.dart';
+import 'package:cozina/screens/home/home_page.dart';
+// import 'package:cozina/screens/auth/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
