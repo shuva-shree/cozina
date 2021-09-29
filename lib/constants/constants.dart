@@ -208,6 +208,16 @@ TextStyle primaryColor12SemiBoldTextStyle = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w600,
 );
+TextStyle primaryColor20SemiBoldTextStyle = TextStyle(
+  color: primaryColor,
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+);
+TextStyle primaryColor18SemiBoldTextStyle = TextStyle(
+  color: primaryColor,
+  fontSize: 18,
+  fontWeight: FontWeight.w600,
+);
 
 TextStyle darkBlueColor12SemiBoldTextStyle = TextStyle(
   color: darkBlueColor,
@@ -329,5 +339,3 @@ TextStyle primaryColorColor9MediumTextStyle = TextStyle(
   fontSize: 9,
   fontWeight: FontWeight.w500,
 );
-
-

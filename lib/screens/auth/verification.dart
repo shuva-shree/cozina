@@ -1,5 +1,6 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/home/home_page.dart';
+import 'package:cozina/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 class AccountVerificaton extends StatelessWidget {
@@ -16,7 +17,7 @@ class AccountVerificaton extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
+            MaterialPageRoute(builder: (context) => BottomBar()),
           );
         },
         child: Container(

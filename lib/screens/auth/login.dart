@@ -51,10 +51,12 @@ class _SignInState extends State<SignIn> {
 
   Future<void> _showDialog(context) {
     return showDialog(
+      
         context: context,
         builder: (BuildContext context) {
           return Dialog(
             child: Container(
+              color: bgColor,
               height: 250,
               padding: EdgeInsets.symmetric(horizontal: 7),
               child: Column(
@@ -73,7 +75,7 @@ class _SignInState extends State<SignIn> {
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                        color: darkBlueColor),
                   ),
                   SizedBox(
                     height: 25,
