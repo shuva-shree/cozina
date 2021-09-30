@@ -26,6 +26,8 @@ dependencies:
   fluttertoast: ^8.0.8
   bottom_navy_bar: ^6.0.0
   getwidget: ^2.0.4
+  dots_indicator: ^2.0.0
+  carousel_slider: ^4.0.0
 
 
   # The following adds the Cupertino Icons font to your application.

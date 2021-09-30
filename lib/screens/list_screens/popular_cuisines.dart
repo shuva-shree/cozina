@@ -93,7 +93,7 @@ class _PopularCuisineState extends State<PopularCuisine> {
           itemCount: foodCategoryList.length,
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
-              childAspectRatio: 2.5 / 1.8,
+              childAspectRatio: 2.5 / 2,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20),
           itemBuilder: (BuildContext ctx, index) {
@@ -101,7 +101,7 @@ class _PopularCuisineState extends State<PopularCuisine> {
             return Stack(children: [
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 7),
-                  height: height * 0.3,
+                  height: height * 0.4,
                   width: 200,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(10)),

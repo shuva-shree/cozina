@@ -1,8 +1,11 @@
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/drawer.dart';
 import 'package:cozina/models/models.dart';
 import 'package:cozina/screens/list_screens/popular_cuisines.dart';
 import 'package:cozina/widgets/column_builder.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late double height;
   late double width;
   String _value = 'one';
+  var banner_page = 1.0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,35 +26,40 @@ class _HomeScreenState extends State<HomeScreen> {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
-      drawer: Drawer(),
+      drawer: MenuDrawer(),
       appBar: AppBar(
         toolbarHeight: 70,
         iconTheme: IconThemeData(color: whiteColor),
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        title:
+            // Column(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
             Text(
-              "Cozina",
-              style: whiteColor26BoldTextStyle,
-            ),
-            DropdownButton<String>(
-              value: _value,
-              items: <DropdownMenuItem<String>>[
-                DropdownMenuItem(
-                  child: Text(
-                    "Buyer's Account",
-                    style: whiteColor15BoldTextStyle,
-                  ),
-                  value: 'one',
+          "Cozina",
+          style: whiteColor26BoldTextStyle,
+        ),
+
+        // ],
+        // ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(70),
+          child: DropdownButton<String>(
+            value: _value,
+            items: <DropdownMenuItem<String>>[
+              DropdownMenuItem(
+                child: Text(
+                  "Buyer's Account",
+                  style: whiteColor15BoldTextStyle,
                 ),
-                DropdownMenuItem(child: Text('two'), value: 'two'),
-              ],
-              onChanged: (String? value) {
-                setState(() => _value = value!);
-              },
-            )
-          ],
+                value: 'one',
+              ),
+              DropdownMenuItem(child: Text('two'), value: 'two'),
+            ],
+            onChanged: (String? value) {
+              setState(() => _value = value!);
+            },
+          ),
         ),
         actions: [
           IconButton(
@@ -67,88 +76,89 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body:
-          // Column(
-          //   children: [
-          //     searchTextField(),
-          ListView(
-        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+      body: Column(
         children: [
           searchTextField(),
-          heightSpace,
-          heightSpace,
-          foodsList(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              title('Popular Cuisines'),
-              InkWell(
-                // onTap: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                // ),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: fixPadding * 2.0),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => PopularCuisine()));
-                    },
-                    child: Text(
-                      'View all',
-                      style: primaryColor14MediumTextStyle,
+          Expanded(
+            child: ListView(
+              physics: BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              children: [
+                // searchTextField(),
+                heightSpace,
+                heightSpace,
+                foodsList(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    title('Popular Cuisines'),
+                    InkWell(
+                      // onTap: () => Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => AllRestaurants()),
+                      // ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: fixPadding * 2.0),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (ctx) => PopularCuisine()));
+                          },
+                          child: Text(
+                            'View all',
+                            style: primaryColor14MediumTextStyle,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          foodsCategoryList(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              title('Popular Food Near You'),
-              InkWell(
-                // onTap: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                // ),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: fixPadding * 2.0),
-                  child: Text(
-                    'View all',
-                    style: primaryColor14MediumTextStyle,
-                  ),
+                foodsCategoryList(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    title('Popular Food Near You'),
+                    InkWell(
+                      // onTap: () => Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => AllRestaurants()),
+                      // ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: fixPadding * 2.0),
+                        child: Text(
+                          'View all',
+                          style: primaryColor14MediumTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          popularFoods(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              title('Popular Food Makers Near You'),
-              InkWell(
-                // onTap: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                // ),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: fixPadding * 2.0),
-                  child: Text(
-                    'View all',
-                    style: primaryColor14MediumTextStyle,
-                  ),
+                popularFoods(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    title('Popular Food Makers Near You'),
+                    InkWell(
+                      // onTap: () => Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => AllRestaurants()),
+                      // ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: fixPadding * 2.0),
+                        child: Text(
+                          'View all',
+                          style: primaryColor14MediumTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                foodMakersList(),
+              ],
+            ),
           ),
-          todaysSpecialList(),
         ],
       ),
-
-      // ],
-      // ),
     );
   }
 
@@ -202,34 +212,93 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   foodsList() {
-    return Container(
-      height: 160,
-      child: ListView.builder(
-        physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-        scrollDirection: Axis.horizontal,
-        itemCount: foodList.length,
-        itemBuilder: (context, index) {
-          final item = foodList[index];
-          return Padding(
-            padding: EdgeInsets.fromLTRB(
-                index == 0 ? fixPadding * 2.0 : fixPadding,
-                0.0,
-                index == foodList.length - 1 ? fixPadding * 2.0 : fixPadding,
-                0.0),
-            child: Container(
-              height: 30,
-              width: width - 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  image: AssetImage(item['image']!),
-                  fit: BoxFit.cover,
+    return Column(
+      children: [
+        Container(
+          height: 160,
+          child:
+              //         CarouselSlider.builder(
+              //            options:  CarouselOptions(
+              //     height: 400,
+              //     aspectRatio: 16/9,
+              //     viewportFraction: 0.8,
+              //     initialPage: 0,
+              //     enableInfiniteScroll: true,
+              //     reverse: false,
+              //     autoPlay: true,
+              //     autoPlayInterval: Duration(seconds: 3),
+              //     autoPlayAnimationDuration: Duration(milliseconds: 800),
+              //     autoPlayCurve: Curves.fastOutSlowIn,
+              //     enlargeCenterPage: true,
+              //     // onPageChanged: callbackFunction,
+              //     scrollDirection: Axis.horizontal,),
+              //           itemCount: foodList.length,
+              //           itemBuilder: Builder(
+              //                 builder: (BuildContext context) {
+              //                   return Container(
+              //                     width: MediaQuery.of(context).size.width,
+              //                     margin: EdgeInsets.symmetric(horizontal: 10.0),
+              //                     decoration: BoxDecoration(
+              //                       color: Colors.green,
+              //                     ),
+              //                     // child: Image.network(
+              //                     //   imgUrl,
+              //                     //   fit: BoxFit.fill,
+              //                     // ),
+              //                   );
+              //                 },
+              //               ),
+              //  )): (index) {
+              //               setState(() {
+              //                 _current = index;
+              //               });
+              //             },
+              //             items: foodList.map((imgUrl) {}).toList(),
+
+              ListView.builder(
+            physics:
+                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            scrollDirection: Axis.horizontal,
+            itemCount: foodList.length,
+            itemBuilder: (context, index) {
+              final item = foodList[index];
+              return Padding(
+                padding: EdgeInsets.fromLTRB(
+                    index == 0 ? fixPadding * 2.0 : fixPadding,
+                    0.0,
+                    index == foodList.length - 1
+                        ? fixPadding * 2.0
+                        : fixPadding,
+                    0.0),
+                child: GestureDetector(
+                  onTap: () {
+                    banner_page = index.toDouble();
+                  },
+                  child: Container(
+                    height: 30,
+                    width: width - 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: AssetImage(item['image']!),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          );
-        },
-      ),
+              );
+            },
+          ),
+        ),
+        DotsIndicator(
+          dotsCount: foodList.length,
+          position: banner_page,
+          decorator: DotsDecorator(
+            color: Colors.black87, // Inactive color
+            activeColor: Colors.redAccent,
+          ),
+        ),
+      ],
     );
   }
 
@@ -481,9 +550,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  todaysSpecialList() {
+  foodMakersList() {
     return Container(
-      height: 350,
+      height: 340,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: popularFoodMakersList.length,
@@ -524,7 +593,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     //   tag: popularFoodMakersList[index],
                     //   child:
                     Container(
-                      height: height * 0.25,
+                      height: height * 0.19,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -538,7 +607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     // ),
                     Container(
-                      height: height * 0.18,
+                      height: height * 0.22,
                       width: 200,
                       padding: EdgeInsets.all(fixPadding),
                       decoration: BoxDecoration(
@@ -598,6 +667,37 @@ class _HomeScreenState extends State<HomeScreen> {
                             item["distance"]!,
                             style: greyColor13MediumTextStyle,
                           ),
+                          heightSpace,
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: Colors.black54.withOpacity(0.2),
+                                ),
+                                child: Text(
+                                  "South Indian",
+                                  style: darkBlueColor15MediumTextStyle,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: Colors.black54.withOpacity(0.2),
+                                ),
+                                child: Text(
+                                  "Veg",
+                                  style: darkBlueColor15MediumTextStyle,
+                                ),
+                              ),
+                            ],
+                          ),
+                          heightSpace,
                           heightSpace,
                           Align(
                             alignment: Alignment.center,
