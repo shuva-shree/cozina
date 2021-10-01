@@ -49,6 +49,11 @@ TextStyle whiteColor18BoldTextStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.bold,
 );
+TextStyle whiteColor13BoldTextStyle = TextStyle(
+  color: whiteColor,
+  fontSize: 13,
+  fontWeight: FontWeight.bold,
+);
 
 TextStyle whiteColor26BoldTextStyle = TextStyle(
   color: whiteColor,

@@ -2,6 +2,8 @@ import 'package:cozina/constants/constants.dart';
 import 'package:cozina/drawer.dart';
 import 'package:cozina/models/models.dart';
 import 'package:cozina/screens/list_screens/popular_cuisines.dart';
+import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
+import 'package:cozina/screens/search_screen.dart/search_screen.dart';
 import 'package:cozina/widgets/column_builder.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -30,40 +32,53 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         toolbarHeight: 70,
         iconTheme: IconThemeData(color: whiteColor),
-        title:
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: [
-            Text(
-          "Cozina",
-          style: whiteColor26BoldTextStyle,
-        ),
-
-        // ],
-        // ),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: DropdownButton<String>(
-            value: _value,
-            items: <DropdownMenuItem<String>>[
-              DropdownMenuItem(
-                child: Text(
-                  "Buyer's Account",
-                  style: whiteColor15BoldTextStyle,
-                ),
-                value: 'one',
+        title: Container(
+          height: 47,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Cozina",
+                style: whiteColor26BoldTextStyle,
               ),
-              DropdownMenuItem(child: Text('two'), value: 'two'),
+              Expanded(
+                child: DropdownButton<String>(
+                  dropdownColor: primaryColor,
+                  value: _value,
+                  items: <DropdownMenuItem<String>>[
+                    DropdownMenuItem(
+                      child: Text(
+                        "Buyer's Account",
+                        style: whiteColor15BoldTextStyle,
+                      ),
+                      value: 'one',
+                    ),
+                    DropdownMenuItem(
+                        child: Text(
+                          "FoodMaker's account",
+                          style: whiteColor15BoldTextStyle,
+                        ),
+                        value: 'two'),
+                  ],
+                  onChanged: (String? value) {
+                    setState(() => _value = value!);
+                  },
+                ),
+              ),
             ],
-            onChanged: (String? value) {
-              setState(() => _value = value!);
-            },
           ),
         ),
+        // bottom: PreferredSize(
+        //   preferredSize: Size.fromHeight(70),
+        //   child:
+        // ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
+            },
             icon: Icon(Icons.search),
             iconSize: 35,
             color: whiteColor,
@@ -198,12 +213,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: width * 0.4,
                     ),
-                    Text(
-                      "Change",
-                      style: TextStyle(
-                          color: accentColor,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (ctx) => SearchCityScreen()));
+                      },
+                      child: Text(
+                        "Change",
+                        style: TextStyle(
+                            color: accentColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ],
                 ))
@@ -357,29 +378,46 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Cuisine",
-                      style: greyColor16SemiBoldTextStyle,
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.black26,
+                      ),
+                      child: Text(
+                        "Cuisine",
+                        style: whiteColor13BoldTextStyle,
+                      ),
                     ),
                     heightSpace,
-                    Text(
-                      item['category']!,
-                      style: whiteColor18BoldTextStyle,
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.black26,
+                      ),
+                      child: Text(
+                        item['category']!,
+                        style: whiteColor18BoldTextStyle,
+                      ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.black54,
-                      ),
-                      child: Text(
-                        "View Food",
-                        style: whiteColor18BoldTextStyle,
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.black54,
+                        ),
+                        child: Text(
+                          "View Foods",
+                          style: whiteColor18BoldTextStyle,
+                        ),
                       ),
                     ),
                   ],

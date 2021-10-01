@@ -1,6 +1,7 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/models/models.dart';
 import 'package:cozina/screens/food_screen/food_screen.dart';
+import 'package:cozina/screens/list_screens/cuisine_food_list.dart';
 import 'package:flutter/material.dart';
 
 class PopularCuisine extends StatefulWidget {
@@ -148,7 +149,7 @@ class _PopularCuisineState extends State<PopularCuisine> {
                           child: TextButton(
                             onPressed: () => Navigator.of(context).push(
                                 MaterialPageRoute(
-                                    builder: (ctx) => FoodScreen())),
+                                    builder: (ctx) => CuisinieFood())),
                             child: Text(
                               "View Foods",
                               style: whiteColor18BoldTextStyle,

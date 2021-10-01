@@ -1,3 +1,5 @@
+import 'package:cozina/cart/cart_details.dart';
+import 'package:cozina/cart/checkout.dart';
 import 'package:cozina/screens/auth/login.dart';
 import 'package:cozina/screens/food_screen/food_screen.dart';
 import 'package:cozina/screens/home/home_page.dart';
