@@ -3,63 +3,65 @@ import 'package:cozina/screens/food_screen/food_screen.dart';
 import 'package:flutter/material.dart';
 
 class FoodMakersList extends StatefulWidget {
-  const FoodMakersList({ Key? key }) : super(key: key);
+  const FoodMakersList({Key? key}) : super(key: key);
 
   @override
   _FoodMkaersListState createState() => _FoodMkaersListState();
 }
 
 class _FoodMkaersListState extends State<FoodMakersList> {
-  
   final popularFoodMakersList = [
-  {
-    'image': 'assets/images/image17.jpg',
-    'name': 'Shama Bhojans',
-    'distance': '3km',
-    // 'cuisines':['South Indian','Thai'],
-    'price': '14.99',
-    'type': 'NonVeg',
-  },
-  {
-    'image': 'assets/images/image17.jpg',
-    'name': 'Shama Bhojans',
-    'distance': '3km',
-    // 'cuisines':['South Indian','Thai'],
-    'price': '14.99',
-    'type': 'NonVeg',
-  },
-  {
-    'image': 'assets/images/image16.jpg',
-    'name': 'Shama Bhojans',
-    'distance': '3km',
-    // 'cuisines':['South Indian','Thai'],
-    'price': '14.99',
-    'type': 'NonVeg',
-  },
-  {
-    'image': 'assets/images/image16.jpg',
-    'name': 'Shama Bhojans',
-    'distance': '3km',
-    // 'cuisines':['South Indian','Thai'],
-    'price': '14.99',
-    'type': 'NonVeg',
-  },
+    {
+      'image': 'assets/images/image17.jpg',
+      'name': 'Shama Bhojans',
+      'distance': '3km',
+      // 'cuisines':['South Indian','Thai'],
+      'price': '14.99',
+      'type': 'NonVeg',
+    },
+    {
+      'image': 'assets/images/image17.jpg',
+      'name': 'Shama Bhojans',
+      'distance': '3km',
+      // 'cuisines':['South Indian','Thai'],
+      'price': '14.99',
+      'type': 'NonVeg',
+    },
+    {
+      'image': 'assets/images/image16.jpg',
+      'name': 'Shama Bhojans',
+      'distance': '3km',
+      // 'cuisines':['South Indian','Thai'],
+      'price': '14.99',
+      'type': 'NonVeg',
+    },
+    {
+      'image': 'assets/images/image16.jpg',
+      'name': 'Shama Bhojans',
+      'distance': '3km',
+      // 'cuisines':['South Indian','Thai'],
+      'price': '14.99',
+      'type': 'NonVeg',
+    },
   ];
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final widtt = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: GridView.builder(
-          itemCount: popularFoodMakersList.length,
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              childAspectRatio: 2.5 / 1.8,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20),
-          itemBuilder: (BuildContext ctx, index) {
-            final item = popularFoodMakersList[index];
-            return  Container(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: fixPadding),
+        // height: 250,
+        child: GridView.builder(
+            itemCount: popularFoodMakersList.length,
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                childAspectRatio: 1 / 1.75,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20),
+            itemBuilder: (BuildContext ctx, index) {
+              final item = popularFoodMakersList[index];
+              return Container(
                 height: 200,
                 width: 200,
                 decoration: BoxDecoration(
@@ -199,7 +201,8 @@ class _FoodMkaersListState extends State<FoodMakersList> {
                   ],
                 ),
               );
-          }),
+            }),
+      ),
     );
   }
 }

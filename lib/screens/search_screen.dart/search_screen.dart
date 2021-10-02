@@ -1,5 +1,7 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/list_screens/food_list.dart';
+import 'package:cozina/screens/list_screens/food_maker_list.dart';
+import 'package:cozina/screens/list_screens/popular_cuisines.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -73,7 +75,11 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Search Result for "Dosa"',
+                  val == 1
+                      ? 'Search  Result for "Sharma Bojans"'
+                      : val == 2
+                          ? 'Search Result for "Indian" '
+                          : 'Search Result for "Dosa"',
                   style: greyColor13MediumTextStyle,
                 ),
               ),
@@ -82,7 +88,12 @@ class _SearchScreenState extends State<SearchScreen> {
             heightSpace,
             heightSpace,
             heightSpace,
-            Expanded(child: FoodsList()),
+            Expanded(
+                child: val == 1
+                    ? FoodMakersList()
+                    : val == 2
+                        ? PopularCuisineList()
+                        : FoodsList()),
           ],
         ),
       ),
@@ -140,7 +151,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     });
                   },
                   activeColor: whiteColor,
-                  
                 ),
                 new Text(
                   'cuisine',
@@ -191,7 +201,11 @@ class _SearchScreenState extends State<SearchScreen> {
                       color: Colors.blueGrey[800],
                       size: 20,
                     ),
-                    hintText: 'Search for restaurant,food...',
+                    hintText: val == 1
+                        ? 'Search  food makers'
+                        : val == 2
+                            ? 'Search  cuisines'
+                            : 'Search foods',
                     hintStyle: greyColor14MediumTextStyle,
                     border: UnderlineInputBorder(borderSide: BorderSide.none),
                   ),

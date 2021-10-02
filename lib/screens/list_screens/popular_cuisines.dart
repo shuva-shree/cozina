@@ -14,6 +14,53 @@ class PopularCuisine extends StatefulWidget {
 }
 
 class _PopularCuisineState extends State<PopularCuisine> {
+ 
+
+  
+
+  @override
+  Widget build(BuildContext context) {
+   
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: whiteColor),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios,
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(right: 20),
+          child: Text(
+            "Cuisines",
+            style: whiteColor26BoldTextStyle,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Icon(
+              Icons.search,
+              size: 30,
+            ),
+          )
+        ],
+      ),
+      body: PopularCuisineList()
+    );
+  }
+}
+
+class PopularCuisineList extends StatefulWidget {
+  const PopularCuisineList({ Key? key }) : super(key: key);
+
+  @override
+  _PopularCuisineListState createState() => _PopularCuisineListState();
+}
+
+class _PopularCuisineListState extends State<PopularCuisineList> {
+
   late double height;
   late double width;
 
@@ -59,38 +106,14 @@ class _PopularCuisineState extends State<PopularCuisine> {
       'category': 'Fast Food',
     },
   ];
-
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height;
+     
+
+   height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: whiteColor),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-          ),
-        ),
-        title: Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Text(
-            "Cuisines",
-            style: whiteColor26BoldTextStyle,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Icon(
-              Icons.search,
-              size: 30,
-            ),
-          )
-        ],
-      ),
-      body: GridView.builder(
+
+    return GridView.builder(
           itemCount: foodCategoryList.length,
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
@@ -163,7 +186,6 @@ class _PopularCuisineState extends State<PopularCuisine> {
               ),
               // ),
             ]);
-          }),
-    );
+          });
   }
 }

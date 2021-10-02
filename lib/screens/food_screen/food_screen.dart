@@ -1,4 +1,6 @@
+import 'package:cozina/cart/cart_details.dart';
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/payment/payment_waiting.dart';
 import 'package:cozina/widgets/column_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -408,41 +410,47 @@ class _FoodScreenState extends State<FoodScreen> {
   }
 
   bottomNavBar() {
-    return Container(
-      color: primaryColor,
-      height: 60,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              '\u{20B9}${120}',
-              style: darkBlueColor20SemiBoldTextStyle,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: fixPadding),
-            child: Container(
-              decoration: BoxDecoration(
-                color: whiteColor,
-                boxShadow: [
-                  BoxShadow(
-                      color: blackColor.withOpacity(0.4),
-                      blurRadius: 12,
-                      spreadRadius: 2),
-                ],
-              ),
-              alignment: Alignment.center,
-              height: 37,
-              width: 120,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => CartDetails()));
+      },
+      child: Container(
+        color: primaryColor,
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
               child: Text(
-                'Add To Cart',
-                style: primaryColor20SemiBoldTextStyle,
+                '\u{20B9}${120}',
+                style: darkBlueColor20SemiBoldTextStyle,
               ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.only(right: fixPadding),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: whiteColor,
+                  boxShadow: [
+                    BoxShadow(
+                        color: blackColor.withOpacity(0.4),
+                        blurRadius: 12,
+                        spreadRadius: 2),
+                  ],
+                ),
+                alignment: Alignment.center,
+                height: 37,
+                width: 120,
+                child: Text(
+                  'Add To Cart',
+                  style: primaryColor20SemiBoldTextStyle,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
