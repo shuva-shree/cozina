@@ -1,4 +1,5 @@
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/payment/payment_waiting.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutScreen extends StatefulWidget {
@@ -199,12 +200,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(10.0),
-            // onTap: () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => BottomBar()),
-            //   );
-            // },
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PaymentWaiting()),
+              );
+            },
             child: Container(
               height: 50,
               alignment: Alignment.center,

@@ -18,35 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar:
-          // CustomAppBar("title")
-          // body: Column(children: [])
-//         );
-//   }
-// }
-
-// class CustomAppBar extends StatefulWidget with PreferredSizeWidget {
-//   @override
-//   final Size preferredSize;
-
-//   final String title;
-
-//   CustomAppBar(
-//     this.title, {
-//     Key? key,
-//   })  : preferredSize = Size.fromHeight(50.0),
-//         super(key: key);
-
-//   @override
-//   _CustomAppBarState createState() => _CustomAppBarState();
-// }
-
-// class _CustomAppBarState extends State<CustomAppBar> {
-
-          // @override
-          // Widget build(BuildContext context) {
-          // return
-          AppBar(
+      appBar: AppBar(
         iconTheme: IconThemeData(color: whiteColor),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),

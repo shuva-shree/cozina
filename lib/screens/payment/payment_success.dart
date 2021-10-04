@@ -1,6 +1,7 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/food_screen/food_maker_details.dart';
 import 'package:cozina/screens/food_screen/food_maker_screen.dart';
+import 'package:cozina/screens/orders/confirmed_order.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSuccess extends StatelessWidget {
@@ -90,7 +91,7 @@ class PaymentSuccess extends StatelessWidget {
           TextButton(onPressed: (){
              Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>FoodMakerScreen()),
+                MaterialPageRoute(builder: (context) =>ConfirmedOrder()),
               );
           }, 
             child: Text(

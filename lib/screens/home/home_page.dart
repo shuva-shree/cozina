@@ -1,3 +1,4 @@
+import 'package:cozina/cart/cart_details.dart';
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/drawer.dart';
 import 'package:cozina/models/models.dart';
@@ -84,7 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
             color: whiteColor,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => CartDetails()));
+            },
             icon: Icon(Icons.shopping_cart),
             iconSize: 33,
             color: whiteColor,

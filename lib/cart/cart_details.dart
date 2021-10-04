@@ -74,7 +74,10 @@ class _CartDetailsState extends State<CartDetails> {
           itemsList(),
           deliveryOption(),
           checkoutButton(),
-          // deliveryAddress(),
+          // SizedBox(
+          //   height: 500,
+          //   child: deliveryAddress(),
+          // ),
         ],
       ),
     );
@@ -340,8 +343,8 @@ class _CartDetailsState extends State<CartDetails> {
 
   itemsList() {
     return Padding(
-      padding: EdgeInsets.only(
-          top: fixPadding, left: fixPadding , right: fixPadding ),
+      padding:
+          EdgeInsets.only(top: fixPadding, left: fixPadding, right: fixPadding),
       child: Container(
         decoration:
             BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
@@ -421,7 +424,7 @@ class _CartDetailsState extends State<CartDetails> {
   }
 
   deliveryAddress() {
-    return SafeArea(
+    return SingleChildScrollView(
       child: Container(
         height: 500,
         decoration:

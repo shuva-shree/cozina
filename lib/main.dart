@@ -6,6 +6,9 @@ import 'package:cozina/screens/food_screen/food_maker_screen.dart';
 import 'package:cozina/screens/food_screen/food_screen.dart';
 import 'package:cozina/screens/home/home_page.dart';
 import 'package:cozina/screens/list_screens/popular_cuisines.dart';
+import 'package:cozina/screens/orders/confirmed_order.dart';
+import 'package:cozina/screens/orders/food_prep_oreder.dart';
+import 'package:cozina/screens/orders/my_orders.dart';
 import 'package:cozina/screens/payment/payment_success.dart';
 import 'package:cozina/screens/payment/payment_waiting.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';
@@ -30,6 +33,6 @@ class MyApp extends StatelessWidget {
           accentColor: Color(0xff42ABAE),
           primarySwatch: Colors.blue,
         ),
-        home: SearchScreen());
+        home: FoodPrepOrder());
   }
 }

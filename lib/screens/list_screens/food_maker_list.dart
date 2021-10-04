@@ -1,4 +1,5 @@
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/food_screen/food_maker_screen.dart';
 import 'package:cozina/screens/food_screen/food_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -179,19 +180,25 @@ class _FoodMkaersListState extends State<FoodMakersList> {
                           ),
                           heightSpace,
                           heightSpace,
-                          Align(
-                            alignment: Alignment.center,
-                            child: Container(
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => FoodMakerScreen()));
+                            },
+                            child: Align(
                               alignment: Alignment.center,
-                              height: 35,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: primaryColor,
-                              ),
-                              child: Text(
-                                "View Foods",
-                                style: whiteColor18BoldTextStyle,
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 35,
+                                width: 120,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  color: primaryColor,
+                                ),
+                                child: Text(
+                                  "View Foods",
+                                  style: whiteColor18BoldTextStyle,
+                                ),
                               ),
                             ),
                           ),
