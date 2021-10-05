@@ -1,26 +1,12 @@
-import 'dart:async';
-
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/screens/orders/food_complete.dart';
-import 'package:cozina/screens/orders/food_prep_order.dart';
+import 'package:cozina/screens/orders/order_history.dart';
+import 'package:cozina/screens/transactions/transaction_details.dart';
+import 'package:cozina/screens/transactions/transaction_list.dart';
+import 'package:cozina/widgets/star_display.dart';
 import 'package:flutter/material.dart';
 
-class ConfirmedOrder extends StatefulWidget {
-  const ConfirmedOrder({Key? key}) : super(key: key);
-
-  @override
-  _ConfirmedOrderState createState() => _ConfirmedOrderState();
-}
-
-class _ConfirmedOrderState extends State<ConfirmedOrder> {
-  @override
-  void initState() {
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => FoodPrepOrder()));
-    });
-    super.initState();
-  }
+class ReviewOrder extends StatelessWidget {
+  const ReviewOrder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +27,8 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
       ),
       body: ListView(
         children: [
-          orderBox(),
-          orderDetails(),
+          orderBox(context),
+          orderDetails(context),
           Align(
             alignment: Alignment.centerRight,
             child: Container(
@@ -60,7 +46,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
     );
   }
 
-  orderBox() {
+  orderBox(context) {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
@@ -81,15 +67,21 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                   SizedBox(
                     width: 120,
                   ),
-                  Text(
-                    "Full Details",
-                    style: TextStyle(color: accentColor, fontSize: 17),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (ctx) => OrderHistory()));
+                    },
+                    child: Text(
+                      "Full Details",
+                      style: TextStyle(color: accentColor, fontSize: 17),
+                    ),
                   ),
                 ],
               ),
               heightSpace,
               Text(
-                "Order Confirmed",
+                "Order Completed",
                 style: darkBlueColor20BoldTextStyle,
               ),
               // heightSpace,
@@ -100,30 +92,124 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               ),
               heightSpace,
               // heightSpace,
-              Row(
-                children: [
-                  Icon(
-                    Icons.access_time_sharp,
-                    color: primaryColor,
-                    size: 30,
-                  ),
-                  widthSpace,
-                  widthSpace,
-                  Text(
-                    "ETA : Food will prepare in 15 minutes \ni.e 10:25 am",
-                    style: darkBlueColor16MediumTextStyle,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: fixPadding * 1.5, vertical: fixPadding),
+                child: Text(
+                  "Please review the Food and Food Maker",
+                  style: greyColor13MediumTextStyle,
+                ),
+              ),
+              heightSpace,
+              Align(
+                alignment: Alignment.center,
+                child: StarDisplayWidget(
+                  value: 0,
+                  filledStar: Icon(Icons.star, color: primaryColor, size: 35),
+                  unfilledStar:
+                      Icon(Icons.star_border, color: primaryColor, size: 35),
+                ),
               ),
 
               heightSpace,
+              reviewTextField(),
+              heightSpace,
+              submitButton(),
               // orderDetails(),
             ],
           ),
         ));
   }
 
-  orderDetails() {
+  reviewTextField() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(
+        fixPadding * 2.0,
+        fixPadding,
+        fixPadding * 2.0,
+        fixPadding,
+      ),
+      padding: EdgeInsets.all(fixPadding * 1.5),
+      decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color: greyColor.withOpacity(0.1),
+            spreadRadius: 2.5,
+            blurRadius: 2.5,
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Icon(
+            Icons.person_outline,
+            color: greyColor,
+            size: 20,
+          ),
+          widthSpace,
+          Expanded(
+            child: TextField(
+              cursorColor: primaryColor,
+              style: greyColor16MediumTextStyle,
+              // keyboardType: TextInputType.name,
+              // maxLines: 10,
+
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.zero,
+                hintStyle: greyColor16MediumTextStyle,
+                hintText: 'Write you review here',
+                border: UnderlineInputBorder(borderSide: BorderSide.none),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  submitButton() {
+    return Align(
+      alignment: Alignment.center,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 1.5,
+          vertical: fixPadding,
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10.0),
+          // onTap: () {
+          //   Navigator.push(context,
+          //       MaterialPageRoute(builder: (context) => AccountVerificaton()));
+          // },
+          child: Container(
+            height: 40,
+            width: 140,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: primaryColor.withOpacity(0.2),
+                  spreadRadius: 2.5,
+                  blurRadius: 2.5,
+                ),
+              ],
+            ),
+            child: Text(
+              'Submit',
+              style: whiteColor20BoldTextStyle,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  orderDetails(context) {
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: fixPadding * 2, vertical: fixPadding),
@@ -166,12 +252,20 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "550 Success",
+                "\u{20B9} 550 Success",
                 style: darkBlueColor18SemiBoldTextStyle,
               ),
-              Text(
-                "View Transaction",
-                style: TextStyle(color: accentColor, fontSize: 17),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TransactionList()));
+                },
+                child: Text(
+                  "View Transaction",
+                  style: TextStyle(color: accentColor, fontSize: 17),
+                ),
               ),
             ],
           ),

@@ -1,5 +1,5 @@
-import 'package:cozina/cart/cart_details.dart';
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/orders/active_order.dart';
 import 'package:cozina/screens/orders/completed_order.dart';
 import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';

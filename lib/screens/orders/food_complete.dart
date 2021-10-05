@@ -1,23 +1,22 @@
 import 'dart:async';
 
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/screens/orders/food_complete.dart';
-import 'package:cozina/screens/orders/food_prep_order.dart';
+import 'package:cozina/screens/orders/review_order.dart';
 import 'package:flutter/material.dart';
 
-class ConfirmedOrder extends StatefulWidget {
-  const ConfirmedOrder({Key? key}) : super(key: key);
+class FoodPrepComplete extends StatefulWidget {
+  const FoodPrepComplete({Key? key}) : super(key: key);
 
   @override
-  _ConfirmedOrderState createState() => _ConfirmedOrderState();
+  _FoodPrepCompleteState createState() => _FoodPrepCompleteState();
 }
 
-class _ConfirmedOrderState extends State<ConfirmedOrder> {
+class _FoodPrepCompleteState extends State<FoodPrepComplete> {
   @override
   void initState() {
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => FoodPrepOrder()));
+          context, MaterialPageRoute(builder: (context) => ReviewOrder()));
     });
     super.initState();
   }
@@ -89,7 +88,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               ),
               heightSpace,
               Text(
-                "Order Confirmed",
+                "Food is Ready for Pickup",
                 style: darkBlueColor20BoldTextStyle,
               ),
               // heightSpace,
@@ -100,23 +99,23 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               ),
               heightSpace,
               // heightSpace,
-              Row(
-                children: [
-                  Icon(
-                    Icons.access_time_sharp,
-                    color: primaryColor,
-                    size: 30,
-                  ),
-                  widthSpace,
-                  widthSpace,
-                  Text(
-                    "ETA : Food will prepare in 15 minutes \ni.e 10:25 am",
-                    style: darkBlueColor16MediumTextStyle,
-                  ),
-                ],
-              ),
 
+              Text(
+                "Please visit the Pickup location to pickup your food",
+                style: darkBlueColor18MediumTextStyle,
+              ),
               heightSpace,
+              // Align(
+              //     alignment: Alignment.center,
+              //     child: Container(
+              //       height: 40,
+              //       width: 140,
+              //       color: primaryColor,
+              //       child: Text("Order Completed"),
+              //     )),
+              orderStatusButton(),
+
+              // heightSpace,
               // orderDetails(),
             ],
           ),
@@ -217,6 +216,41 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
             height: 20,
           ),
         ],
+      ),
+    );
+  }
+
+  orderStatusButton() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: fixPadding * 2.0,
+        vertical: fixPadding * 1.5,
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10.0),
+        // onTap: () {
+        //   Navigator.push(context,
+        //       MaterialPageRoute(builder: (context) => AccountVerificaton()));
+        // },
+        child: Container(
+          height: 50,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: primaryColor,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: primaryColor.withOpacity(0.2),
+                spreadRadius: 2.5,
+                blurRadius: 2.5,
+              ),
+            ],
+          ),
+          child: Text(
+            'Order Complete',
+            style: whiteColor20BoldTextStyle,
+          ),
+        ),
       ),
     );
   }
@@ -326,7 +360,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                 style: darkBlueColor18MediumTextStyle,
               ),
               Text(
-                '\u{20B9}${550}',
+                '\u{20B9} ${550}',
                 style: darkBlueColor18MediumTextStyle,
               ),
             ],

@@ -1,5 +1,6 @@
-import 'package:cozina/cart/checkout.dart';
+
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/cart/checkout.dart';
 import 'package:flutter/material.dart';
 
 class CartDetails extends StatefulWidget {

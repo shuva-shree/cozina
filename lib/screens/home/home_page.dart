@@ -1,7 +1,8 @@
-import 'package:cozina/cart/cart_details.dart';
+
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/drawer.dart';
 import 'package:cozina/models/models.dart';
+import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/list_screens/popular_cuisines.dart';
 import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';

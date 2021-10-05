@@ -1,5 +1,6 @@
-import 'package:cozina/cart/cart_details.dart';
+
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/payment/payment_waiting.dart';
 import 'package:cozina/widgets/column_builder.dart';
 import 'package:flutter/material.dart';

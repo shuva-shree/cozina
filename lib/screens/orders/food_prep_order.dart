@@ -1,9 +1,26 @@
+import 'dart:async';
+
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/orders/food_complete.dart';
 import 'package:flutter/material.dart';
 
-class FoodPrepOrder extends StatelessWidget {
+class FoodPrepOrder extends StatefulWidget {
   const FoodPrepOrder({Key? key}) : super(key: key);
 
+  @override
+  _FoodPrepOrderState createState() => _FoodPrepOrderState();
+}
+
+class _FoodPrepOrderState extends State<FoodPrepOrder> {
+  
+  @override
+void initState() {
+ Timer(Duration(seconds: 5), (){
+Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> 
+FoodPrepComplete()));
+});
+ super.initState();
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,7 +165,7 @@ class FoodPrepOrder extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "550 Success",
+                "\u{20B9} 550 Success",
                 style: darkBlueColor18SemiBoldTextStyle,
               ),
               Text(
