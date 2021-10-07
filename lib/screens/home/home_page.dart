@@ -1,4 +1,3 @@
-
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/drawer.dart';
 import 'package:cozina/models/models.dart';
@@ -509,11 +508,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   padding: EdgeInsets.all(4),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    color: Colors.black54.withOpacity(0.2),
+                                    color: Colors.black,
                                   ),
                                   child: Text(
                                     item['type']!,
-                                    style: darkBlueColor13MediumTextStyle,
+                                    style: whiteColor13BoldTextStyle,
                                   ),
                                 ),
                                 Container(
@@ -559,21 +558,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: darkBlueColor16MediumTextStyle,
                                 ),
                                 Container(
-                                  decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: greyColor.withOpacity(0.3),
-                                          spreadRadius: 2,
-                                          blurRadius: 3),
-                                    ],
-                                    color: primaryColor.withOpacity(0.8),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: 5.0,
+                                    horizontal: fixPadding * 2.0,
                                   ),
-                                  alignment: Alignment.center,
-                                  height: 30,
-                                  width: 90,
+                                  decoration: BoxDecoration(
+                                    color: primaryColor.withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
                                   child: Text(
-                                    "Add to Cart",
-                                    style: whiteColor15BoldTextStyle,
+                                    'Add ',
+                                    style: primaryColor16SemiBoldTextStyle,
                                   ),
                                 ),
                               ],

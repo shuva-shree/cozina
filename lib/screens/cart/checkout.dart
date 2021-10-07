@@ -143,47 +143,50 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   }
 
   totalAmount() {
-    return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Tax",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Text(
-                '\u{20B9}${10}',
-                style: darkBlueColor16MediumTextStyle,
-              ),
-            ],
-          ),
-          heightSpace,
-          heightSpace,
-          heightSpace,
-          Divider(
-            color: primaryColor,
-            thickness: 1.5,
-          ),
-          heightSpace,
-          heightSpace,
-          heightSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Total Amout Payable",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Text(
-                '\u{20B9}${550}',
-                style: darkBlueColor18MediumTextStyle,
-              ),
-            ],
-          ),
-        ],
+    return Card(
+      // padding: EdgeInsets.all(fixPadding * 2),
+      child: Padding(
+        padding: const EdgeInsets.all(fixPadding * 2),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Tax",
+                  style: darkBlueColor18MediumTextStyle,
+                ),
+                Text(
+                  '\u{20B9}${10}',
+                  style: darkBlueColor16MediumTextStyle,
+                ),
+              ],
+            ),
+            heightSpace,
+            heightSpace,
+            heightSpace,
+            // Divider(
+            //   color: primaryColor,
+            //   thickness: 1.5,
+            // ),
+            heightSpace,
+            heightSpace,
+            heightSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Total Amout Payable",
+                  style: darkBlueColor18MediumTextStyle,
+                ),
+                Text(
+                  '\u{20B9}${550}',
+                  style: darkBlueColor18MediumTextStyle,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

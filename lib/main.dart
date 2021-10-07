@@ -1,4 +1,8 @@
+import 'package:cozina/screens/cart/cart_details.dart';
+import 'package:cozina/screens/food_screen/food_maker_screen.dart';
 import 'package:cozina/screens/orders/order_history.dart';
+import 'package:cozina/screens/profile/add_kitchen_screen.dart';
+import 'package:cozina/screens/profile/give_kitchen_details.dart';
 import 'package:cozina/screens/transactions/transaction_details.dart';
 import 'package:cozina/splash_screen.dart';
 import 'package:cozina/widgets/bottom_bar.dart';

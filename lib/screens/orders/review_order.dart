@@ -50,73 +50,80 @@ class ReviewOrder extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          decoration:
-              BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+          // decoration:
+          //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
           width: double.infinity,
-          padding: EdgeInsets.all(fixPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // padding: EdgeInsets.all(fixPadding),
+          child: Card(
+            elevation: 2,
+            child: Padding(
+              padding: EdgeInsets.all(fixPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Order Status",
+                        style: greyColor14MediumTextStyle,
+                      ),
+                      SizedBox(
+                        width: 120,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => OrderHistory()));
+                        },
+                        child: Text(
+                          "Full Details",
+                          style: TextStyle(color: accentColor, fontSize: 17),
+                        ),
+                      ),
+                    ],
+                  ),
+                  heightSpace,
                   Text(
-                    "Order Status",
-                    style: greyColor14MediumTextStyle,
+                    "Order Completed",
+                    style: darkBlueColor20BoldTextStyle,
                   ),
-                  SizedBox(
-                    width: 120,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (ctx) => OrderHistory()));
-                    },
+                  // heightSpace,
+                  heightSpace,
+                  Divider(
+                      // color: primaryColor,
+                      // thickness: 2,
+                      ),
+                  heightSpace,
+                  // heightSpace,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: fixPadding * 1.5, vertical: fixPadding),
                     child: Text(
-                      "Full Details",
-                      style: TextStyle(color: accentColor, fontSize: 17),
+                      "Please review the Food and Food Maker",
+                      style: greyColor13MediumTextStyle,
                     ),
                   ),
+                  heightSpace,
+                  Align(
+                    alignment: Alignment.center,
+                    child: StarDisplayWidget(
+                      value: 0,
+                      filledStar:
+                          Icon(Icons.star, color: primaryColor, size: 35),
+                      unfilledStar: Icon(Icons.star_border,
+                          color: primaryColor, size: 35),
+                    ),
+                  ),
+
+                  heightSpace,
+                  reviewTextField(),
+                  heightSpace,
+                  submitButton(),
+                  // orderDetails(),
                 ],
               ),
-              heightSpace,
-              Text(
-                "Order Completed",
-                style: darkBlueColor20BoldTextStyle,
-              ),
-              // heightSpace,
-              heightSpace,
-              Divider(
-                color: primaryColor,
-                thickness: 2,
-              ),
-              heightSpace,
-              // heightSpace,
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: fixPadding * 1.5, vertical: fixPadding),
-                child: Text(
-                  "Please review the Food and Food Maker",
-                  style: greyColor13MediumTextStyle,
-                ),
-              ),
-              heightSpace,
-              Align(
-                alignment: Alignment.center,
-                child: StarDisplayWidget(
-                  value: 0,
-                  filledStar: Icon(Icons.star, color: primaryColor, size: 35),
-                  unfilledStar:
-                      Icon(Icons.star_border, color: primaryColor, size: 35),
-                ),
-              ),
-
-              heightSpace,
-              reviewTextField(),
-              heightSpace,
-              submitButton(),
-              // orderDetails(),
-            ],
+            ),
           ),
         ));
   }
@@ -319,35 +326,40 @@ class ReviewOrder extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: fixPadding * 2),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Bill Summary",
-                  style: greyColor15MediumTextStyle,
+        // decoration:
+        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(left: fixPadding * 2),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Bill Summary",
+                      style: greyColor15MediumTextStyle,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                billDetails(240, 2),
+                heightSpace,
+                billDetails(120, 1),
+                SizedBox(
+                  height: 10,
+                ),
+                totalAmount(),
+                // heightSpace,
+              ],
             ),
-            SizedBox(
-              height: 20,
-            ),
-            billDetails(240, 2),
-            heightSpace,
-            billDetails(120, 1),
-            SizedBox(
-              height: 10,
-            ),
-            totalAmount(),
-            // heightSpace,
-          ],
+          ),
         ),
       ),
     );
@@ -405,9 +417,9 @@ class ReviewOrder extends StatelessWidget {
           ),
           heightSpace,
           Divider(
-            color: primaryColor,
-            thickness: 1.5,
-          ),
+              // color: primaryColor,
+              // thickness: 1.5,
+              ),
           SizedBox(
             height: 30,
           ),
@@ -417,11 +429,11 @@ class ReviewOrder extends StatelessWidget {
             children: [
               Text(
                 "Total Amout Payable",
-                style: darkBlueColor18MediumTextStyle,
+                style: primaryColor18SemiBoldTextStyle,
               ),
               Text(
                 '\u{20B9}${550}',
-                style: darkBlueColor18MediumTextStyle,
+                style: primaryColor18SemiBoldTextStyle,
               ),
             ],
           ),

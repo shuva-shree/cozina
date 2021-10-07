@@ -161,11 +161,11 @@ class _FoodMakerDetailsState extends State<FoodMakerDetails> {
       padding: EdgeInsets.all(4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.black54.withOpacity(0.2),
+        color: blackColor,
       ),
       child: Text(
         title,
-        style: darkBlueColor13MediumTextStyle,
+        style: whiteColor13BoldTextStyle,
       ),
     );
   }

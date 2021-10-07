@@ -113,16 +113,20 @@ class FoodsList extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
                       Row(
                         children: [
                           Container(
-                            width: 70,
-                            height: 100,
-                            child: Image.asset(
-                              item['image']!,
-                              height: 70,
-                              width: 80,
-                              fit: BoxFit.cover,
+                            height: MediaQuery.of(context).size.height * 0.15,
+                            width: MediaQuery.of(context).size.width * 0.25,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.0),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/image16.jpg"),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           widthSpace,
@@ -155,11 +159,11 @@ class FoodsList extends StatelessWidget {
                                       padding: EdgeInsets.all(4),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Colors.black54.withOpacity(0.2),
+                                        color: blackColor,
                                       ),
                                       child: Text(
                                         item['type']!,
-                                        style: darkBlueColor13MediumTextStyle,
+                                        style: whiteColor13BoldTextStyle,
                                       ),
                                     ),
                                     Container(
@@ -206,23 +210,38 @@ class FoodsList extends StatelessWidget {
                                       style: darkBlueColor16MediumTextStyle,
                                     ),
                                     Container(
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: greyColor.withOpacity(0.3),
-                                              spreadRadius: 2,
-                                              blurRadius: 3),
-                                        ],
-                                        color: primaryColor.withOpacity(0.8),
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 5.0,
+                                        horizontal: fixPadding * 2.0,
                                       ),
-                                      alignment: Alignment.center,
-                                      height: 30,
-                                      width: 90,
+                                      decoration: BoxDecoration(
+                                        color: primaryColor.withOpacity(0.1),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
                                       child: Text(
-                                        "Add to Cart",
-                                        style: whiteColor15BoldTextStyle,
+                                        'Add',
+                                        style: primaryColor16SemiBoldTextStyle,
                                       ),
                                     ),
+                                    // Container(
+                                    //   decoration: BoxDecoration(
+                                    //     boxShadow: [
+                                    //       BoxShadow(
+                                    //           color: greyColor.withOpacity(0.3),
+                                    //           spreadRadius: 2,
+                                    //           blurRadius: 3),
+                                    //     ],
+                                    //     color: primaryColor.withOpacity(0.8),
+                                    //   ),
+                                    //   alignment: Alignment.center,
+                                    //   height: 30,
+                                    //   width: 90,
+                                    //   child: Text(
+                                    //     "Add to Cart",
+                                    //     style: whiteColor15BoldTextStyle,
+                                    //   ),
+                                    // ),
                                   ],
                                 )
                               ],

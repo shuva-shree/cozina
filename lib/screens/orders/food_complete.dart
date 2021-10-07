@@ -63,61 +63,67 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          decoration:
-              BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+          // decoration:
+          //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
           width: double.infinity,
-          padding: EdgeInsets.all(fixPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // padding: EdgeInsets.all(fixPadding),
+          child: Card(
+            elevation: 2,
+            child: Padding(
+              padding: const EdgeInsets.all(fixPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Order Status",
+                        style: greyColor14MediumTextStyle,
+                      ),
+                      SizedBox(
+                        width: 120,
+                      ),
+                      Text(
+                        "Full Details",
+                        style: TextStyle(color: accentColor, fontSize: 17),
+                      ),
+                    ],
+                  ),
+                  heightSpace,
                   Text(
-                    "Order Status",
-                    style: greyColor14MediumTextStyle,
+                    "Food is Ready for Pickup",
+                    style: darkBlueColor20BoldTextStyle,
                   ),
-                  SizedBox(
-                    width: 120,
+                  // heightSpace,
+                  heightSpace,
+                  Divider(
+                    color: primaryColor,
+                    thickness: 2,
                   ),
+                  heightSpace,
+                  // heightSpace,
+
                   Text(
-                    "Full Details",
-                    style: TextStyle(color: accentColor, fontSize: 17),
+                    "Please visit the Pickup location to pickup your food",
+                    style: darkBlueColor18MediumTextStyle,
                   ),
+                  heightSpace,
+                  // Align(
+                  //     alignment: Alignment.center,
+                  //     child: Container(
+                  //       height: 40,
+                  //       width: 140,
+                  //       color: primaryColor,
+                  //       child: Text("Order Completed"),
+                  //     )),
+                  orderStatusButton(),
+
+                  // heightSpace,
+                  // orderDetails(),
                 ],
               ),
-              heightSpace,
-              Text(
-                "Food is Ready for Pickup",
-                style: darkBlueColor20BoldTextStyle,
-              ),
-              // heightSpace,
-              heightSpace,
-              Divider(
-                color: primaryColor,
-                thickness: 2,
-              ),
-              heightSpace,
-              // heightSpace,
-
-              Text(
-                "Please visit the Pickup location to pickup your food",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              heightSpace,
-              // Align(
-              //     alignment: Alignment.center,
-              //     child: Container(
-              //       height: 40,
-              //       width: 140,
-              //       color: primaryColor,
-              //       child: Text("Order Completed"),
-              //     )),
-              orderStatusButton(),
-
-              // heightSpace,
-              // orderDetails(),
-            ],
+            ),
           ),
         ));
   }
@@ -259,35 +265,40 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: fixPadding * 2),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Bill Summary",
-                  style: greyColor15MediumTextStyle,
+        // decoration:
+        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(left: fixPadding * 2),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Bill Summary",
+                      style: greyColor15MediumTextStyle,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                billDetails(240, 2),
+                heightSpace,
+                billDetails(120, 1),
+                SizedBox(
+                  height: 10,
+                ),
+                totalAmount(),
+                // heightSpace,
+              ],
             ),
-            SizedBox(
-              height: 20,
-            ),
-            billDetails(240, 2),
-            heightSpace,
-            billDetails(120, 1),
-            SizedBox(
-              height: 10,
-            ),
-            totalAmount(),
-            // heightSpace,
-          ],
+          ),
         ),
       ),
     );
@@ -345,9 +356,9 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
           ),
           heightSpace,
           Divider(
-            color: primaryColor,
-            thickness: 1.5,
-          ),
+              // color: primaryColor,
+              // thickness: 1.5,
+              ),
           SizedBox(
             height: 30,
           ),
@@ -357,11 +368,11 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
             children: [
               Text(
                 "Total Amout Payable",
-                style: darkBlueColor18MediumTextStyle,
+                style: primaryColor18SemiBoldTextStyle,
               ),
               Text(
-                '\u{20B9} ${550}',
-                style: darkBlueColor18MediumTextStyle,
+                '\u{20B9}${550}',
+                style: primaryColor18SemiBoldTextStyle,
               ),
             ],
           ),

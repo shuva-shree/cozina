@@ -62,10 +62,10 @@ class PaymentSuccess extends StatelessWidget {
           ),
           heightSpace,
           heightSpace,
-          Divider(
-            color: primaryColor,
-            thickness: 2,
-          ),
+          // Divider(
+          //   color: primaryColor,
+          //   thickness: 2,
+          // ),
           Container(
               height: 130,
               width: 130,
@@ -88,12 +88,13 @@ class PaymentSuccess extends StatelessWidget {
           SizedBox(
             height: 25,
           ),
-          TextButton(onPressed: (){
-             Navigator.push(
+          TextButton(
+            onPressed: () {
+              Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>ConfirmedOrder()),
+                MaterialPageRoute(builder: (context) => ConfirmedOrder()),
               );
-          }, 
+            },
             child: Text(
               "View this Order",
               style: TextStyle(

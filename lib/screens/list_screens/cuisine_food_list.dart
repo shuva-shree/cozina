@@ -8,8 +8,11 @@ class CuisinieFood extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgColor,
       appBar: AppBar(
-          iconTheme: IconThemeData(color: whiteColor),
+          elevation: 0,
+          backgroundColor: bgColor,
+          iconTheme: IconThemeData(color: darkBlueColor),
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(
@@ -20,19 +23,22 @@ class CuisinieFood extends StatelessWidget {
             padding: const EdgeInsets.only(right: 20),
             child: Text(
               "Cuisine: South Indian",
-              style: whiteColor26BoldTextStyle,
+              style: darkBlueColor24SemiBoldTextStyle,
             ),
           )),
       body: Column(
         children: [
           heightSpace,
           heightSpace,
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "452 Foods in South Indian Cuisine",
-                style: greyColor13MediumTextStyle,
-              )),
+          Padding(
+            padding: EdgeInsets.all(fixPadding),
+            child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "452 Foods in South Indian Cuisine",
+                  style: greyColor13MediumTextStyle,
+                )),
+          ),
           heightSpace,
           heightSpace,
           Expanded(child: FoodsList()),

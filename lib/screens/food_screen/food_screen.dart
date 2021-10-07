@@ -1,4 +1,3 @@
-
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/payment/payment_waiting.dart';
@@ -121,11 +120,11 @@ class _FoodScreenState extends State<FoodScreen> {
                   padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: Colors.black54.withOpacity(0.2),
+                    color: blackColor,
                   ),
                   child: Text(
                     "South Indian",
-                    style: darkBlueColor15MediumTextStyle,
+                    style: whiteColor15BoldTextStyle,
                   ),
                 ),
                 SizedBox(
@@ -135,11 +134,11 @@ class _FoodScreenState extends State<FoodScreen> {
                   padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: Colors.black54.withOpacity(0.2),
+                    color: blackColor,
                   ),
                   child: Text(
                     "Veg",
-                    style: darkBlueColor15MediumTextStyle,
+                    style: whiteColor15BoldTextStyle,
                   ),
                 ),
                 SizedBox(
@@ -206,66 +205,71 @@ class _FoodScreenState extends State<FoodScreen> {
   }
 
   availableItem() {
-    return Column(
-      children: [
-        Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              border:
-                  Border.all(color: primaryColor.withOpacity(0.4), width: 2)),
-          height: 80,
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: fixPadding),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Food Delivery Available",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Icon(
-                Icons.check,
-                color: Colors.green,
-              )
-            ],
+    return Card(
+      elevation: 2,
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            // decoration: BoxDecoration(
+            //     border:
+            //         Border.all(color: primaryColor.withOpacity(0.4), width: 2)),
+            height: 80,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: fixPadding),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Food Delivery Available",
+                  style: darkBlueColor18MediumTextStyle,
+                ),
+                Icon(
+                  Icons.check,
+                  color: Colors.green,
+                )
+              ],
+            ),
           ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-              border: Border(
-            left: BorderSide(color: primaryColor.withOpacity(0.4), width: 2),
-            bottom: BorderSide(color: primaryColor.withOpacity(0.4), width: 2),
-            right: BorderSide(color: primaryColor.withOpacity(0.4), width: 2),
-          )),
-          // color: primaryColor.withOpacity(0.4), width: 2)),
-          height: 80,
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: fixPadding, vertical: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Food Pick-Up Available",
-                    style: darkBlueColor16MediumTextStyle,
-                  ),
-                  heightSpace,
-                  Text(
-                    "Pick-up location is 2 km from your location",
-                    style: darkBlueColor14MediumTextStyle,
-                  )
-                ],
-              ),
-              Icon(
-                Icons.check,
-                color: Colors.green,
-              )
-            ],
-          ),
-        )
-      ],
+          Divider(),
+          Container(
+            // decoration: BoxDecoration(
+            //     border: Border(
+            //   left: BorderSide(color: primaryColor.withOpacity(0.4), width: 2),
+            //   bottom:
+            //       BorderSide(color: primaryColor.withOpacity(0.4), width: 2),
+            //   right: BorderSide(color: primaryColor.withOpacity(0.4), width: 2),
+            // )),
+            // color: primaryColor.withOpacity(0.4), width: 2)),
+            height: 80,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: fixPadding, vertical: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Food Pick-Up Available",
+                      style: darkBlueColor16MediumTextStyle,
+                    ),
+                    heightSpace,
+                    Text(
+                      "Pick-up location is 2 km from your location",
+                      style: darkBlueColor14MediumTextStyle,
+                    )
+                  ],
+                ),
+                Icon(
+                  Icons.check,
+                  color: Colors.green,
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
@@ -417,7 +421,7 @@ class _FoodScreenState extends State<FoodScreen> {
             context, MaterialPageRoute(builder: (context) => CartDetails()));
       },
       child: Container(
-        color: primaryColor,
+        color: primaryColor.withOpacity(0.9),
         height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -433,20 +437,20 @@ class _FoodScreenState extends State<FoodScreen> {
               padding: const EdgeInsets.only(right: fixPadding),
               child: Container(
                 decoration: BoxDecoration(
-                  color: whiteColor,
-                  boxShadow: [
-                    BoxShadow(
-                        color: blackColor.withOpacity(0.4),
-                        blurRadius: 12,
-                        spreadRadius: 2),
-                  ],
+                  color: primaryColor,
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: blackColor.withOpacity(0.4),
+                  //       blurRadius: 12,
+                  //       spreadRadius: 2),
+                  // ],
                 ),
                 alignment: Alignment.center,
                 height: 37,
                 width: 120,
                 child: Text(
                   'Add To Cart',
-                  style: primaryColor20SemiBoldTextStyle,
+                  style: whiteColor20BoldTextStyle,
                 ),
               ),
             )

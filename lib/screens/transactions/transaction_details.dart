@@ -24,33 +24,35 @@ class TransactionDetails extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.all(fixPadding),
-            child: Container(
-              padding: EdgeInsets.all(fixPadding * 2),
-              decoration: BoxDecoration(
-                border: Border.all(color: primaryColor, width: 2),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Transction Status",
-                    style: greyColor15MediumTextStyle,
-                  ),
-                  heightSpace,
-                  heightSpace,
-                  Text(
-                    "Payment Successful",
-                    style: darkBlueColor18MediumTextStyle,
-                  ),
-                  heightSpace,
-                ],
+            padding: EdgeInsets.all(fixPadding * 2),
+
+            // decoration: BoxDecoration(
+            //   border: Border.all(color: primaryColor, width: 2),
+            // ),
+            child: Card(
+              child: Padding(
+                padding: EdgeInsets.all(fixPadding * 2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Transction Status",
+                      style: greyColor15MediumTextStyle,
+                    ),
+                    heightSpace,
+                    heightSpace,
+                    Text(
+                      "Payment Successful",
+                      style: darkBlueColor18MediumTextStyle,
+                    ),
+                    heightSpace,
+                  ],
+                ),
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          // ),
+
           Padding(
             padding: const EdgeInsets.only(
                 left: fixPadding * 2, right: fixPadding * 2),

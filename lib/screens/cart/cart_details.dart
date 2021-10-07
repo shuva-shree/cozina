@@ -1,4 +1,3 @@
-
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/checkout.dart';
 import 'package:flutter/material.dart';
@@ -40,10 +39,11 @@ class _CartDetailsState extends State<CartDetails> {
             padding: EdgeInsets.only(
                 top: fixPadding, left: fixPadding, right: fixPadding),
             child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: primaryColor, width: 2)),
-              padding: EdgeInsets.symmetric(
-                  vertical: fixPadding, horizontal: fixPadding * 1.5),
+              color: bgColor,
+              // decoration: BoxDecoration(
+              //     border: Border.all(color: primaryColor, width: 2)),
+              // padding: EdgeInsets.symmetric(
+              //     vertical: fixPadding, horizontal: fixPadding * 1.5),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -74,10 +74,12 @@ class _CartDetailsState extends State<CartDetails> {
           heightSpace,
           itemsList(),
           deliveryOption(),
+          deliveryAddress(),
           checkoutButton(),
           // SizedBox(
           //   height: 500,
-          //   child: deliveryAddress(),
+          //   child:
+
           // ),
         ],
       ),
@@ -206,13 +208,14 @@ class _CartDetailsState extends State<CartDetails> {
   deliveryOption() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: fixPadding),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
-        decoration: BoxDecoration(
-            border: Border(
-          left: BorderSide(color: primaryColor, width: 2),
-          right: BorderSide(color: primaryColor, width: 2),
-        )),
+      child: Card(
+        elevation: 2,
+        // padding: EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
+        // decoration: BoxDecoration(
+        //     border: Border(
+        //   left: BorderSide(color: primaryColor, width: 2),
+        //   right: BorderSide(color: primaryColor, width: 2),
+        // )),
         child: Column(
           children: [
             heightSpace,
@@ -294,51 +297,52 @@ class _CartDetailsState extends State<CartDetails> {
   }
 
   checkoutButton() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: fixPadding),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: fixPadding),
-        decoration: BoxDecoration(
-          border: Border.all(color: primaryColor, width: 2),
-          //   left: BorderSide(color: primaryColor, width: 2),
-          //   right: BorderSide(color: primaryColor, width: 2),
-          //   bottom: BorderSide(color: primaryColor, width: 2),
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: fixPadding * 2.0,
-            vertical: fixPadding * 1.5,
-          ),
-          child: InkWell(
+    return
+        //  Padding(
+        //   padding: EdgeInsets.symmetric(horizontal: fixPadding),
+        //   child: Container(
+        //     padding: EdgeInsets.symmetric(horizontal: fixPadding),
+        //     decoration: BoxDecoration(
+        //       border: Border.all(color: primaryColor, width: 2),
+        //   left: BorderSide(color: primaryColor, width: 2),
+        //   right: BorderSide(color: primaryColor, width: 2),
+        //   bottom: BorderSide(color: primaryColor, width: 2),
+        // ),
+        Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: fixPadding * 2.0,
+        vertical: fixPadding * 1.5,
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10.0),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CheckoutScreen()),
+          );
+        },
+        child: Container(
+          height: 50,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: primaryColor,
             borderRadius: BorderRadius.circular(10.0),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CheckoutScreen()),
-              );
-            },
-            child: Container(
-              height: 50,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: primaryColor.withOpacity(0.2),
-                    spreadRadius: 2.5,
-                    blurRadius: 2.5,
-                  ),
-                ],
+            boxShadow: [
+              BoxShadow(
+                color: primaryColor.withOpacity(0.2),
+                spreadRadius: 2.5,
+                blurRadius: 2.5,
               ),
-              child: Text(
-                'Proceed To Checkout',
-                style: whiteColor18BoldTextStyle,
-              ),
-            ),
+            ],
+          ),
+          child: Text(
+            'Proceed To Checkout',
+            style: whiteColor18BoldTextStyle,
           ),
         ),
       ),
+      //   ),
+      // ),
     );
   }
 
@@ -347,8 +351,8 @@ class _CartDetailsState extends State<CartDetails> {
       padding:
           EdgeInsets.only(top: fixPadding, left: fixPadding, right: fixPadding),
       child: Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+        // decoration:
+        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
         padding: EdgeInsets.symmetric(
             vertical: fixPadding, horizontal: fixPadding * 1.5),
         child: Column(
@@ -379,6 +383,7 @@ class _CartDetailsState extends State<CartDetails> {
 
   userNameTextField(String title) {
     return Container(
+      // height: 500,
       margin: EdgeInsets.fromLTRB(
         fixPadding * 2.0,
         fixPadding,
@@ -425,21 +430,21 @@ class _CartDetailsState extends State<CartDetails> {
   }
 
   deliveryAddress() {
-    return SingleChildScrollView(
-      child: Container(
-        height: 500,
-        decoration:
-            BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        padding: EdgeInsets.symmetric(
-            vertical: fixPadding, horizontal: fixPadding * 1.5),
-        // child: Flexible(
-        //   flex: 1,
+    return Container(
+      height: 500,
+      // decoration:
+      //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+      padding: EdgeInsets.symmetric(
+          vertical: fixPadding, horizontal: fixPadding * 1.5),
+      // child: Flexible(
+      //   flex: 1,
+      child: Expanded(
         child: ListView(
           shrinkWrap: true,
           // mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Select Delivery Option",
+              " Delivery Address",
               style: greyColor16SemiBoldTextStyle,
             ),
             Row(
@@ -457,7 +462,7 @@ class _CartDetailsState extends State<CartDetails> {
                 ),
                 new Text(
                   'foods',
-                  style: whiteColor15BoldTextStyle,
+                  style: darkBlueColor15MediumTextStyle,
                 ),
                 SizedBox(
                   width: 20,
@@ -472,18 +477,21 @@ class _CartDetailsState extends State<CartDetails> {
                   },
                   activeColor: whiteColor,
                 ),
-                Text('food Maker', style: whiteColor15BoldTextStyle),
-                userNameTextField("House No/Floor"),
-                userNameTextField("Apartment/Street Name"),
-                userNameTextField("Address Line1"),
-                userNameTextField("Address Line2"),
+                Text(
+                  'food Maker',
+                  style: darkBlueColor15MediumTextStyle,
+                ),
               ],
             ),
+            userNameTextField("House No/Floor"),
+            userNameTextField("Apartment/Street Name"),
+            userNameTextField("Address Line1"),
+            userNameTextField("Address Line2"),
           ],
         ),
-        // ),
-        // ),
       ),
+      // ),
+      // ),
     );
   }
 }
