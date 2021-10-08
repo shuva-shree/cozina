@@ -12,6 +12,9 @@ class BasicDetails extends StatelessWidget {
       child: ListView(
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 30,
+          ),
           Align(
               alignment: Alignment.centerRight,
               child: Text(

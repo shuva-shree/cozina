@@ -61,71 +61,74 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
 
   orderBox() {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          // decoration:
-          //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-          width: double.infinity,
-          // padding: EdgeInsets.all(fixPadding),
-          child: Card(
-            elevation: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(fixPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Order Status",
-                        style: greyColor14MediumTextStyle,
-                      ),
-                      SizedBox(
-                        width: 120,
-                      ),
-                      Text(
-                        "Full Details",
-                        style: TextStyle(color: accentColor, fontSize: 17),
-                      ),
-                    ],
-                  ),
-                  heightSpace,
-                  Text(
-                    "Food is Ready for Pickup",
-                    style: darkBlueColor20BoldTextStyle,
-                  ),
-                  // heightSpace,
-                  heightSpace,
-                  Divider(
-                    color: primaryColor,
-                    thickness: 2,
-                  ),
-                  heightSpace,
-                  // heightSpace,
-
-                  Text(
-                    "Please visit the Pickup location to pickup your food",
-                    style: darkBlueColor18MediumTextStyle,
-                  ),
-                  heightSpace,
-                  // Align(
-                  //     alignment: Alignment.center,
-                  //     child: Container(
-                  //       height: 40,
-                  //       width: 140,
-                  //       color: primaryColor,
-                  //       child: Text("Order Completed"),
-                  //     )),
-                  orderStatusButton(),
-
-                  // heightSpace,
-                  // orderDetails(),
-                ],
-              ),
+      padding: const EdgeInsets.all(fixPadding),
+      child: Container(
+        padding: const EdgeInsets.all(fixPadding),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
             ),
-          ),
-        ));
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Order Status",
+                  style: greyColor14MediumTextStyle,
+                ),
+                SizedBox(
+                  width: 120,
+                ),
+                Text(
+                  "Full Details",
+                  style: TextStyle(color: accentColor, fontSize: 17),
+                ),
+              ],
+            ),
+            heightSpace,
+            Text(
+              "Food is Ready for Pickup",
+              style: darkBlueColor20BoldTextStyle,
+            ),
+            // heightSpace,
+            heightSpace,
+            Divider(
+                // color: primaryColor,
+                // thickness: 2,
+                ),
+            heightSpace,
+            // heightSpace,
+
+            Text(
+              "Please visit the Pickup location to pickup your food",
+              style: darkBlueColor18MediumTextStyle,
+            ),
+            heightSpace,
+            // Align(
+            //     alignment: Alignment.center,
+            //     child: Container(
+            //       height: 40,
+            //       width: 140,
+            //       color: primaryColor,
+            //       child: Text("Order Completed"),
+            //     )),
+            orderStatusButton(),
+
+            // heightSpace,
+            // orderDetails(),
+          ],
+        ),
+      ),
+    );
   }
 
   orderDetails() {

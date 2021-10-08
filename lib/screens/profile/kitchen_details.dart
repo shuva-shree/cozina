@@ -23,6 +23,8 @@ class _KitchenDetailsState extends State<KitchenDetails> {
       child: ListView(
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          heightSpace,
+          heightSpace,
           Align(
               alignment: Alignment.centerRight,
               child: Text(
@@ -32,21 +34,25 @@ class _KitchenDetailsState extends State<KitchenDetails> {
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
               )),
-          heightSpace,
-          heightSpace,
+          SizedBox(
+            height: 30,
+          ),
           Align(
               alignment: Alignment.center,
               child: Container(
                 padding: EdgeInsets.only(left: 20),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    border: Border.all(color: primaryColor, width: 2)),
+                    // border: Border.all(color: primaryColor, width: 2),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/image16.jpg"),
+                        fit: BoxFit.cover)),
                 height: 100,
                 width: 100,
-                child: Text(
-                  "KITCHEN LOGO",
-                  style: darkBlueColor15MediumTextStyle,
-                ),
+                // child: Text(
+                //   "KITCHEN LOGO",
+                //   style: whiteColor15BoldTextStyle,
+                // ),
               )),
           SizedBox(
             height: 25,
@@ -71,56 +77,48 @@ class _KitchenDetailsState extends State<KitchenDetails> {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Colors.black54.withOpacity(0.2),
-                ),
+                    borderRadius: BorderRadius.circular(10), color: blackColor),
                 child: Text(
                   "South Indian",
-                  style: darkBlueColor15MediumTextStyle,
+                  style: whiteColor15BoldTextStyle,
                 ),
               ),
               SizedBox(
                 width: 8,
               ),
               Container(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Colors.black54.withOpacity(0.2),
-                ),
+                    borderRadius: BorderRadius.circular(10), color: blackColor),
                 child: Text(
                   "Thai",
-                  style: darkBlueColor15MediumTextStyle,
+                  style: whiteColor15BoldTextStyle,
                 ),
               ),
               SizedBox(
                 width: 8,
               ),
               Container(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Colors.black54.withOpacity(0.2),
-                ),
+                    borderRadius: BorderRadius.circular(10), color: blackColor),
                 child: Text(
                   "Continental",
-                  style: darkBlueColor15MediumTextStyle,
+                  style: whiteColor15BoldTextStyle,
                 ),
               ),
               SizedBox(
                 width: 8,
               ),
               Container(
-                padding: EdgeInsets.all(4),
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Colors.black54.withOpacity(0.2),
-                ),
+                    borderRadius: BorderRadius.circular(10), color: blackColor),
                 child: Text(
                   "Veg",
-                  style: darkBlueColor15MediumTextStyle,
+                  style: whiteColor15BoldTextStyle,
                 ),
               ),
             ],

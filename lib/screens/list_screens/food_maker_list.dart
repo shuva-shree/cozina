@@ -14,7 +14,7 @@ class _FoodMkaersListState extends State<FoodMakersList> {
   final popularFoodMakersList = [
     {
       'image': 'assets/images/image17.jpg',
-      'name': 'Shama Bhojans',
+      'name': 'Sharma Bhojans',
       'distance': '3km',
       // 'cuisines':['South Indian','Thai'],
       'price': '14.99',
@@ -22,7 +22,7 @@ class _FoodMkaersListState extends State<FoodMakersList> {
     },
     {
       'image': 'assets/images/image17.jpg',
-      'name': 'Shama Bhojans',
+      'name': 'Sharma Bhojans',
       'distance': '3km',
       // 'cuisines':['South Indian','Thai'],
       'price': '14.99',
@@ -30,7 +30,7 @@ class _FoodMkaersListState extends State<FoodMakersList> {
     },
     {
       'image': 'assets/images/image16.jpg',
-      'name': 'Shama Bhojans',
+      'name': 'Sharma Bhojans',
       'distance': '3km',
       // 'cuisines':['South Indian','Thai'],
       'price': '14.99',
@@ -38,7 +38,7 @@ class _FoodMkaersListState extends State<FoodMakersList> {
     },
     {
       'image': 'assets/images/image16.jpg',
-      'name': 'Shama Bhojans',
+      'name': 'Sharma Bhojans',
       'distance': '3km',
       // 'cuisines':['South Indian','Thai'],
       'price': '14.99',
@@ -50,6 +50,7 @@ class _FoodMkaersListState extends State<FoodMakersList> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: bgColor,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: fixPadding),
         // height: 250,
@@ -92,7 +93,7 @@ class _FoodMkaersListState extends State<FoodMakersList> {
                       width: 200,
                       padding: EdgeInsets.all(fixPadding),
                       decoration: BoxDecoration(
-                        color: lightBlueColor,
+                        color: whiteColor,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10.0),

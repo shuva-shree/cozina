@@ -62,71 +62,66 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
 
   orderBox() {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          // decoration:
-          //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-          width: double.infinity,
-          padding: EdgeInsets.all(fixPadding),
-          child: Card(
-            elevation: 2,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      padding: EdgeInsets.all(fixPadding),
+      child: Card(
+        elevation: 2,
+        child: Padding(
+          padding: const EdgeInsets.all(fixPadding * 2),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Order Status",
-                        style: greyColor14MediumTextStyle,
-                      ),
-                      SizedBox(
-                        width: 120,
-                      ),
-                      Text(
-                        "Full Details",
-                        style: TextStyle(color: accentColor, fontSize: 17),
-                      ),
-                    ],
-                  ),
-                  heightSpace,
                   Text(
-                    "Order Confirmed",
-                    style: darkBlueColor20BoldTextStyle,
+                    "Order Status",
+                    style: greyColor14MediumTextStyle,
                   ),
-                  // heightSpace,
-                  heightSpace,
-                  Divider(
-                      // color: primaryColor,
-                      // thickness: 2,
-                      ),
-                  heightSpace,
-                  // heightSpace,
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time_sharp,
-                        color: primaryColor,
-                        size: 30,
-                      ),
-                      widthSpace,
-                      widthSpace,
-                      Text(
-                        "ETA : Food will prepare in 15 minutes \ni.e 10:25 am",
-                        style: darkBlueColor16MediumTextStyle,
-                      ),
-                    ],
+                  SizedBox(
+                    width: 120,
                   ),
-
-                  heightSpace,
-                  // orderDetails(),
+                  Text(
+                    "Full Details",
+                    style: TextStyle(color: accentColor, fontSize: 17),
+                  ),
                 ],
               ),
-            ),
+              heightSpace,
+              Text(
+                "Order Confirmed",
+                style: darkBlueColor20BoldTextStyle,
+              ),
+              // heightSpace,
+              heightSpace,
+              Divider(
+                  // color: primaryColor,
+                  // thickness: 2,
+                  ),
+              heightSpace,
+              // heightSpace,
+              Row(
+                children: [
+                  Icon(
+                    Icons.access_time_sharp,
+                    color: primaryColor,
+                    size: 30,
+                  ),
+                  widthSpace,
+                  widthSpace,
+                  Text(
+                    "ETA : Food will prepare in 15 minutes \ni.e 10:25 am",
+                    style: darkBlueColor16MediumTextStyle,
+                  ),
+                ],
+              ),
+
+              heightSpace,
+              // orderDetails(),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   orderDetails() {

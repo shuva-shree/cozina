@@ -15,12 +15,27 @@ class MyOrders extends StatefulWidget {
   _MyOrdersState createState() => _MyOrdersState();
 }
 
-class _MyOrdersState extends State<MyOrders> {
+class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
   late double height;
   late double width;
   String _value = 'one';
   var banner_page = 1.0;
   var value = 1;
+
+  late TabController tabController = TabController(
+    initialIndex: 0,
+    length: 2,
+    vsync: this,
+  );
+  @override
+  void initState() {
+    super.initState();
+    late TabController tabController = TabController(
+      initialIndex: 0,
+      length: 2,
+      vsync: this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,55 +111,79 @@ class _MyOrdersState extends State<MyOrders> {
       body: Column(
         children: [
           searchTextField(),
-          Container(
-            padding: EdgeInsets.all(fixPadding * 2),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Active Order",
-                      style: darkBlueColor18MediumTextStyle,
-                    ),
-                    heightSpace,
-                    heightSpace,
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          value = 1;
-                        });
-                      },
-                      child: Container(
-                        height: 15,
-                        color: value == 1 ? primaryColor : greyColor,
-                        width: 170,
+          // Container(
+          //   padding: EdgeInsets.all(fixPadding * 2),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Column(
+          //         children: [
+          //           Text(
+          //             "Active Order",
+          //             style: darkBlueColor18MediumTextStyle,
+          //           ),
+          //           heightSpace,
+          //           heightSpace,
+          //           GestureDetector(
+          //             onTap: () {
+          //               setState(() {
+          //                 value = 1;
+          //               });
+          //             },
+          //             child: Container(
+          //               height: 15,
+          //               color: value == 1 ? primaryColor : greyColor,
+          //               width: 170,
+          //             ),
+          //           )
+          //         ],
+          //       ),
+          //       Column(
+          //         children: [
+          //           Text(
+          //             "Completed order",
+          //             style: darkBlueColor18MediumTextStyle,
+          //           ),
+          //           heightSpace,
+          //           heightSpace,
+          //           GestureDetector(
+          //             onTap: () {
+          //               setState(() {
+          //                 value = 2;
+          //               });
+          //             },
+          //             child: Container(
+          //               height: 15,
+          //               color: value == 2 ? primaryColor : greyColor,
+          //               width: 170,
+          //             ),
+          //           )
+          //         ],
+          //       )
+          //     ],
+          //   ),
+          // ),
+          DefaultTabController(
+            length: 2, // length of tabs
+            initialIndex: 0,
+
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  child: TabBar(
+                    controller: tabController,
+                    indicatorColor: primaryColor,
+                    labelColor: primaryColor,
+                    unselectedLabelColor: Colors.black,
+                    tabs: [
+                      Tab(
+                        text: 'Active Order',
                       ),
-                    )
-                  ],
+                      Tab(text: 'Completed Order'),
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Text(
-                      "Completed order",
-                      style: darkBlueColor18MediumTextStyle,
-                    ),
-                    heightSpace,
-                    heightSpace,
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          value = 2;
-                        });
-                      },
-                      child: Container(
-                        height: 15,
-                        color: value == 2 ? primaryColor : greyColor,
-                        width: 170,
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           ),
@@ -156,7 +195,20 @@ class _MyOrdersState extends State<MyOrders> {
               dropDownItems("To Date"),
             ],
           ),
-          Expanded(child: value == 1 ? ActiveOrder() : CompletedOrder()),
+          Container(
+            height: 435, //height of TabBarView
+            // decoration: BoxDecoration(
+            //     border: Border(
+            //         top: BorderSide(color: Colors.grey, width: 0.5))),
+            child: TabBarView(
+              controller: tabController,
+              children: <Widget>[
+                Expanded(child: ActiveOrder()),
+                Expanded(child: CompletedOrder())
+              ],
+            ),
+          ),
+          // Expanded(child: value == 1 ?  : ),
         ],
       ),
     );
@@ -219,13 +271,13 @@ class _MyOrdersState extends State<MyOrders> {
 
   dropDownItems(String title) {
     return DropdownButton<String>(
-      dropdownColor: primaryColor,
+      dropdownColor: blackColor,
       value: _value,
       items: <DropdownMenuItem<String>>[
         DropdownMenuItem(
           child: Text(
             title,
-            style: primaryColor15SemiBoldTextStyle,
+            style: blackColor15SemiBoldTextStyle,
           ),
           value: 'one',
         ),
@@ -240,5 +292,11 @@ class _MyOrdersState extends State<MyOrders> {
         setState(() => _value = value!);
       },
     );
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
   }
 }

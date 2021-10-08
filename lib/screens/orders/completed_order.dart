@@ -18,12 +18,21 @@ class CompletedOrder extends StatelessWidget {
 
   orderBox() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: fixPadding, vertical: fixPadding / 2),
       child: Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        width: double.infinity,
-        padding: EdgeInsets.all(fixPadding),
+        padding: const EdgeInsets.all(fixPadding),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
         child: Row(
           children: [
             Container(
@@ -34,7 +43,7 @@ class CompletedOrder extends StatelessWidget {
                       "#1",
                       style: darkBlueColor18SemiBoldTextStyle,
                     ),
-                    SizedBox(height: 100),
+                    SizedBox(height: 87),
                   ],
                 )),
             SizedBox(
@@ -94,8 +103,6 @@ class CompletedOrder extends StatelessWidget {
                     "Order Status",
                     style: greyColor14MediumTextStyle,
                   ),
-                  heightSpace,
-                  heightSpace,
                 ],
               ),
             )

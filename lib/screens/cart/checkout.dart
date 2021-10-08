@@ -33,45 +33,84 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         ),
       ),
       body: Container(
-        //  padding: EdgeInsets.all(fixPadding),
+        color: bgColor,
+        padding: EdgeInsets.all(fixPadding),
         child: Column(
           children: [
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: fixPadding * 2),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Bill Summary",
-                  style: greyColor15MediumTextStyle,
-                ),
+            Container(
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: greyColor.withOpacity(0.1),
+                    spreadRadius: 2.5,
+                    blurRadius: 2.5,
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: fixPadding * 2),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Bill Summary",
+                        style: greyColor15MediumTextStyle,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  billDetails(240, 2),
+                  heightSpace,
+                  billDetails(120, 1),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  totalAmount(),
+                  // Divider(
+                  //   color: primaryColor,
+                  //   thickness: 2,
+                  // ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            billDetails(240, 2),
             heightSpace,
-            billDetails(120, 1),
-            SizedBox(
-              height: 10,
-            ),
-            totalAmount(),
-            Divider(
-              color: primaryColor,
-              thickness: 2,
-            ),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: fixPadding),
+            //   child:
             Container(
               padding: EdgeInsets.all(fixPadding),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: greyColor.withOpacity(0.1),
+                    spreadRadius: 2.5,
+                    blurRadius: 2.5,
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Select Payment Method",
-                      style: greyColor16SemiBoldTextStyle,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: fixPadding),
+                      child: Text(
+                        "Select Payment Method",
+                        style: greyColor16SemiBoldTextStyle,
+                      ),
                     ),
                   ),
                   heightSpace,
@@ -85,7 +124,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             val = val1!;
                           });
                         },
-                        activeColor: whiteColor,
+                        activeColor: primaryColor,
                       ),
                       widthSpace,
                       new Text(
@@ -97,14 +136,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ],
               ),
             ),
+            // ),
+
             heightSpace,
             heightSpace,
-            Divider(
-              color: primaryColor,
-              thickness: 2,
-            ),
+            // Divider(
+            //   color: primaryColor,
+            //   thickness: 2,
+            // ),
             SizedBox(
-              height: 80,
+              height: 70,
             ),
             paymentButton(),
           ],
@@ -143,50 +184,47 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   }
 
   totalAmount() {
-    return Card(
-      // padding: EdgeInsets.all(fixPadding * 2),
-      child: Padding(
-        padding: const EdgeInsets.all(fixPadding * 2),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Tax",
-                  style: darkBlueColor18MediumTextStyle,
-                ),
-                Text(
-                  '\u{20B9}${10}',
-                  style: darkBlueColor16MediumTextStyle,
-                ),
-              ],
-            ),
-            heightSpace,
-            heightSpace,
-            heightSpace,
-            // Divider(
-            //   color: primaryColor,
-            //   thickness: 1.5,
-            // ),
-            heightSpace,
-            heightSpace,
-            heightSpace,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Total Amout Payable",
-                  style: darkBlueColor18MediumTextStyle,
-                ),
-                Text(
-                  '\u{20B9}${550}',
-                  style: darkBlueColor18MediumTextStyle,
-                ),
-              ],
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(fixPadding * 2),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Tax",
+                style: darkBlueColor18MediumTextStyle,
+              ),
+              Text(
+                '\u{20B9}${10}',
+                style: darkBlueColor16MediumTextStyle,
+              ),
+            ],
+          ),
+          heightSpace,
+          heightSpace,
+          heightSpace,
+          Divider(
+              // color: primaryColor,
+              // thickness: 1.5,
+              ),
+          heightSpace,
+          heightSpace,
+          heightSpace,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Total Amout Payable",
+                style: primaryColor18SemiBoldTextStyle,
+              ),
+              Text(
+                '\u{20B9}${550}',
+                style: primaryColor18SemiBoldTextStyle,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

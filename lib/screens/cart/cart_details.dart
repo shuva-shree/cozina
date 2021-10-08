@@ -47,9 +47,12 @@ class _CartDetailsState extends State<CartDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Foods from John Foods",
-                    style: darkBlueColor15MediumTextStyle,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Text(
+                      "Foods from John Foods",
+                      style: darkBlueColor15MediumTextStyle,
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -208,8 +211,19 @@ class _CartDetailsState extends State<CartDetails> {
   deliveryOption() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: fixPadding),
-      child: Card(
-        elevation: 2,
+      child: Container(
+        padding: EdgeInsets.all(fixPadding),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
         // padding: EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
         // decoration: BoxDecoration(
         //     border: Border(
@@ -220,11 +234,14 @@ class _CartDetailsState extends State<CartDetails> {
           children: [
             heightSpace,
             heightSpace,
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Select Delivery Option",
-                style: greyColor16SemiBoldTextStyle,
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Select Delivery Option",
+                  style: greyColor16SemiBoldTextStyle,
+                ),
               ),
             ),
             heightSpace,
@@ -348,19 +365,23 @@ class _CartDetailsState extends State<CartDetails> {
 
   itemsList() {
     return Padding(
-      padding:
-          EdgeInsets.only(top: fixPadding, left: fixPadding, right: fixPadding),
+      padding: EdgeInsets.only(
+        top: fixPadding,
+      ),
       child: Container(
         // decoration:
         //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        padding: EdgeInsets.symmetric(
-            vertical: fixPadding, horizontal: fixPadding * 1.5),
+        padding:
+            EdgeInsets.symmetric(vertical: fixPadding, horizontal: fixPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Foods from RockyFoods",
-              style: darkBlueColor15MediumTextStyle,
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text(
+                "Foods from RockyFoods",
+                style: darkBlueColor15MediumTextStyle,
+              ),
             ),
             SizedBox(
               height: 20,

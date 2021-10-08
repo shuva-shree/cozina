@@ -1,5 +1,5 @@
 final foodList = [
-  {'image': 'assets/images/image14.jpg'},
+  {'image': 'assets/images/image4.jpeg'},
   {'image': 'assets/images/image15.jpg'},
 ];
 

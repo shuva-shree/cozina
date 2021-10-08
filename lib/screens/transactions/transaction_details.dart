@@ -24,33 +24,41 @@ class TransactionDetails extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.all(fixPadding * 2),
-
-            // decoration: BoxDecoration(
-            //   border: Border.all(color: primaryColor, width: 2),
-            // ),
-            child: Card(
-              child: Padding(
-                padding: EdgeInsets.all(fixPadding * 2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Transction Status",
-                      style: greyColor15MediumTextStyle,
-                    ),
-                    heightSpace,
-                    heightSpace,
-                    Text(
-                      "Payment Successful",
-                      style: darkBlueColor18MediumTextStyle,
-                    ),
-                    heightSpace,
-                  ],
-                ),
+            padding: EdgeInsets.symmetric(
+                horizontal: fixPadding, vertical: fixPadding),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: fixPadding, vertical: fixPadding * 2),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: greyColor.withOpacity(0.1),
+                    spreadRadius: 2.5,
+                    blurRadius: 2.5,
+                  ),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Transction Status",
+                    style: greyColor15MediumTextStyle,
+                  ),
+                  heightSpace,
+                  heightSpace,
+                  Text(
+                    "Payment Successful",
+                    style: darkBlueColor18MediumTextStyle,
+                  ),
+                  heightSpace,
+                ],
               ),
             ),
           ),
+          heightSpace,
           // ),
 
           Padding(

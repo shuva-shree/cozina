@@ -125,7 +125,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Text(
                             'View all',
-                            style: primaryColor14MediumTextStyle,
+                            style: TextStyle(
+                                color: accentColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                       ),
@@ -146,7 +149,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(right: fixPadding * 2.0),
                         child: Text(
                           'View all',
-                          style: primaryColor14MediumTextStyle,
+                          style: TextStyle(
+                              color: accentColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                     ),
@@ -166,7 +172,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(right: fixPadding * 2.0),
                         child: Text(
                           'View all',
-                          style: primaryColor14MediumTextStyle,
+                          style: TextStyle(
+                              color: accentColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                     ),
@@ -470,13 +479,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       Container(
-                        width: 70,
-                        height: 100,
-                        child: Image.asset(
-                          item['image']!,
-                          height: 70,
-                          width: 80,
-                          fit: BoxFit.cover,
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/image16.jpg"),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       widthSpace,
@@ -649,7 +659,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 200,
                       padding: EdgeInsets.all(fixPadding),
                       decoration: BoxDecoration(
-                        color: lightBlueColor,
+                        color: whiteColor,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10.0),
@@ -711,12 +721,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 padding: EdgeInsets.all(4),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
-                                  color: Colors.black54.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: blackColor,
                                 ),
-                                child: Text(
-                                  "South Indian",
-                                  style: darkBlueColor15MediumTextStyle,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 6),
+                                  child: Text(
+                                    "South Indian",
+                                    style: whiteColor15BoldTextStyle,
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -725,12 +739,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 padding: EdgeInsets.all(4),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
-                                  color: Colors.black54.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: blackColor,
                                 ),
-                                child: Text(
-                                  "Veg",
-                                  style: darkBlueColor15MediumTextStyle,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 6),
+                                  child: Text(
+                                    "Veg",
+                                    style: whiteColor15BoldTextStyle,
+                                  ),
                                 ),
                               ),
                             ],

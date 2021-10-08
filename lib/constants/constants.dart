@@ -89,6 +89,11 @@ TextStyle blackColor17SemiBoldTextStyle = TextStyle(
   fontSize: 17,
   fontWeight: FontWeight.w600,
 );
+TextStyle blackColor15SemiBoldTextStyle = TextStyle(
+  color: blackColor,
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+);
 TextStyle darkBlueColor17SemiBoldTextStyle = TextStyle(
   color: darkBlueColor,
   fontSize: 17,

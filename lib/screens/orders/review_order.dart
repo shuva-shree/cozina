@@ -47,17 +47,20 @@ class ReviewOrder extends StatelessWidget {
   }
 
   orderBox(context) {
-    return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          // decoration:
-          //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-          width: double.infinity,
-          // padding: EdgeInsets.all(fixPadding),
-          child: Card(
-            elevation: 2,
-            child: Padding(
-              padding: EdgeInsets.all(fixPadding),
+    return  Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: fixPadding, vertical: fixPadding * 2),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: greyColor.withOpacity(0.1),
+                    spreadRadius: 2.5,
+                    blurRadius: 2.5,
+                  ),
+                ],
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -111,8 +114,8 @@ class ReviewOrder extends StatelessWidget {
                       value: 0,
                       filledStar:
                           Icon(Icons.star, color: primaryColor, size: 35),
-                      unfilledStar: Icon(Icons.star_border,
-                          color: primaryColor, size: 35),
+                      unfilledStar:
+                          Icon(Icons.star_border, color: greyColor, size: 35),
                     ),
                   ),
 
@@ -123,9 +126,8 @@ class ReviewOrder extends StatelessWidget {
                   // orderDetails(),
                 ],
               ),
-            ),
-          ),
-        ));
+            
+        );
   }
 
   reviewTextField() {
@@ -150,11 +152,11 @@ class ReviewOrder extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
-            Icons.person_outline,
-            color: greyColor,
-            size: 20,
-          ),
+          // Icon(
+          //   Icons.person_outline,
+          //   color: greyColor,
+          //   size: 20,
+          // ),
           widthSpace,
           Expanded(
             child: TextField(

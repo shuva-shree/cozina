@@ -57,7 +57,7 @@ class _BottomBarState extends State<BottomBar> {
                 color: currentIndex == 0 ? primaryColor : darkBlueColor,
               ),
               title: Text(
-                'Foods',
+                ' Foods',
                 style: TextStyle(color: primaryColor),
               ),
               activeColor: primaryColor.withOpacity(0.1),
@@ -70,7 +70,7 @@ class _BottomBarState extends State<BottomBar> {
                 color: currentIndex == 1 ? primaryColor : darkBlueColor,
               ),
               title: Text(
-                'My Orders',
+                ' My Orders',
                 style: TextStyle(color: primaryColor),
               ),
               activeColor: primaryColor.withOpacity(0.1),
@@ -83,7 +83,7 @@ class _BottomBarState extends State<BottomBar> {
                 color: currentIndex == 2 ? primaryColor : darkBlueColor,
               ),
               title: Text(
-                'Profile',
+                ' Profile',
                 style: TextStyle(color: primaryColor),
               ),
               activeColor: primaryColor.withOpacity(0.1),
