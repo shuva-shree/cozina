@@ -19,13 +19,14 @@ class PaymentSuccess extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
         title: Padding(
           padding: EdgeInsets.only(right: 20),
           child: Text(
             "Payment Success",
-            style: whiteColor26BoldTextStyle,
+            style: whiteColor22BoldTextStyle,
           ),
         ),
       ),

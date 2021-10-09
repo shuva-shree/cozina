@@ -23,13 +23,14 @@ class _CartDetailsState extends State<CartDetails> {
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
         title: Padding(
           padding: const EdgeInsets.only(right: 20),
           child: Text(
-            "Cuisine: South Indian",
-            style: whiteColor26BoldTextStyle,
+            "Cuisine : South Indian",
+            style: whiteColor22BoldTextStyle,
           ),
         ),
       ),
@@ -108,13 +109,14 @@ class _CartDetailsState extends State<CartDetails> {
           Row(
             children: [
               Container(
-                width: 70,
-                height: 80,
-                child: Image.asset(
-                  'assets/images/image16.jpg',
-                  height: 70,
-                  width: 80,
-                  fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.height * 0.12,
+                width: MediaQuery.of(context).size.width * 0.2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/image16.jpg"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               widthSpace,
@@ -149,20 +151,21 @@ class _CartDetailsState extends State<CartDetails> {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: greyColor.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 3),
-                                ],
-                                color: primaryColor.withOpacity(0.8),
+                                shape: BoxShape.circle,
+                                // boxShadow: [
+                                //   BoxShadow(
+                                //       color: greyColor.withOpacity(0.3),
+                                //       spreadRadius: 2,
+                                //       blurRadius: 3),
+                                // ],
+                                color: blackColor,
                               ),
                               alignment: Alignment.center,
-                              height: 30,
-                              width: 30,
+                              height: 28,
+                              width: 28,
                               child: Text(
                                 "-",
-                                style: whiteColor18BoldTextStyle,
+                                style: whiteColor20BoldTextStyle,
                               ),
                             ),
                             SizedBox(
@@ -170,24 +173,25 @@ class _CartDetailsState extends State<CartDetails> {
                             ),
                             Text(
                               "01",
-                              style: darkBlueColor16SemiBoldTextStyle,
+                              style: darkBlueColor18SemiBoldTextStyle,
                             ),
                             SizedBox(
                               width: 10,
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: greyColor.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 3),
-                                ],
-                                color: primaryColor.withOpacity(0.8),
+                                shape: BoxShape.circle,
+                                // boxShadow: [
+                                //   BoxShadow(
+                                //       color: greyColor.withOpacity(0.3),
+                                //       spreadRadius: 2,
+                                //       blurRadius: 3),
+                                // ],
+                                color: blackColor,
                               ),
                               alignment: Alignment.center,
-                              height: 30,
-                              width: 30,
+                              height: 28,
+                              width: 28,
                               child: Text(
                                 "+",
                                 style: whiteColor18BoldTextStyle,

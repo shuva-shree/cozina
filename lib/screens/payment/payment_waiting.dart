@@ -10,20 +10,20 @@ class PaymentWaiting extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: bgColor,
         elevation: 0,
-        iconTheme: IconThemeData(color: darkBlueColor),
+        iconTheme: IconThemeData(color: whiteColor),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
         title: Padding(
           padding: EdgeInsets.only(right: 20),
           child: Text(
-            "Payment Sucess",
-            style: darkBlueColor24SemiBoldTextStyle,
+            "Payment Success",
+            style: whiteColor22BoldTextStyle,
           ),
         ),
       ),

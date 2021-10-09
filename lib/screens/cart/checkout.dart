@@ -22,13 +22,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
         title: Padding(
           padding: const EdgeInsets.only(right: 20),
           child: Text(
             "Checkout : John Foods",
-            style: whiteColor20BoldTextStyle,
+            style: whiteColor22BoldTextStyle,
           ),
         ),
       ),

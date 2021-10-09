@@ -24,13 +24,14 @@ class _SearchScreenState extends State<SearchScreen> {
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
         title: Padding(
           padding: const EdgeInsets.only(right: 20),
           child: Text(
             "Search",
-            style: whiteColor26BoldTextStyle,
+            style: whiteColor22BoldTextStyle,
           ),
         ),
         bottom: extendedAppBar(),
@@ -81,52 +82,70 @@ class _SearchScreenState extends State<SearchScreen> {
           SizedBox(
             height: 40,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                new Radio(
-                  value: 0,
-                  groupValue: val,
-                  onChanged: (int? val1) {
-                    setState(() {
-                      val = val1!;
-                    });
-                  },
-                  activeColor: whiteColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    new Radio(
+                      value: 0,
+                      groupValue: val,
+                      onChanged: (int? val1) {
+                        setState(() {
+                          val = val1!;
+                        });
+                      },
+                      activeColor: whiteColor,
+                      // fillColor:whiteColor ,
+                    ),
+                    SizedBox(
+                      width: 0,
+                    ),
+                    new Text(
+                      'foods',
+                      style: whiteColor15BoldTextStyle,
+                    ),
+                  ],
                 ),
-                new Text(
-                  'foods',
-                  style: whiteColor15BoldTextStyle,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Radio(
+                      value: 1,
+                      groupValue: val,
+                      onChanged: (int? val1) {
+                        setState(() {
+                          val = val1!;
+                        });
+                      },
+                      activeColor: whiteColor,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text('food Maker', style: whiteColor15BoldTextStyle),
+                  ],
                 ),
-                SizedBox(
-                  width: 20,
-                ),
-                Radio(
-                  value: 1,
-                  groupValue: val,
-                  onChanged: (int? val1) {
-                    setState(() {
-                      val = val1!;
-                    });
-                  },
-                  activeColor: whiteColor,
-                ),
-                Text('food Maker', style: whiteColor15BoldTextStyle),
-                SizedBox(
-                  width: 17,
-                ),
-                Radio(
-                  value: 2,
-                  groupValue: val,
-                  onChanged: (int? val1) {
-                    setState(() {
-                      val = val1!;
-                    });
-                  },
-                  activeColor: whiteColor,
-                ),
-                new Text(
-                  'cuisine',
-                  style: whiteColor15BoldTextStyle,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Radio(
+                      value: 2,
+                      groupValue: val,
+                      onChanged: (int? val1) {
+                        setState(() {
+                          val = val1!;
+                        });
+                      },
+                      activeColor: whiteColor,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    new Text(
+                      'cuisine',
+                      style: whiteColor15BoldTextStyle,
+                    ),
+                  ],
                 ),
               ],
             ),

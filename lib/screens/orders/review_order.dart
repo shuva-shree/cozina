@@ -16,12 +16,13 @@ class ReviewOrder extends StatelessWidget {
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "#Order1234",
-          style: whiteColor26BoldTextStyle,
+          style: whiteColor22BoldTextStyle,
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
       ),
@@ -47,87 +48,89 @@ class ReviewOrder extends StatelessWidget {
   }
 
   orderBox(context) {
-    return  Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: fixPadding, vertical: fixPadding * 2),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: greyColor.withOpacity(0.1),
-                    spreadRadius: 2.5,
-                    blurRadius: 2.5,
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding, vertical: fixPadding * 2),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: fixPadding * 2, vertical: fixPadding),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Order Status",
+                  style: greyColor14MediumTextStyle,
+                ),
+                SizedBox(
+                  width: 120,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (ctx) => OrderHistory()));
+                  },
+                  child: Text(
+                    "Full Details",
+                    style: TextStyle(color: accentColor, fontSize: 17),
                   ),
-                ],
+                ),
+              ],
+            ),
+            heightSpace,
+            Text(
+              "Order Completed",
+              style: darkBlueColor20BoldTextStyle,
+            ),
+            // heightSpace,
+            heightSpace,
+            Divider(
+                // color: primaryColor,
+                // thickness: 2,
+                ),
+            heightSpace,
+            // heightSpace,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: fixPadding * 1.5, vertical: fixPadding),
+              child: Text(
+                "Please review the Food and Food Maker",
+                style: greyColor13MediumTextStyle,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Order Status",
-                        style: greyColor14MediumTextStyle,
-                      ),
-                      SizedBox(
-                        width: 120,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) => OrderHistory()));
-                        },
-                        child: Text(
-                          "Full Details",
-                          style: TextStyle(color: accentColor, fontSize: 17),
-                        ),
-                      ),
-                    ],
-                  ),
-                  heightSpace,
-                  Text(
-                    "Order Completed",
-                    style: darkBlueColor20BoldTextStyle,
-                  ),
-                  // heightSpace,
-                  heightSpace,
-                  Divider(
-                      // color: primaryColor,
-                      // thickness: 2,
-                      ),
-                  heightSpace,
-                  // heightSpace,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: fixPadding * 1.5, vertical: fixPadding),
-                    child: Text(
-                      "Please review the Food and Food Maker",
-                      style: greyColor13MediumTextStyle,
-                    ),
-                  ),
-                  heightSpace,
-                  Align(
-                    alignment: Alignment.center,
-                    child: StarDisplayWidget(
-                      value: 0,
-                      filledStar:
-                          Icon(Icons.star, color: primaryColor, size: 35),
-                      unfilledStar:
-                          Icon(Icons.star_border, color: greyColor, size: 35),
-                    ),
-                  ),
+            ),
+            heightSpace,
+            Align(
+              alignment: Alignment.center,
+              child: StarDisplayWidget(
+                value: 0,
+                filledStar: Icon(Icons.star, color: primaryColor, size: 35),
+                unfilledStar:
+                    Icon(Icons.star_border, color: greyColor, size: 35),
+              ),
+            ),
 
-                  heightSpace,
-                  reviewTextField(),
-                  heightSpace,
-                  submitButton(),
-                  // orderDetails(),
-                ],
-              ),
-            
-        );
+            heightSpace,
+            reviewTextField(),
+            heightSpace,
+            submitButton(),
+            // orderDetails(),
+          ],
+        ),
+      ),
+    );
   }
 
   reviewTextField() {

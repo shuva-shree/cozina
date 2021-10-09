@@ -1,6 +1,7 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/payment/payment_waiting.dart';
+import 'package:cozina/widgets/carousel_slider.dart';
 import 'package:cozina/widgets/column_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -45,12 +46,13 @@ class _FoodScreenState extends State<FoodScreen> {
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "Food Item",
-          style: whiteColor26BoldTextStyle,
+          style: whiteColor22BoldTextStyle,
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
         actions: [
@@ -66,33 +68,34 @@ class _FoodScreenState extends State<FoodScreen> {
             EdgeInsets.symmetric(horizontal: fixPadding, vertical: fixPadding),
         child: ListView(
           children: [
-            GFCarousel(
-              passiveIndicator: whiteColor,
-              activeIndicator: primaryColor,
-              pagination: true,
-              enableInfiniteScroll: true,
-              pagerSize: 6,
-              height: 250,
-              scrollDirection: Axis.horizontal,
-              items: imageList.map(
-                (url) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                      child: Image.asset(url, fit: BoxFit.fill, width: 1400.0),
-                    ),
-                  );
-                },
-              ).toList(),
-              onPageChanged: (index) {
-                setState(() {
-                  // ignore: unnecessary_statements
-                  index;
-                });
-              },
-            ),
+            CustomIndicator(),
+            // GFCarousel(
+            //   passiveIndicator: whiteColor,
+            //   activeIndicator: primaryColor,
+            //   pagination: true,
+            //   enableInfiniteScroll: true,
+            //   pagerSize: 6,
+            //   height: 250,
+            //   scrollDirection: Axis.horizontal,
+            //   items: imageList.map(
+            //     (url) {
+            //       return Container(
+            //         width: MediaQuery.of(context).size.width,
+            //         margin: EdgeInsets.all(8.0),
+            //         child: ClipRRect(
+            //           borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            //           child: Image.asset(url, fit: BoxFit.fill, width: 1400.0),
+            //         ),
+            //       );
+            //     },
+            //   ).toList(),
+            //   onPageChanged: (index) {
+            //     setState(() {
+            //       // ignore: unnecessary_statements
+            //       index;
+            //     });
+            //   },
+            // ),
             heightSpace,
             Text(
               "Paneer Masala Dosa",
@@ -205,8 +208,18 @@ class _FoodScreenState extends State<FoodScreen> {
   }
 
   availableItem() {
-    return Card(
-      elevation: 2,
+    return Container(
+      decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color: greyColor.withOpacity(0.1),
+            spreadRadius: 2.5,
+            blurRadius: 2.5,
+          ),
+        ],
+      ),
       child: Column(
         children: [
           Container(
@@ -304,9 +317,9 @@ class _FoodScreenState extends State<FoodScreen> {
         final item = reviewsList[index];
         return Padding(
           padding: const EdgeInsets.fromLTRB(
-            fixPadding * 2.0,
+            fixPadding,
             0.0,
-            fixPadding * 2.0,
+            fixPadding,
             fixPadding * 2.0,
           ),
           child: Container(
@@ -430,14 +443,16 @@ class _FoodScreenState extends State<FoodScreen> {
               padding: const EdgeInsets.only(left: 16),
               child: Text(
                 '\u{20B9}${120}',
-                style: darkBlueColor20SemiBoldTextStyle,
+                style: whiteColor22BoldTextStyle,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: fixPadding),
               child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
-                  color: primaryColor,
+                  color: whiteColor,
+                  borderRadius: BorderRadius.circular(20),
                   // boxShadow: [
                   //   BoxShadow(
                   //       color: blackColor.withOpacity(0.4),
@@ -446,11 +461,11 @@ class _FoodScreenState extends State<FoodScreen> {
                   // ],
                 ),
                 alignment: Alignment.center,
-                height: 37,
-                width: 120,
+                height: 40,
+                width: 130,
                 child: Text(
                   'Add To Cart',
-                  style: whiteColor20BoldTextStyle,
+                  style: primaryColor20SemiBoldTextStyle,
                 ),
               ),
             )
