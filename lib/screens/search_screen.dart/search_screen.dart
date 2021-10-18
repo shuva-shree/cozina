@@ -81,73 +81,78 @@ class _SearchScreenState extends State<SearchScreen> {
         children: [
           SizedBox(
             height: 40,
-            child: Row(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    new Radio(
-                      value: 0,
-                      groupValue: val,
-                      onChanged: (int? val1) {
-                        setState(() {
-                          val = val1!;
-                        });
-                      },
-                      activeColor: whiteColor,
-                      // fillColor:whiteColor ,
-                    ),
-                    SizedBox(
-                      width: 0,
-                    ),
-                    new Text(
-                      'foods',
-                      style: whiteColor15BoldTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Radio(
-                      value: 1,
-                      groupValue: val,
-                      onChanged: (int? val1) {
-                        setState(() {
-                          val = val1!;
-                        });
-                      },
-                      activeColor: whiteColor,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text('food Maker', style: whiteColor15BoldTextStyle),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Radio(
-                      value: 2,
-                      groupValue: val,
-                      onChanged: (int? val1) {
-                        setState(() {
-                          val = val1!;
-                        });
-                      },
-                      activeColor: whiteColor,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    new Text(
-                      'cuisine',
-                      style: whiteColor15BoldTextStyle,
-                    ),
-                  ],
-                ),
-              ],
+            // width: 6,
+            child: Padding(
+              padding: const EdgeInsets.only(right: fixPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      new Radio(
+                        value: 0,
+                        groupValue: val,
+                        onChanged: (int? val1) {
+                          setState(() {
+                            val = val1!;
+                          });
+                        },
+                        activeColor: whiteColor,
+                        // fillColor:whiteColor ,
+                      ),
+                      SizedBox(
+                        width: 0,
+                      ),
+                      new Text(
+                        'foods',
+                        style: whiteColor15BoldTextStyle,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Radio(
+                        value: 1,
+                        groupValue: val,
+                        onChanged: (int? val1) {
+                          setState(() {
+                            val = val1!;
+                          });
+                        },
+                        activeColor: whiteColor,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text('food Maker', style: whiteColor15BoldTextStyle),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Radio(
+                        value: 2,
+                        groupValue: val,
+                        onChanged: (int? val1) {
+                          setState(() {
+                            val = val1!;
+                          });
+                        },
+                        activeColor: whiteColor,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      new Text(
+                        'cuisine',
+                        style: whiteColor15BoldTextStyle,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           searchTextField(),

@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       //   MaterialPageRoute(builder: (context) => AllRestaurants()),
                       // ),
                       child: Padding(
-                        padding: const EdgeInsets.only(right: fixPadding * 2.0),
+                        padding: const EdgeInsets.only(right: fixPadding),
                         child: TextButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(

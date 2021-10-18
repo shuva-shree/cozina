@@ -64,9 +64,9 @@ class _BottomBarState extends State<BottomBar> {
             ),
             BottomNavyBarItem(
               icon: Image.asset(
-                'assets/icons/choices.png',
-                height: 25,
-                width: 25,
+                'assets/icons/myOrder2.png',
+                height: 27,
+                width: 27,
                 color: currentIndex == 1 ? primaryColor : darkBlueColor,
               ),
               title: Text(

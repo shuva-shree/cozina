@@ -10,7 +10,8 @@ class CartDetails extends StatefulWidget {
 }
 
 class _CartDetailsState extends State<CartDetails> {
-  int val = -1;
+  int delValue = -1;
+  int foodValue = -1;
   bool _value = false;
 
   @override
@@ -257,13 +258,13 @@ class _CartDetailsState extends State<CartDetails> {
                   children: [
                     new Radio(
                       value: 0,
-                      groupValue: val,
+                      groupValue: delValue,
                       onChanged: (int? val1) {
                         setState(() {
-                          val = val1!;
+                          delValue = val1!;
                         });
                       },
-                      activeColor: whiteColor,
+                      activeColor: primaryColor,
                     ),
                     new Text(
                       'Self Pick-Up',
@@ -285,13 +286,13 @@ class _CartDetailsState extends State<CartDetails> {
                   children: [
                     Radio(
                       value: 1,
-                      groupValue: val,
+                      groupValue: delValue,
                       onChanged: (int? val1) {
                         setState(() {
-                          val = val1!;
+                          delValue = val1!;
                         });
                       },
-                      activeColor: whiteColor,
+                      activeColor: primaryColor,
                     ),
                     Text(
                       'Home Delivery',
@@ -410,9 +411,9 @@ class _CartDetailsState extends State<CartDetails> {
     return Container(
       // height: 500,
       margin: EdgeInsets.fromLTRB(
-        fixPadding * 2.0,
         fixPadding,
-        fixPadding * 2.0,
+        fixPadding,
+        fixPadding,
         fixPadding,
       ),
       padding: EdgeInsets.all(fixPadding * 1.5),
@@ -455,68 +456,85 @@ class _CartDetailsState extends State<CartDetails> {
   }
 
   deliveryAddress() {
-    return Container(
-      height: 500,
-      // decoration:
-      //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+    return Padding(
       padding: EdgeInsets.symmetric(
-          vertical: fixPadding, horizontal: fixPadding * 1.5),
-      // child: Flexible(
-      //   flex: 1,
-      child: Expanded(
-        child: ListView(
-          shrinkWrap: true,
-          // mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              " Delivery Address",
-              style: greyColor16SemiBoldTextStyle,
+          vertical: fixPadding * 2, horizontal: fixPadding * 1.5),
+      child: Container(
+        height: 500,
+        // decoration:
+        padding: EdgeInsets.symmetric(
+            vertical: fixPadding * 2, horizontal: fixPadding),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                new Radio(
-                  value: 0,
-                  groupValue: val,
-                  onChanged: (int? val1) {
-                    setState(() {
-                      val = val1!;
-                    });
-                  },
-                  activeColor: whiteColor,
-                ),
-                new Text(
-                  'foods',
-                  style: darkBlueColor15MediumTextStyle,
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Radio(
-                  value: 1,
-                  groupValue: val,
-                  onChanged: (int? val1) {
-                    setState(() {
-                      val = val1!;
-                    });
-                  },
-                  activeColor: whiteColor,
-                ),
-                Text(
-                  'food Maker',
-                  style: darkBlueColor15MediumTextStyle,
-                ),
-              ],
-            ),
-            userNameTextField("House No/Floor"),
-            userNameTextField("Apartment/Street Name"),
-            userNameTextField("Address Line1"),
-            userNameTextField("Address Line2"),
           ],
         ),
+        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+        // padding: EdgeInsets.symmetric(
+        //     vertical: fixPadding, horizontal: fixPadding * 1.5),
+        // child: Flexible(
+        //   flex: 1,
+        child: Expanded(
+          child: ListView(
+            shrinkWrap: true,
+            // mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                " Delivery Address",
+                style: greyColor16SemiBoldTextStyle,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  new Radio(
+                    value: 0,
+                    groupValue: foodValue,
+                    onChanged: (int? val1) {
+                      setState(() {
+                        foodValue = val1!;
+                      });
+                    },
+                    activeColor: primaryColor,
+                  ),
+                  new Text(
+                    'foods',
+                    style: darkBlueColor15MediumTextStyle,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    value: 1,
+                    groupValue: foodValue,
+                    onChanged: (int? val1) {
+                      setState(() {
+                        foodValue = val1!;
+                      });
+                    },
+                    activeColor: primaryColor,
+                  ),
+                  Text(
+                    'food Maker',
+                    style: darkBlueColor15MediumTextStyle,
+                  ),
+                ],
+              ),
+              userNameTextField("House No/Floor"),
+              userNameTextField("Apartment/Street Name"),
+              userNameTextField("Address Line1"),
+              userNameTextField("Address Line2"),
+            ],
+          ),
+        ),
+        // ),
+        // ),
       ),
-      // ),
-      // ),
     );
   }
 }

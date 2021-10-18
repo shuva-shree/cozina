@@ -26,8 +26,9 @@ class CustomIndicatorState extends State<CustomIndicator> {
         CarouselSlider.builder(
           itemCount: listPaths.length,
           options: CarouselOptions(
-              aspectRatio: 16 / 12,
+              aspectRatio: 16 / 9,
               autoPlay: true,
+              viewportFraction: 1,
               onPageChanged: (index, reason) {
                 setState(() {
                   currentPos = index;
@@ -35,12 +36,21 @@ class CustomIndicatorState extends State<CustomIndicator> {
               }),
           itemBuilder: (context, index, _) {
             return Container(
-                width: 600,
-                margin: EdgeInsets.symmetric(horizontal: 5),
-                child: FittedBox(
+              width: double.infinity,
+              height: 400,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: AssetImage(listPaths[index]),
                   fit: BoxFit.fill,
-                  child: Image.asset(listPaths[index]),
-                ));
+                ),
+              ),
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              // child: FittedBox(
+              //   fit: BoxFit.fill,
+              //   child: Image.asset(listPaths[index]),
+              // )
+            );
           },
         ),
         Row(
@@ -64,4 +74,3 @@ class CustomIndicatorState extends State<CustomIndicator> {
     );
   }
 }
- 
