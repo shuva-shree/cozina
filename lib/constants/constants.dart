@@ -15,6 +15,7 @@ const SizedBox heightSpace = SizedBox(height: 5.0);
 const SizedBox widthSpace = SizedBox(width: 5.0);
 
 TextStyle darkBlueColor24SemiBoldTextStyle = TextStyle(
+  
   color: darkBlueColor,
   fontSize: 24,
   fontWeight: FontWeight.w600,

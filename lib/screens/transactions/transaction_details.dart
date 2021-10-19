@@ -12,12 +12,13 @@ class TransactionDetails extends StatelessWidget {
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "My Transaction",
-          style: whiteColor26BoldTextStyle,
+          style: whiteColor22BoldTextStyle,
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
       ),
@@ -28,7 +29,7 @@ class TransactionDetails extends StatelessWidget {
                 horizontal: fixPadding, vertical: fixPadding),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: fixPadding, vertical: fixPadding * 2),
+                  horizontal: fixPadding, vertical: fixPadding * 1.5),
               decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(10.0),

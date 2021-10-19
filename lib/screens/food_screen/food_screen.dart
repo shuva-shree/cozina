@@ -229,7 +229,7 @@ class _FoodScreenState extends State<FoodScreen> {
             //         Border.all(color: primaryColor.withOpacity(0.4), width: 2)),
             height: 80,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: fixPadding),
+            padding: EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -256,7 +256,8 @@ class _FoodScreenState extends State<FoodScreen> {
             // color: primaryColor.withOpacity(0.4), width: 2)),
             height: 80,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: fixPadding, vertical: 15),
+            padding: EdgeInsets.symmetric(
+                horizontal: fixPadding * 1.5, vertical: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

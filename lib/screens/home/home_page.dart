@@ -2,6 +2,10 @@ import 'package:cozina/constants/constants.dart';
 import 'package:cozina/drawer.dart';
 import 'package:cozina/models/models.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
+import 'package:cozina/screens/food_screen/food_screen.dart';
+import 'package:cozina/screens/list_screens/cuisine_food_list.dart';
+import 'package:cozina/screens/list_screens/food_list.dart';
+import 'package:cozina/screens/list_screens/foodMaker_Screen.dart';
 import 'package:cozina/screens/list_screens/popular_cuisines.dart';
 import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';
@@ -46,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: DropdownButton<String>(
                   dropdownColor: primaryColor,
+                  iconEnabledColor: whiteColor,
                   value: _value,
                   items: <DropdownMenuItem<String>>[
                     DropdownMenuItem(
@@ -135,16 +140,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                foodsCategoryList(),
+                foodsCategoryList(context),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     title('Popular Food Near You'),
                     InkWell(
-                      // onTap: () => Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                      // ),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (ctx) => CuisinieFood()));
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(right: fixPadding * 2.0),
                         child: Text(
@@ -164,10 +169,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     title('Popular Food Makers Near You'),
                     InkWell(
-                      // onTap: () => Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                      // ),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (ctx) => FoodMakerScreen()));
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(right: fixPadding * 2.0),
                         child: Text(
@@ -206,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 decoration: BoxDecoration(
                   color: whiteColor,
-                  borderRadius: BorderRadius.circular(10),
+                  // borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: greyColor.withOpacity(0.1),
@@ -221,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(Icons.location_pin),
                     Text(
                       "Mumbai",
-                      style: blackColor18BoldTextStyle,
+                      style: darkBlueColor18SemiBoldTextStyle,
                     ),
                     SizedBox(
                       width: width * 0.4,
@@ -235,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Change",
                         style: TextStyle(
                             color: accentColor,
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
@@ -351,13 +356,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  foodsCategoryList() {
+  foodsCategoryList(context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8),
       // height: height * 0.5,
       // width: 200,
       // child: SizedBox(
-      height: height * 0.2,
+      height: height * 0.3,
       width: 200,
       child: ListView.builder(
         physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
@@ -366,16 +371,57 @@ class _HomeScreenState extends State<HomeScreen> {
         itemBuilder: (context, index) {
           final item = foodCategoryList[index];
           return Stack(children: [
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 7),
-                height: height * 0.2,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: height * 0.3,
                 width: 200,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                child: Image.asset(item["image"]!)),
+                decoration: BoxDecoration(
+                  //
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: AssetImage(item["image"]!),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                // child: Opacity(
+                //   opacity: 0.8,
+                //   child: Image.asset(
+                //     item["image"]!,
+                //     fit: BoxFit.cover,
+                //   ),
+                // ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 7),
+                height: height * 0.3,
+                width: 200,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      colors: [
+                        blackColor.withOpacity(0.15),
+                        blackColor.withOpacity(0.7),
+                        blackColor
+                      ],
+                      stops: [0.2, 0.5, 0.85],
+                      end: Alignment.bottomCenter),
+                  borderRadius: BorderRadius.circular(10),
+                  // image: DecorationImage(
+                  //   image: AssetImage(item["image"]!),
+                  //   fit: BoxFit.cover,
+                  // ),
+                ),
+                // child: Image.asset(item["image"]!)
+              ),
+            ),
+
             Positioned(
-              top: 20,
-              left: 35,
+              bottom: 25,
+              left: 20,
               // child: Padding(
               //   padding: EdgeInsets.only(
               //     left: index == 0 ? fixPadding * 2.0 : 0.0,
@@ -389,43 +435,53 @@ class _HomeScreenState extends State<HomeScreen> {
                 //   MaterialPageRoute(builder: (context) => AllRestaurants()),
                 // ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.black26,
-                      ),
+                      // decoration: BoxDecoration(
+                      //   borderRadius: BorderRadius.circular(5),
+                      //   color: Colors.black26,
+                      // ),
                       child: Text(
                         "Cuisine",
-                        style: whiteColor13BoldTextStyle,
+                        style: whiteColor15BoldTextStyle,
                       ),
                     ),
                     heightSpace,
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.black26,
-                      ),
+                      // decoration: BoxDecoration(
+                      //   borderRadius: BorderRadius.circular(5),
+                      //   color: Colors.black26,
+                      // ),
                       child: Text(
                         item['category']!,
-                        style: whiteColor18BoldTextStyle,
+                        style: whiteColor20BoldTextStyle,
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (ctx) => CuisinieFood()));
+                      },
+                      // => Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (ctx) => CuisinieFood(),
+                      //   ),
+                      // ),
                       child: Container(
                         alignment: Alignment.center,
-                        height: 40,
-                        width: 120,
+                        height: 35,
+                        width: 178,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.black54,
+                          color: primaryColor,
                         ),
                         child: Text(
                           "View Foods",
@@ -454,13 +510,10 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.fromLTRB(
               fixPadding * 2.0, 0.0, fixPadding * 2.0, fixPadding * 2.0),
           child: InkWell(
-            // onTap: () => Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) =>
-            //         RestaurantDetails(tag: restaurantList[index]),
-            //   ),
-            // ),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => FoodScreen()));
+            },
             child: Container(
               padding: EdgeInsets.all(fixPadding),
               decoration: BoxDecoration(
@@ -613,171 +666,169 @@ class _HomeScreenState extends State<HomeScreen> {
               fixPadding,
               fixPadding,
             ),
-            child: InkWell(
-              // onTap: () => Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => ParticularItem(
-              //       tag: todaySpecialList[index],
-              //       image: item['image'],
-              //       name: item['name'],
-              //       price: item['price'],
-              //       foodType: item['foodType'],
-              //     ),
-              //   ),
-              // ),
-              child:
-                  // Column(
-                  //   children: [
+            // child: InkWell(
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (ctx) => PopularCuisineScreen()));
+            //   },
+            child:
+                // Column(
+                //   children: [
+                Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Column(
+                children: [
+                  // Hero(
+                  //   tag: popularFoodMakersList[index],
+                  //   child:
                   Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Column(
-                  children: [
-                    // Hero(
-                    //   tag: popularFoodMakersList[index],
-                    //   child:
-                    Container(
-                      height: height * 0.19,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10.0),
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(item['image']!),
-                          fit: BoxFit.cover,
-                        ),
+                    height: height * 0.19,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10.0),
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage(item['image']!),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    // ),
-                    Container(
-                      height: height * 0.22,
-                      width: 200,
-                      padding: EdgeInsets.all(fixPadding),
-                      decoration: BoxDecoration(
-                        color: whiteColor,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10.0),
-                        ),
+                  ),
+                  // ),
+                  Container(
+                    height: height * 0.22,
+                    width: 200,
+                    padding: EdgeInsets.all(fixPadding),
+                    decoration: BoxDecoration(
+                      color: whiteColor,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10.0),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Padding(
-                          //   padding:
-                          //       const EdgeInsets.only(right: fixPadding * 12.0),
-                          //   child:
-                          Text(
-                            item['name']!,
-                            style: darkBlueColor18SemiBoldTextStyle,
-                            softWrap: true,
-                            // maxLines: 1,
-                          ),
-                          // ),
-                          heightSpace,
-                          Container(
-                              child: Row(
-                            children: [
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                            ],
-                          )),
-                          heightSpace,
-                          Text(
-                            item["distance"]!,
-                            style: greyColor13MediumTextStyle,
-                          ),
-                          heightSpace,
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: blackColor,
-                                ),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 6),
-                                  child: Text(
-                                    "South Indian",
-                                    style: whiteColor15BoldTextStyle,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: blackColor,
-                                ),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 6),
-                                  child: Text(
-                                    "Veg",
-                                    style: whiteColor15BoldTextStyle,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          heightSpace,
-                          heightSpace,
-                          Align(
-                            alignment: Alignment.center,
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 35,
-                              width: 120,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Padding(
+                        //   padding:
+                        //       const EdgeInsets.only(right: fixPadding * 12.0),
+                        //   child:
+                        Text(
+                          item['name']!,
+                          style: darkBlueColor18SemiBoldTextStyle,
+                          softWrap: true,
+                          // maxLines: 1,
+                        ),
+                        // ),
+                        heightSpace,
+                        Container(
+                            child: Row(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              size: 20,
+                              color: primaryColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 20,
+                              color: primaryColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 20,
+                              color: primaryColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 20,
+                              color: primaryColor,
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 20,
+                              color: primaryColor,
+                            ),
+                          ],
+                        )),
+                        heightSpace,
+                        Text(
+                          item["distance"]!,
+                          style: greyColor13MediumTextStyle,
+                        ),
+                        heightSpace,
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(4),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(12),
+                                color: blackColor,
                               ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 6),
+                                child: Text(
+                                  "South Indian",
+                                  style: whiteColor15BoldTextStyle,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: blackColor,
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 6),
+                                child: Text(
+                                  "Veg",
+                                  style: whiteColor15BoldTextStyle,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        heightSpace,
+                        heightSpace,
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 35,
+                            width: 120,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: primaryColor,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (ctx) => CuisinieFood()));
+                              },
                               child: Text(
                                 "View Foods",
                                 style: whiteColor18BoldTextStyle,
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
+            // ),
           );
         },
       ),

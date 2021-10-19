@@ -44,6 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Expanded(
                 child: DropdownButton<String>(
                   dropdownColor: primaryColor,
+                  iconEnabledColor: whiteColor,
                   value: _value,
                   items: <DropdownMenuItem<String>>[
                     DropdownMenuItem(
@@ -206,7 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 decoration: BoxDecoration(
                   color: whiteColor,
-                  borderRadius: BorderRadius.circular(10),
+                  // borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: greyColor.withOpacity(0.1),
@@ -221,7 +222,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Icon(Icons.location_pin),
                     Text(
                       "Mumbai",
-                      style: blackColor18BoldTextStyle,
+                      style: darkBlueColor18SemiBoldTextStyle,
                     ),
                     SizedBox(
                       width: width * 0.4,
@@ -235,7 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         "Change",
                         style: TextStyle(
                             color: accentColor,
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500),
                       ),
                     ),

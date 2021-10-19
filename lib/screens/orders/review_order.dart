@@ -49,11 +49,12 @@ class ReviewOrder extends StatelessWidget {
 
   orderBox(context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: fixPadding, vertical: fixPadding * 2),
+      padding:
+          EdgeInsets.symmetric(horizontal: fixPadding, vertical: fixPadding),
       child: Container(
         padding: EdgeInsets.symmetric(
-            horizontal: fixPadding * 2, vertical: fixPadding),
+          horizontal: fixPadding * 1.5,
+        ),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
@@ -136,9 +137,9 @@ class ReviewOrder extends StatelessWidget {
   reviewTextField() {
     return Container(
       margin: EdgeInsets.fromLTRB(
-        fixPadding * 2.0,
         fixPadding,
-        fixPadding * 2.0,
+        fixPadding,
+        fixPadding,
         fixPadding,
       ),
       padding: EdgeInsets.all(fixPadding * 1.5),

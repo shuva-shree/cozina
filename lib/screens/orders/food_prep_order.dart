@@ -29,12 +29,13 @@ class _FoodPrepOrderState extends State<FoodPrepOrder> {
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "#Order1234",
-          style: whiteColor26BoldTextStyle,
+          style: whiteColor22BoldTextStyle,
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
       ),
@@ -62,8 +63,18 @@ class _FoodPrepOrderState extends State<FoodPrepOrder> {
   orderBox() {
     return Padding(
       padding: EdgeInsets.all(fixPadding),
-      child: Card(
-        elevation: 2,
+      child: Container(
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
         child: Padding(
           padding: EdgeInsets.all(fixPadding * 2),
           child: Column(

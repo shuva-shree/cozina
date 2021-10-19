@@ -12,7 +12,7 @@ class PaymentSuccess extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        elevation: 0,
+        // elevation: 0,
         // backgroundColor: bgColor,
         iconTheme: IconThemeData(color: whiteColor),
         leading: IconButton(

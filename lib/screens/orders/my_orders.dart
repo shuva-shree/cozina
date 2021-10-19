@@ -245,7 +245,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
                     Icon(Icons.location_pin),
                     Text(
                       "Mumbai",
-                      style: blackColor18BoldTextStyle,
+                      style: darkBlueColor18SemiBoldTextStyle,
                     ),
                     SizedBox(
                       width: width * 0.4,
@@ -259,7 +259,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
                         "Change",
                         style: TextStyle(
                             color: accentColor,
-                            fontSize: 20,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500),
                       ),
                     ),

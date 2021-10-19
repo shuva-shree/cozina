@@ -13,12 +13,13 @@ class TransactionList extends StatelessWidget {
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "My Transaction",
-          style: whiteColor26BoldTextStyle,
+          style: whiteColor22BoldTextStyle,
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 22,
           ),
         ),
       ),
@@ -46,7 +47,7 @@ class TransactionList extends StatelessWidget {
             horizontal: fixPadding, vertical: fixPadding / 2),
         child: Container(
           padding: EdgeInsets.symmetric(
-              horizontal: fixPadding, vertical: fixPadding / 2),
+              horizontal: fixPadding, vertical: fixPadding),
           decoration: BoxDecoration(
             color: whiteColor,
             borderRadius: BorderRadius.circular(10.0),
@@ -68,7 +69,7 @@ class TransactionList extends StatelessWidget {
                         "#1",
                         style: darkBlueColor18SemiBoldTextStyle,
                       ),
-                      SizedBox(height: 100),
+                      SizedBox(height: 92),
                     ],
                   )),
               SizedBox(
@@ -86,7 +87,7 @@ class TransactionList extends StatelessWidget {
                           style: darkBlueColor20BoldTextStyle,
                         ),
                         SizedBox(
-                          width: 90,
+                          width: 95,
                         ),
                         Text(
                           "\u{20B9}${550}",
@@ -103,7 +104,7 @@ class TransactionList extends StatelessWidget {
                           style: darkBlueColor14MediumTextStyle,
                         ),
                         SizedBox(
-                          width: 140,
+                          width: 145,
                         ),
                         Text(
                           "Amount",
@@ -138,7 +139,7 @@ class TransactionList extends StatelessWidget {
                       style: greyColor14MediumTextStyle,
                     ),
                     heightSpace,
-                    heightSpace,
+                    // heightSpace,
                   ],
                 ),
               )

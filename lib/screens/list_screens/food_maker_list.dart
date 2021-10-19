@@ -44,6 +44,22 @@ class _FoodMkaersListState extends State<FoodMakersList> {
       'price': '14.99',
       'type': 'NonVeg',
     },
+    {
+      'image': 'assets/images/image17.jpg',
+      'name': 'Sharma Bhojans',
+      'distance': '3km',
+      // 'cuisines':['South Indian','Thai'],
+      'price': '14.99',
+      'type': 'NonVeg',
+    },
+    {
+      'image': 'assets/images/image16.jpg',
+      'name': 'Sharma Bhojans',
+      'distance': '3km',
+      // 'cuisines':['South Indian','Thai'],
+      'price': '14.99',
+      'type': 'NonVeg',
+    },
   ];
   @override
   Widget build(BuildContext context) {

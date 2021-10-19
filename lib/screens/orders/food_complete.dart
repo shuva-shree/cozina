@@ -29,12 +29,14 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "#Order1234",
-          style: whiteColor26BoldTextStyle,
+          style: whiteColor22BoldTextStyle,
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
+            size: 
+            22,
           ),
         ),
       ),

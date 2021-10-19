@@ -85,7 +85,7 @@ class FoodsList extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.fromLTRB(
                 fixPadding * 2.0, 0.0, fixPadding * 2.0, fixPadding * 2.0),
-            child: InkWell(
+           
               // onTap: () => Navigator.push(
               //   context,
               //   MaterialPageRoute(
@@ -254,7 +254,7 @@ class FoodsList extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+           
           );
         },
       ),

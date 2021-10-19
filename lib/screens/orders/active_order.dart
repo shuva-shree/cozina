@@ -48,6 +48,7 @@ class ActiveOrder extends StatelessWidget {
               width: 20,
             ),
             Container(
+              // padding: EdgeInsets.only(right: fixPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -59,7 +60,7 @@ class ActiveOrder extends StatelessWidget {
                         style: darkBlueColor20BoldTextStyle,
                       ),
                       SizedBox(
-                        width: 100,
+                        width: 120,
                       ),
                       Text(
                         "\u{20B9}${550}",
@@ -76,7 +77,7 @@ class ActiveOrder extends StatelessWidget {
                         style: darkBlueColor14MediumTextStyle,
                       ),
                       SizedBox(
-                        width: 120,
+                        width: 140,
                       ),
                       Text(
                         "Amount",

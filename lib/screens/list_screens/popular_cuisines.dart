@@ -14,53 +14,46 @@ class PopularCuisine extends StatefulWidget {
 }
 
 class _PopularCuisineState extends State<PopularCuisine> {
- 
-
-  
-
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: whiteColor),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-          ),
-        ),
-        title: Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Text(
-            "Cuisines",
-            style: whiteColor26BoldTextStyle,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Icon(
-              Icons.search,
-              size: 30,
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: whiteColor),
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
             ),
-          )
-        ],
-      ),
-      body: PopularCuisineList()
-    );
+          ),
+          title: Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Text(
+              "Cuisines",
+              style: whiteColor26BoldTextStyle,
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Icon(
+                Icons.search,
+                size: 30,
+              ),
+            )
+          ],
+        ),
+        body: PopularCuisineList());
   }
 }
 
 class PopularCuisineList extends StatefulWidget {
-  const PopularCuisineList({ Key? key }) : super(key: key);
+  const PopularCuisineList({Key? key}) : super(key: key);
 
   @override
   _PopularCuisineListState createState() => _PopularCuisineListState();
 }
 
 class _PopularCuisineListState extends State<PopularCuisineList> {
-
   late double height;
   late double width;
 
@@ -108,84 +101,137 @@ class _PopularCuisineListState extends State<PopularCuisineList> {
   ];
   @override
   Widget build(BuildContext context) {
-     
-
-   height = MediaQuery.of(context).size.height;
+    height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
 
     return GridView.builder(
-          itemCount: foodCategoryList.length,
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200,
-              childAspectRatio: 2.5 / 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20),
-          itemBuilder: (BuildContext ctx, index) {
-            final item = foodCategoryList[index];
-            return Stack(children: [
-              Container(
-                  padding: EdgeInsets.symmetric(horizontal: 7),
-                  height: height * 0.4,
-                  width: 200,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                  child: Image.asset(item["image"]!)),
-              Positioned(
-                top: 20,
-                left: 20,
-                // child: Padding(
-                //   padding: EdgeInsets.only(
-                //     left: index == 0 ? fixPadding * 2.0 : 0.0,
-                //     right: index == foodCategoryList.length - 1
-                //         ? fixPadding * 2.0
-                //         : fixPadding * 1.5,
-                //   ),
-                child: InkWell(
-                  // onTap: () => Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                  // ),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Cuisine",
-                        style: greyColor16SemiBoldTextStyle,
-                      ),
-                      heightSpace,
-                      Text(
-                        item['category']!,
-                        style: whiteColor18BoldTextStyle,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.black54,
-                          ),
-                          child: TextButton(
-                            onPressed: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (ctx) => CuisinieFood())),
-                            child: Text(
-                              "View Foods",
-                              style: whiteColor18BoldTextStyle,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+        itemCount: foodCategoryList.length,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 2.5 / 3,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20),
+        itemBuilder: (BuildContext ctx, index) {
+          final item = foodCategoryList[index];
+          return Stack(children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: height * 0.3,
+                width: 200,
+                decoration: BoxDecoration(
+                  //
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: AssetImage(item["image"]!),
+                    fit: BoxFit.cover,
                   ),
                 ),
+                // child: Opacity(
+                //   opacity: 0.8,
+                //   child: Image.asset(
+                //     item["image"]!,
+                //     fit: BoxFit.cover,
+                //   ),
+                // ),
               ),
-              // ),
-            ]);
-          });
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 7),
+                height: height * 0.3,
+                width: 200,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      colors: [
+                        blackColor.withOpacity(0.15),
+                        blackColor.withOpacity(0.7),
+                        blackColor
+                      ],
+                      stops: [0.2, 0.5, 0.85],
+                      end: Alignment.bottomCenter),
+                  borderRadius: BorderRadius.circular(10),
+                  // image: DecorationImage(
+                  //   image: AssetImage(item["image"]!),
+                  //   fit: BoxFit.cover,
+                  // ),
+                ),
+                // child: Image.asset(item["image"]!)
+              ),
+            ),
+
+            Positioned(
+              bottom: 30,
+              left: 20,
+              // child: Padding(
+              //   padding: EdgeInsets.only(
+              //     left: index == 0 ? fixPadding * 2.0 : 0.0,
+              //     right: index == foodCategoryList.length - 1
+              //         ? fixPadding * 2.0
+              //         : fixPadding * 1.5,
+              //   ),
+              child: InkWell(
+                // onTap: () => Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => AllRestaurants()),
+                // ),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      // decoration: BoxDecoration(
+                      //   borderRadius: BorderRadius.circular(5),
+                      //   color: Colors.black26,
+                      // ),
+                      child: Text(
+                        "Cuisine",
+                        style: whiteColor15BoldTextStyle,
+                      ),
+                    ),
+                    heightSpace,
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      // decoration: BoxDecoration(
+                      //   borderRadius: BorderRadius.circular(5),
+                      //   color: Colors.black26,
+                      // ),
+                      child: Text(
+                        item['category']!,
+                        style: whiteColor20BoldTextStyle,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (ctx) => CuisinieFood()));
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 30,
+                        width: 145,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: primaryColor,
+                        ),
+                        child: Text(
+                          "View Foods",
+                          style: whiteColor18BoldTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            // ),
+          ]);
+        });
   }
 }

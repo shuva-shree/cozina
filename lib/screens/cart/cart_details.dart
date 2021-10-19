@@ -1,5 +1,7 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/checkout.dart';
+import 'package:cozina/widgets/city_drop_down.dart';
+import 'package:cozina/widgets/state_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class CartDetails extends StatefulWidget {
@@ -240,7 +242,7 @@ class _CartDetailsState extends State<CartDetails> {
             heightSpace,
             heightSpace,
             Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 8),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -271,7 +273,7 @@ class _CartDetailsState extends State<CartDetails> {
                       style: darkBlueColor16MediumTextStyle,
                     ),
                     SizedBox(
-                      width: 150,
+                      width: 175,
                     ),
                     Text(
                       "Free",
@@ -299,7 +301,7 @@ class _CartDetailsState extends State<CartDetails> {
                       style: darkBlueColor16MediumTextStyle,
                     ),
                     SizedBox(
-                      width: 130,
+                      width: 150,
                     ),
                     Text(
                       "+ \u{20B9}${50}",
@@ -319,18 +321,7 @@ class _CartDetailsState extends State<CartDetails> {
   }
 
   checkoutButton() {
-    return
-        //  Padding(
-        //   padding: EdgeInsets.symmetric(horizontal: fixPadding),
-        //   child: Container(
-        //     padding: EdgeInsets.symmetric(horizontal: fixPadding),
-        //     decoration: BoxDecoration(
-        //       border: Border.all(color: primaryColor, width: 2),
-        //   left: BorderSide(color: primaryColor, width: 2),
-        //   right: BorderSide(color: primaryColor, width: 2),
-        //   bottom: BorderSide(color: primaryColor, width: 2),
-        // ),
-        Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: fixPadding * 2.0,
         vertical: fixPadding * 1.5,
@@ -430,12 +421,12 @@ class _CartDetailsState extends State<CartDetails> {
       ),
       child: Row(
         children: [
-          Icon(
-            Icons.person_outline,
-            color: greyColor,
-            size: 20,
-          ),
-          widthSpace,
+          // Icon(
+          //   Icons.person_outline,
+          //   color: greyColor,
+          //   size: 20,
+          // ),
+          // widthSpace,
           Expanded(
             child: TextField(
               cursorColor: primaryColor,
@@ -455,12 +446,59 @@ class _CartDetailsState extends State<CartDetails> {
     );
   }
 
+  pincodeField() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(
+        fixPadding,
+        fixPadding,
+        fixPadding,
+        fixPadding,
+      ),
+      padding: EdgeInsets.all(fixPadding * 1.5),
+      decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color: greyColor.withOpacity(0.1),
+            spreadRadius: 2.5,
+            blurRadius: 2.5,
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          // Icon(
+          //   Icons.phone_android_outlined,
+          //   color: greyColor,
+          //   size: 20,
+          // ),
+          // widthSpace,
+          Expanded(
+            child: TextField(
+              cursorColor: primaryColor,
+              style: greyColor16MediumTextStyle,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.zero,
+                hintStyle: greyColor16MediumTextStyle,
+                hintText: 'Pin Code',
+                border: UnderlineInputBorder(borderSide: BorderSide.none),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   deliveryAddress() {
     return Padding(
       padding: EdgeInsets.symmetric(
           vertical: fixPadding * 2, horizontal: fixPadding * 1.5),
       child: Container(
-        height: 500,
+        height: 620,
         // decoration:
         padding: EdgeInsets.symmetric(
             vertical: fixPadding * 2, horizontal: fixPadding),
@@ -475,53 +513,67 @@ class _CartDetailsState extends State<CartDetails> {
             ),
           ],
         ),
-        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        // padding: EdgeInsets.symmetric(
-        //     vertical: fixPadding, horizontal: fixPadding * 1.5),
-        // child: Flexible(
-        //   flex: 1,
         child: Expanded(
           child: ListView(
             shrinkWrap: true,
             // mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                " Delivery Address",
-                style: greyColor16SemiBoldTextStyle,
+              Padding(
+                padding: const EdgeInsets.only(left: 6),
+                child: Text(
+                  " Delivery Address",
+                  style: greyColor16SemiBoldTextStyle,
+                ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  new Radio(
-                    value: 0,
-                    groupValue: foodValue,
-                    onChanged: (int? val1) {
-                      setState(() {
-                        foodValue = val1!;
-                      });
-                    },
-                    activeColor: primaryColor,
-                  ),
-                  new Text(
-                    'foods',
-                    style: darkBlueColor15MediumTextStyle,
+                  SizedBox(
+                    height: 80,
+                    width: 100,
+                    child: Row(
+                      children: [
+                        new Radio(
+                          value: 0,
+                          groupValue: foodValue,
+                          onChanged: (int? val1) {
+                            setState(() {
+                              foodValue = val1!;
+                            });
+                          },
+                          activeColor: primaryColor,
+                        ),
+                        new Text(
+                          'Add Manually',
+                          style: darkBlueColor15MediumTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: 50,
                   ),
-                  Radio(
-                    value: 1,
-                    groupValue: foodValue,
-                    onChanged: (int? val1) {
-                      setState(() {
-                        foodValue = val1!;
-                      });
-                    },
-                    activeColor: primaryColor,
-                  ),
-                  Text(
-                    'food Maker',
-                    style: darkBlueColor15MediumTextStyle,
+                  SizedBox(
+                    height: 80,
+                    width: 130,
+                    child: Row(
+                      children: [
+                        Radio(
+                          value: 1,
+                          groupValue: foodValue,
+                          onChanged: (int? val1) {
+                            setState(() {
+                              foodValue = val1!;
+                            });
+                          },
+                          activeColor: primaryColor,
+                        ),
+                        Text(
+                          'Use Current',
+                          style: darkBlueColor15MediumTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -529,6 +581,9 @@ class _CartDetailsState extends State<CartDetails> {
               userNameTextField("Apartment/Street Name"),
               userNameTextField("Address Line1"),
               userNameTextField("Address Line2"),
+              StateDropDown(),
+              CityDropDown(),
+              pincodeField(),
             ],
           ),
         ),

@@ -21,7 +21,7 @@ class BasicDetails extends StatelessWidget {
                 "Edit Profile",
                 style: TextStyle(
                     color: accentColor,
-                    fontSize: 18,
+                    fontSize: 15,
                     fontWeight: FontWeight.w600),
               )),
           heightSpace,
