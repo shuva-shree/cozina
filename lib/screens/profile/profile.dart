@@ -42,7 +42,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: whiteColor26BoldTextStyle,
               ),
               Expanded(
-                child: DropdownButton<String>(
+                child:  new DropdownButtonHideUnderline(
+        child:DropdownButton<String>(
                   dropdownColor: primaryColor,
                   iconEnabledColor: whiteColor,
                   value: _value,
@@ -64,7 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   onChanged: (String? value) {
                     setState(() => _value = value!);
                   },
-                ),
+                ),),
               ),
             ],
           ),
@@ -174,8 +175,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   //         top: BorderSide(color: Colors.grey, width: 0.5))),
                   child: TabBarView(
                     children: <Widget>[
-                      Expanded(child: BasicDetails()),
-                      Expanded(child: KitchenDetails())
+                      BasicDetails(),
+                       KitchenDetails()
                     ],
                   ),
                 ),

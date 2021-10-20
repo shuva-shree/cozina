@@ -268,9 +268,16 @@ class _CartDetailsState extends State<CartDetails> {
                       },
                       activeColor: primaryColor,
                     ),
-                    new Text(
-                      'Self Pick-Up',
-                      style: darkBlueColor16MediumTextStyle,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          delValue = 0;
+                        });
+                      },
+                      child: new Text(
+                        'Self Pick-Up',
+                        style: darkBlueColor16MediumTextStyle,
+                      ),
                     ),
                     SizedBox(
                       width: 175,
@@ -296,9 +303,16 @@ class _CartDetailsState extends State<CartDetails> {
                       },
                       activeColor: primaryColor,
                     ),
-                    Text(
-                      'Home Delivery',
-                      style: darkBlueColor16MediumTextStyle,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          delValue = 1;
+                        });
+                      },
+                      child: Text(
+                        'Home Delivery',
+                        style: darkBlueColor16MediumTextStyle,
+                      ),
                     ),
                     SizedBox(
                       width: 150,
@@ -513,83 +527,98 @@ class _CartDetailsState extends State<CartDetails> {
             ),
           ],
         ),
-        child: Expanded(
-          child: ListView(
-            shrinkWrap: true,
-            // mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 6),
-                child: Text(
-                  " Delivery Address",
-                  style: greyColor16SemiBoldTextStyle,
-                ),
+        // child: Expanded(
+        child: Column(
+          // shrinkWrap: true,
+          // mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 6),
+              child: Text(
+                " Delivery Address",
+                style: greyColor16SemiBoldTextStyle,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 80,
-                    width: 100,
-                    child: Row(
-                      children: [
-                        new Radio(
-                          value: 0,
-                          groupValue: foodValue,
-                          onChanged: (int? val1) {
-                            setState(() {
-                              foodValue = val1!;
-                            });
-                          },
-                          activeColor: primaryColor,
-                        ),
-                        new Text(
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 80,
+                  width: 150,
+                  child: Row(
+                    children: [
+                      new Radio(
+                        value: 0,
+                        groupValue: foodValue,
+                        onChanged: (int? val1) {
+                          setState(() {
+                            foodValue = val1!;
+                          });
+                        },
+                        activeColor: primaryColor,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            foodValue = 0;
+                          });
+                        },
+                        child: new Text(
                           'Add Manually',
                           style: darkBlueColor15MediumTextStyle,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  SizedBox(
-                    height: 80,
-                    width: 130,
-                    child: Row(
-                      children: [
-                        Radio(
-                          value: 1,
-                          groupValue: foodValue,
-                          onChanged: (int? val1) {
-                            setState(() {
-                              foodValue = val1!;
-                            });
-                          },
-                          activeColor: primaryColor,
-                        ),
-                        Text(
+                ),
+                SizedBox(
+                  width: 50,
+                ),
+                SizedBox(
+                  height: 80,
+                  width: 130,
+                  child: Row(
+                    children: [
+                      Radio(
+                        value: 1,
+                        groupValue: foodValue,
+                        onChanged: (int? val1) {
+                          setState(() {
+                            foodValue = val1!;
+                          });
+                        },
+                        activeColor: primaryColor,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            foodValue = 1;
+                          });
+                        },
+                        child: Text(
                           'Use Current',
                           style: darkBlueColor15MediumTextStyle,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              userNameTextField("House No/Floor"),
-              userNameTextField("Apartment/Street Name"),
-              userNameTextField("Address Line1"),
-              userNameTextField("Address Line2"),
-              StateDropDown(),
-              CityDropDown(),
-              pincodeField(),
-            ],
-          ),
+                ),
+              ],
+            ),
+            userNameTextField("House No/Floor"),
+            userNameTextField("Apartment/Street Name"),
+            userNameTextField("Address Line1"),
+            userNameTextField("Address Line2"),
+            StateDropDown(),
+            CityDropDown(),
+            pincodeField(),
+          ],
         ),
-        // ),
-        // ),
       ),
+      // ),
+      // ),
+      // ),
     );
   }
 }

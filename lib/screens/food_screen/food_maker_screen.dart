@@ -31,18 +31,23 @@ class _FoodMakerScreenState extends State<FoodMakerScreen> {
         initialIndex: 0,
         child: Scaffold(
           backgroundColor: bgColor,
+
           appBar: AppBar(
-            elevation: 0,
-            backgroundColor: bgColor,
-            iconTheme: IconThemeData(color: darkBlueColor),
-            title: Text(
-              "Food Item",
-              style: darkBlueColor18MediumTextStyle,
-            ),
+            // elevation: 0,
+            backgroundColor: primaryColor,
+            iconTheme: IconThemeData(color: whiteColor),
             leading: IconButton(
               onPressed: () => Navigator.pop(context),
               icon: Icon(
                 Icons.arrow_back_ios,
+                size: 22,
+              ),
+            ),
+            title: Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Text(
+                "Food Item",
+                style: whiteColor20BoldTextStyle,
               ),
             ),
             actions: [
@@ -53,6 +58,7 @@ class _FoodMakerScreenState extends State<FoodMakerScreen> {
             ],
             bottom: TabBar(
               indicatorColor: primaryColor,
+              labelColor: whiteColor,
               tabs: [
                 Tab(
                   text: 'Food',
@@ -64,6 +70,8 @@ class _FoodMakerScreenState extends State<FoodMakerScreen> {
               ],
             ),
           ),
+
+          
           body:
               //  Column(
               //   children: [

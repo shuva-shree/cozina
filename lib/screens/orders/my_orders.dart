@@ -1,10 +1,17 @@
+import 'dart:io';
+
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
+import 'package:cozina/screens/home/home_page.dart';
 import 'package:cozina/screens/orders/active_order.dart';
 import 'package:cozina/screens/orders/completed_order.dart';
+import 'package:cozina/screens/profile/profile.dart';
 import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';
+import 'package:cozina/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../drawer.dart';
 
@@ -57,27 +64,30 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
                 style: whiteColor26BoldTextStyle,
               ),
               Expanded(
-                child: DropdownButton<String>(
-                  dropdownColor: primaryColor,
-                  value: _value,
-                  items: <DropdownMenuItem<String>>[
-                    DropdownMenuItem(
-                      child: Text(
-                        "Buyer's Account",
-                        style: whiteColor15BoldTextStyle,
-                      ),
-                      value: 'one',
-                    ),
-                    DropdownMenuItem(
+                child: new DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    dropdownColor: primaryColor,
+                    iconEnabledColor: whiteColor,
+                    value: _value,
+                    items: <DropdownMenuItem<String>>[
+                      DropdownMenuItem(
                         child: Text(
-                          "FoodMaker's account",
+                          "Buyer's Account",
                           style: whiteColor15BoldTextStyle,
                         ),
-                        value: 'two'),
-                  ],
-                  onChanged: (String? value) {
-                    setState(() => _value = value!);
-                  },
+                        value: 'one',
+                      ),
+                      DropdownMenuItem(
+                          child: Text(
+                            "FoodMaker's account",
+                            style: whiteColor15BoldTextStyle,
+                          ),
+                          value: 'two'),
+                    ],
+                    onChanged: (String? value) {
+                      setState(() => _value = value!);
+                    },
+                  ),
                 ),
               ),
             ],
@@ -202,15 +212,13 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
             //         top: BorderSide(color: Colors.grey, width: 0.5))),
             child: TabBarView(
               controller: tabController,
-              children: <Widget>[
-                Expanded(child: ActiveOrder()),
-                Expanded(child: CompletedOrder())
-              ],
+              children: <Widget>[ActiveOrder(), CompletedOrder()],
             ),
           ),
           // Expanded(child: value == 1 ?  : ),
         ],
       ),
+      // bottomNavigationBar: BottomBar(),
     );
   }
 
@@ -230,7 +238,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 decoration: BoxDecoration(
                   color: whiteColor,
-                  borderRadius: BorderRadius.circular(10),
+                  // borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: greyColor.withOpacity(0.1),
@@ -271,7 +279,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
 
   dropDownItems(String title) {
     return DropdownButton<String>(
-      dropdownColor: blackColor,
+      dropdownColor: bgColor,
       value: _value,
       items: <DropdownMenuItem<String>>[
         DropdownMenuItem(
@@ -300,3 +308,106 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
     super.dispose();
   }
 }
+
+  class OrderBottomBar extends StatefulWidget {
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+int currentIndex = 1;
+
+class _BottomBarState extends State<BottomBar> {
+  late DateTime currentBackPressTime;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: WillPopScope(
+        onWillPop: () async {
+          bool backStatus = onWillPop();
+          if (backStatus) {
+            exit(0);
+          }
+          return false;
+        },
+        child: (currentIndex == 0)
+            ? HomeScreen()
+            : (currentIndex == 1)
+                ? MyOrders()
+                : (currentIndex == 2)
+                    ? ProfilePage()
+                    : ProfilePage(),
+      ),
+      bottomNavigationBar: Container(
+        height: 60,
+        child: BottomNavyBar(
+          showElevation: true,
+          containerHeight: 20,
+          selectedIndex: currentIndex,
+          onItemSelected: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavyBarItem(
+              icon: Image.asset(
+                'assets/icons/home.png',
+                height: 25,
+                width: 25,
+                color: currentIndex == 0 ? primaryColor : darkBlueColor,
+              ),
+              title: Text(
+                ' Foods',
+                style: TextStyle(color: primaryColor),
+              ),
+              activeColor: primaryColor.withOpacity(0.1),
+            ),
+            BottomNavyBarItem(
+              icon: Image.asset(
+                'assets/icons/myOrder2.png',
+                height: 27,
+                width: 27,
+                color: currentIndex == 1 ? primaryColor : darkBlueColor,
+              ),
+              title: Text(
+                ' My Orders',
+                style: TextStyle(color: primaryColor),
+              ),
+              activeColor: primaryColor.withOpacity(0.1),
+            ),
+            BottomNavyBarItem(
+              icon: Image.asset(
+                'assets/icons/user.png',
+                height: 25,
+                width: 25,
+                color: currentIndex == 2 ? primaryColor : darkBlueColor,
+              ),
+              title: Text(
+                ' Profile',
+                style: TextStyle(color: primaryColor),
+              ),
+              activeColor: primaryColor.withOpacity(0.1),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  onWillPop() {
+    DateTime now = DateTime.now();
+    if (currentBackPressTime == null ||
+        now.difference(currentBackPressTime) > Duration(seconds: 2)) {
+      currentBackPressTime = now;
+      Fluttertoast.showToast(
+        msg: 'Press Back Once Again to Exit.',
+        textColor: whiteColor,
+        backgroundColor: darkBlueColor,
+      );
+      return false;
+    }
+    return true;
+  }
+}
+
+

@@ -1,7 +1,5 @@
-
 import 'package:cozina/constants/constants.dart';
 import 'package:flutter/material.dart';
-
 
 class CityDropDown extends StatefulWidget {
   @override
@@ -17,14 +15,14 @@ class _CityDropDownState extends State<CityDropDown> {
     'Bhopal',
     'Chennai',
     'Jaipur'
-  ]; 
-  String _selectedLocation = 'City'; 
+  ];
+  String _selectedLocation = 'City';
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // height: 40,
-      width: 120,
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.fromLTRB(
         fixPadding,
         fixPadding,

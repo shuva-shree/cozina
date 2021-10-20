@@ -22,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentPos = 0;
   late double height;
   late double width;
   String _value = 'one';
@@ -48,28 +49,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: whiteColor26BoldTextStyle,
               ),
               Expanded(
-                child: DropdownButton<String>(
-                  dropdownColor: primaryColor,
-                  iconEnabledColor: whiteColor,
-                  value: _value,
-                  items: <DropdownMenuItem<String>>[
-                    DropdownMenuItem(
-                      child: Text(
-                        "Buyer's Account",
-                        style: whiteColor15BoldTextStyle,
-                      ),
-                      value: 'one',
-                    ),
-                    DropdownMenuItem(
+                child: new DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    dropdownColor: primaryColor,
+                    iconEnabledColor: whiteColor,
+                    value: _value,
+                    items: <DropdownMenuItem<String>>[
+                      DropdownMenuItem(
                         child: Text(
-                          "FoodMaker's account",
+                          "Buyer's Account",
                           style: whiteColor15BoldTextStyle,
                         ),
-                        value: 'two'),
-                  ],
-                  onChanged: (String? value) {
-                    setState(() => _value = value!);
-                  },
+                        value: 'one',
+                      ),
+                      DropdownMenuItem(
+                          child: Text(
+                            "FoodMaker's account",
+                            style: whiteColor15BoldTextStyle,
+                          ),
+                          value: 'two'),
+                    ],
+                    onChanged: (String? value) {
+                      setState(() => _value = value!);
+                    },
+                  ),
                 ),
               ),
             ],
@@ -111,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // searchTextField(),
                 heightSpace,
                 heightSpace,
-                foodsList(),
+                foodsList(context),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -250,93 +253,148 @@ class _HomeScreenState extends State<HomeScreen> {
             );
   }
 
-  foodsList() {
+  foodsList(context) {
     return Column(
       children: [
         Container(
-          height: 160,
+          height: 220,
           child:
-              //         CarouselSlider.builder(
-              //            options:  CarouselOptions(
-              //     height: 400,
-              //     aspectRatio: 16/9,
-              //     viewportFraction: 0.8,
-              //     initialPage: 0,
-              //     enableInfiniteScroll: true,
-              //     reverse: false,
-              //     autoPlay: true,
-              //     autoPlayInterval: Duration(seconds: 3),
-              //     autoPlayAnimationDuration: Duration(milliseconds: 800),
-              //     autoPlayCurve: Curves.fastOutSlowIn,
-              //     enlargeCenterPage: true,
-              //     // onPageChanged: callbackFunction,
-              //     scrollDirection: Axis.horizontal,),
-              //           itemCount: foodList.length,
-              //           itemBuilder: Builder(
-              //                 builder: (BuildContext context) {
-              //                   return Container(
-              //                     width: MediaQuery.of(context).size.width,
-              //                     margin: EdgeInsets.symmetric(horizontal: 10.0),
-              //                     decoration: BoxDecoration(
-              //                       color: Colors.green,
-              //                     ),
-              //                     // child: Image.network(
-              //                     //   imgUrl,
-              //                     //   fit: BoxFit.fill,
-              //                     // ),
-              //                   );
-              //                 },
-              //               ),
-              //  )): (index) {
-              //               setState(() {
-              //                 _current = index;
-              //               });
-              //             },
-              //             items: foodList.map((imgUrl) {}).toList(),
 
-              ListView.builder(
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            scrollDirection: Axis.horizontal,
-            itemCount: foodList.length,
-            itemBuilder: (context, index) {
-              final item = foodList[index];
-              return Padding(
-                padding: EdgeInsets.fromLTRB(
-                    index == 0 ? fixPadding * 2.0 : fixPadding,
-                    0.0,
-                    index == foodList.length - 1
-                        ? fixPadding * 2.0
-                        : fixPadding,
-                    0.0),
-                child: GestureDetector(
-                  onTap: () {
-                    banner_page = index.toDouble();
-                  },
-                  child: Container(
-                    height: 30,
-                    width: width - 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage(item['image']!),
-                        fit: BoxFit.cover,
-                      ),
+              // Expanded(
+              //   child:
+              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            CarouselSlider.builder(
+              itemCount: foodList.length,
+              options: CarouselOptions(
+                  aspectRatio: 16 / 7,
+                  // autoPlay: true,
+                  viewportFraction: 1,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      currentPos = index;
+                    });
+                  }),
+              itemBuilder: (context, index, _) {
+                return Container(
+                  width: double.infinity,
+                  height: 220,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: AssetImage(foodList[index]["image"]!),
+                      fit: BoxFit.fill,
                     ),
                   ),
-                ),
-              );
-            },
-          ),
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  // child: FittedBox(
+                  //   fit: BoxFit.fill,
+                  //   child: Image.asset(listPaths[index]),
+                  // )
+                );
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: foodList.map((url) {
+                int index = foodList.indexOf(url);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: currentPos == index
+                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                        : Color.fromRGBO(0, 0, 0, 0.4),
+                  ),
+                );
+              }).toList(),
+            ),
+          ]
+                  // ),
+                  ),
         ),
-        DotsIndicator(
-          dotsCount: foodList.length,
-          position: banner_page,
-          decorator: DotsDecorator(
-            color: Colors.black87, // Inactive color
-            activeColor: Colors.redAccent,
-          ),
-        ),
+        //         CarouselSlider.builder(
+        //            options:  CarouselOptions(
+        //     height: 400,
+        //     aspectRatio: 16/9,
+        //     viewportFraction: 1,
+        //     initialPage: 0,
+        //     enableInfiniteScroll: true,
+        //     reverse: false,
+        //     autoPlay: true,
+        //     autoPlayInterval: Duration(seconds: 3),
+        //     autoPlayAnimationDuration: Duration(milliseconds: 800),
+        //     autoPlayCurve: Curves.fastOutSlowIn,
+        //     enlargeCenterPage: true,
+        //     // onPageChanged: callbackFunction,
+        //     scrollDirection: Axis.horizontal,),
+        //           itemCount: foodList.length,
+        //           itemBuilder: Builder(
+        //                 builder: (BuildContext context,index,_) {
+        //                   return Container(
+        //                     width: MediaQuery.of(context).size.width,
+        //                     margin: EdgeInsets.symmetric(horizontal: 10.0),
+        //                     decoration: BoxDecoration(
+        //                       color: Colors.green,
+        //                     ),
+        //                     // child: Image.network(
+        //                     //   imgUrl,
+        //                     //   fit: BoxFit.fill,
+        //                     // ),
+        //                   );
+        //                 },
+        //               ),
+        //  )): (index) {
+        //               setState(() {
+        //                 _current = index;
+        //               });
+        //             },
+        //             items: foodList.map((imgUrl) {}).toList(),
+
+        //       ListView.builder(
+        //     physics:
+        //         BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        //     scrollDirection: Axis.horizontal,
+        //     itemCount: foodList.length,
+        //     itemBuilder: (context, index) {
+        //       final item = foodList[index];
+        //       return Padding(
+        //         padding: EdgeInsets.fromLTRB(
+        //             index == 0 ? fixPadding * 2.0 : fixPadding,
+        //             0.0,
+        //             index == foodList.length - 1
+        //                 ? fixPadding * 2.0
+        //                 : fixPadding,
+        //             0.0),
+        //         child: GestureDetector(
+        //           onTap: () {
+        //             banner_page = index.toDouble();
+        //           },
+        //           child: Container(
+        //             height: 30,
+        //             width: width - 30,
+        //             decoration: BoxDecoration(
+        //               borderRadius: BorderRadius.circular(10),
+        //               image: DecorationImage(
+        //                 image: AssetImage(item['image']!),
+        //                 fit: BoxFit.cover,
+        //               ),
+        //             ),
+        //           ),
+        //         ),
+        //       );
+        //     },
+        //   ),
+        // ),
+        // DotsIndicator(
+        //   dotsCount: foodList.length,
+        //   position: banner_page,
+        //   decorator: DotsDecorator(
+        //     color: Colors.black87, // Inactive color
+        //     activeColor: Colors.redAccent,
+        //   ),
+        // ),
       ],
     );
   }
@@ -483,9 +541,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(10.0),
                           color: primaryColor,
                         ),
-                        child: Text(
-                          "View Foods",
-                          style: whiteColor18BoldTextStyle,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(Icons.remove_red_eye, color: whiteColor),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "View Foods",
+                              style: whiteColor18BoldTextStyle,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -805,7 +874,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Container(
                             alignment: Alignment.center,
                             height: 35,
-                            width: 120,
+                            width: 150,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
                               color: primaryColor,
@@ -815,9 +884,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (ctx) => CuisinieFood()));
                               },
-                              child: Text(
-                                "View Foods",
-                                style: whiteColor18BoldTextStyle,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(Icons.remove_red_eye, color: whiteColor),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "View Foods",
+                                    style: whiteColor18BoldTextStyle,
+                                  ),
+                                ],
                               ),
                             ),
                           ),

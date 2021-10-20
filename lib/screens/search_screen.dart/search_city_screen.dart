@@ -14,13 +14,14 @@ class SearchCityScreen extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             icon: Icon(
               Icons.arrow_back_ios,
+              size: 22,
             ),
           ),
           title: Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Text(
               "Search City",
-              style: whiteColor26BoldTextStyle,
+              style: whiteColor22BoldTextStyle,
             ),
           ),
         ),
@@ -58,15 +59,16 @@ class SearchCityScreen extends StatelessWidget {
                 height: 30,
                 width: 30,
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12, blurRadius: 2, spreadRadius: 2)
-                  ],
-                  color: primaryColor,
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: Colors.black12, blurRadius: 2, spreadRadius: 2)
+                  // ],
+                  borderRadius: BorderRadius.circular(8),
+                  color: blackColor,
                 ),
                 child: Text(
                   ">",
-                  style: whiteColor26BoldTextStyle,
+                  style: whiteColor22BoldTextStyle,
                 ),
               ),
             ),
@@ -86,15 +88,16 @@ class SearchCityScreen extends StatelessWidget {
                 height: 30,
                 width: 30,
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12, blurRadius: 2, spreadRadius: 2)
-                  ],
-                  color: primaryColor,
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: Colors.black12, blurRadius: 2, spreadRadius: 2)
+                  // ],
+                  borderRadius: BorderRadius.circular(8),
+                  color: blackColor,
                 ),
                 child: Text(
                   ">",
-                  style: whiteColor26BoldTextStyle,
+                  style: whiteColor22BoldTextStyle,
                 ),
               ),
             ),
@@ -114,15 +117,16 @@ class SearchCityScreen extends StatelessWidget {
                 height: 30,
                 width: 30,
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12, blurRadius: 2, spreadRadius: 2)
-                  ],
-                  color: primaryColor,
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: Colors.black12, blurRadius: 2, spreadRadius: 2)
+                  // ],
+                  borderRadius: BorderRadius.circular(8),
+                  color: blackColor,
                 ),
                 child: Text(
                   ">",
-                  style: whiteColor26BoldTextStyle,
+                  style: whiteColor22BoldTextStyle,
                 ),
               ),
             ),
@@ -166,7 +170,7 @@ class SearchCityScreen extends StatelessWidget {
                   size: 20,
                 ),
                 hintText: 'Search city',
-                hintStyle: greyColor14MediumTextStyle,
+                hintStyle: greyColor16SemiBoldTextStyle,
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),

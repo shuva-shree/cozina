@@ -12,7 +12,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  int val = -1;
+  int val = 0;
   bool _value = false;
   @override
   Widget build(BuildContext context) {
@@ -113,9 +113,16 @@ class _SearchScreenState extends State<SearchScreen> {
                         SizedBox(
                           width: 8,
                         ),
-                        new Text(
-                          'foods',
-                          style: whiteColor15BoldTextStyle,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              val = 0;
+                            });
+                          },
+                          child: new Text(
+                            'foods',
+                            style: whiteColor15BoldTextStyle,
+                          ),
                         ),
                       ],
                     ),
@@ -139,7 +146,15 @@ class _SearchScreenState extends State<SearchScreen> {
                         SizedBox(
                           width: 8,
                         ),
-                        Text('food Maker', style: whiteColor15BoldTextStyle),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              val = 1;
+                            });
+                          },
+                          child: Text('food Maker',
+                              style: whiteColor15BoldTextStyle),
+                        ),
                       ],
                     ),
                     Row(
@@ -162,9 +177,16 @@ class _SearchScreenState extends State<SearchScreen> {
                         SizedBox(
                           width: 8,
                         ),
-                        new Text(
-                          'cuisine',
-                          style: whiteColor15BoldTextStyle,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              val = 2;
+                            });
+                          },
+                          child: new Text(
+                            'cuisine',
+                            style: whiteColor15BoldTextStyle,
+                          ),
                         ),
                       ],
                     ),
@@ -197,7 +219,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: whiteColor,
-                  // borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: greyColor.withOpacity(0.1),

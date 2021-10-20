@@ -207,14 +207,26 @@ class _FoodMkaersListState extends State<FoodMakersList> {
                               child: Container(
                                 alignment: Alignment.center,
                                 height: 35,
-                                width: 120,
+                                width: 150,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
                                   color: primaryColor,
                                 ),
-                                child: Text(
-                                  "View Foods",
-                                  style: whiteColor18BoldTextStyle,
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Icon(Icons.remove_red_eye,
+                                        color: whiteColor),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      "View Foods",
+                                      style: whiteColor18BoldTextStyle,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),

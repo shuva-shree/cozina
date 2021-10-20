@@ -1,4 +1,10 @@
 // import 'package:cozina/ants/ants.dart';s
+import 'package:cozina/screens/auth/login.dart';
+import 'package:cozina/screens/list_screens/all_foods.dart';
+import 'package:cozina/screens/list_screens/cuisine_food_list.dart';
+import 'package:cozina/screens/orders/my_orders.dart';
+import 'package:cozina/screens/profile/profile.dart';
+import 'package:cozina/screens/transactions/transaction_list.dart';
 import 'package:flutter/material.dart';
 
 import 'constants/constants.dart';
@@ -81,9 +87,14 @@ class _MenuDrawerState extends State<MenuDrawer> {
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
               title: Text('All Foods', style: darkBlueColor16MediumTextStyle),
-              // onTap: () {
-              //   Navigator.push(context, MaterialPageRoute(builder: (ctx) =>ProfilePage()));
-              // },
+              leading: Icon(
+                Icons.fastfood,
+                color: darkBlueColor,
+              ),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => AllFoods()));
+              },
             ),
           ),
           Padding(
@@ -91,19 +102,28 @@ class _MenuDrawerState extends State<MenuDrawer> {
             child: ListTile(
               title:
                   Text('All Cuisines', style: darkBlueColor16MediumTextStyle),
-              // trailing: Icon(Icons.logout),
-              // onTap: () {
-              //   Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
-              // },
+              leading: Icon(
+                Icons.restaurant,
+                color: darkBlueColor,
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => CuisinieFood()));
+              },
             ),
           ),
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
               title: Text('My Orders', style: darkBlueColor16MediumTextStyle),
-              // onTap: () {
-              //   Navigator.push(context, MaterialPageRoute(builder: (ctx) =>ProfilePage()));
-              // },
+              leading: Icon(
+                Icons.checklist,
+                color: darkBlueColor,
+              ),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => MyOrders()));
+              },
             ),
           ),
           Padding(
@@ -111,27 +131,42 @@ class _MenuDrawerState extends State<MenuDrawer> {
             child: ListTile(
               title: Text('My Transactions',
                   style: darkBlueColor16MediumTextStyle),
-              // onTap: () {
-              //   Navigator.push(context, MaterialPageRoute(builder: (ctx) =>ProfilePage()));
-              // },
+              leading: Icon(
+                Icons.monetization_on_rounded,
+                color: darkBlueColor,
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => TransactionList()));
+              },
             ),
           ),
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
               title: Text('Profile', style: darkBlueColor16MediumTextStyle),
-              // onTap: () {
-              //   Navigator.push(context, MaterialPageRoute(builder: (ctx) =>ProfilePage()));
-              // },
+              leading: Icon(
+                Icons.supervised_user_circle_sharp,
+                color: darkBlueColor,
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => ProfilePage()));
+              },
             ),
           ),
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
               title: Text('Log Out', style: darkBlueColor16MediumTextStyle),
-              // onTap: () {
-              //   Navigator.push(context, MaterialPageRoute(builder: (ctx) =>ProfilePage()));
-              // },
+              leading: Icon(
+                Icons.logout,
+                color: darkBlueColor,
+              ),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (ctx) => SignIn()));
+              },
             ),
           ),
         ],
