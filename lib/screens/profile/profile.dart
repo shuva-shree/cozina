@@ -1,5 +1,6 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
+import 'package:cozina/screens/profile/add_kitchen_screen.dart';
 import 'package:cozina/screens/profile/basic_details.dart';
 import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';
@@ -42,30 +43,31 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: whiteColor26BoldTextStyle,
               ),
               Expanded(
-                child:  new DropdownButtonHideUnderline(
-        child:DropdownButton<String>(
-                  dropdownColor: primaryColor,
-                  iconEnabledColor: whiteColor,
-                  value: _value,
-                  items: <DropdownMenuItem<String>>[
-                    DropdownMenuItem(
-                      child: Text(
-                        "Buyer's Account",
-                        style: whiteColor15BoldTextStyle,
-                      ),
-                      value: 'one',
-                    ),
-                    DropdownMenuItem(
+                child: new DropdownButtonHideUnderline(
+                  child: DropdownButton<String>(
+                    dropdownColor: primaryColor,
+                    iconEnabledColor: whiteColor,
+                    value: _value,
+                    items: <DropdownMenuItem<String>>[
+                      DropdownMenuItem(
                         child: Text(
-                          "FoodMaker's account",
+                          "Buyer's Account",
                           style: whiteColor15BoldTextStyle,
                         ),
-                        value: 'two'),
-                  ],
-                  onChanged: (String? value) {
-                    setState(() => _value = value!);
-                  },
-                ),),
+                        value: 'one',
+                      ),
+                      DropdownMenuItem(
+                          child: Text(
+                            "FoodMaker's account",
+                            style: whiteColor15BoldTextStyle,
+                          ),
+                          value: 'two'),
+                    ],
+                    onChanged: (String? value) {
+                      setState(() => _value = value!);
+                    },
+                  ),
+                ),
               ),
             ],
           ),
@@ -176,7 +178,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: TabBarView(
                     children: <Widget>[
                       BasicDetails(),
-                       KitchenDetails()
+                      //  AddKitchenScreen()
+                      KitchenDetails()
                     ],
                   ),
                 ),
