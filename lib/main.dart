@@ -1,12 +1,15 @@
+import 'package:cozina/food_makers_account/add_maker_kitchen.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/food_screen/food_maker_screen.dart';
+import 'package:cozina/screens/home/maker_home_page.dart';
 import 'package:cozina/screens/orders/order_history.dart';
 import 'package:cozina/screens/profile/add_kitchen_details.dart';
 import 'package:cozina/screens/profile/add_kitchen_screen.dart';
 import 'package:cozina/screens/profile/give_kitchen_details.dart';
 import 'package:cozina/screens/transactions/transaction_details.dart';
 import 'package:cozina/splash_screen.dart';
-import 'package:cozina/widgets/bottom_bar.dart';
+import 'package:cozina/widgets/buyer_bottom_bar.dart';
+import 'package:cozina/widgets/maker_bottom_bar.dart';
 import 'package:cozina/widgets/stepper_page.dart';
 // import 'package:cozina/screens/auth/signup.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +31,6 @@ class MyApp extends StatelessWidget {
           // fontFamily: 'Montserrat',
           primarySwatch: Colors.blue,
         ),
-        home: SplashScreen());
+        home: AddMakerKitchen());
   }
 }

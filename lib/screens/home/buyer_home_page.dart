@@ -1,5 +1,5 @@
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/drawer.dart';
+import 'package:cozina/buyer_drawer.dart';
 import 'package:cozina/models/models.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/food_screen/food_screen.dart';
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
-      drawer: MenuDrawer(),
+      drawer: BuyerMenuDrawer(),
       appBar: AppBar(
         toolbarHeight: 70,
         iconTheme: IconThemeData(color: whiteColor),

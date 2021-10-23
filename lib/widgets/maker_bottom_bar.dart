@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/screens/home/home_page.dart';
+import 'package:cozina/food_makers_account/earnings.dart';
+import 'package:cozina/maker_orders/maker_order_screen.dart';
+import 'package:cozina/screens/home/buyer_home_page.dart';
+import 'package:cozina/screens/home/maker_home_page.dart';
 import 'package:cozina/screens/orders/my_orders.dart';
 import 'package:cozina/screens/profile/profile.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -9,14 +12,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
-class BottomBar extends StatefulWidget {
+class MakerBottomBar extends StatefulWidget {
   @override
-  _BottomBarState createState() => _BottomBarState();
+  _MakerBottomBarState createState() => _MakerBottomBarState();
 }
 
 int currentIndex = 0;
 
-class _BottomBarState extends State<BottomBar> {
+class _MakerBottomBarState extends State<MakerBottomBar> {
   late DateTime currentBackPressTime;
   @override
   Widget build(BuildContext context) {
@@ -30,12 +33,12 @@ class _BottomBarState extends State<BottomBar> {
           return false;
         },
         child: (currentIndex == 0)
-            ? HomeScreen()
+            ? MakerHomePage()
             : (currentIndex == 1)
-                ? MyOrders()
+                ? MakerOrderScreen()
                 : (currentIndex == 2)
-                    ? ProfilePage()
-                    : ProfilePage(),
+                    ? MakerEarnings()
+                    : MakerEarnings(),
       ),
       bottomNavigationBar: Container(
         height: 60,
@@ -57,7 +60,7 @@ class _BottomBarState extends State<BottomBar> {
                 color: currentIndex == 0 ? primaryColor : darkBlueColor,
               ),
               title: Text(
-                ' Foods',
+                'Home',
                 style: TextStyle(color: primaryColor),
               ),
               activeColor: primaryColor.withOpacity(0.1),
@@ -77,13 +80,13 @@ class _BottomBarState extends State<BottomBar> {
             ),
             BottomNavyBarItem(
               icon: Image.asset(
-                'assets/icons/user.png',
+                'assets/icons/earnings.png',
                 height: 25,
                 width: 25,
                 color: currentIndex == 2 ? primaryColor : darkBlueColor,
               ),
               title: Text(
-                ' Profile',
+                'My Earnings',
                 style: TextStyle(color: primaryColor),
               ),
               activeColor: primaryColor.withOpacity(0.1),

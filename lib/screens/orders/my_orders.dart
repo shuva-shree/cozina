@@ -3,17 +3,17 @@ import 'dart:io';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
-import 'package:cozina/screens/home/home_page.dart';
+import 'package:cozina/screens/home/buyer_home_page.dart';
 import 'package:cozina/screens/orders/active_order.dart';
 import 'package:cozina/screens/orders/completed_order.dart';
 import 'package:cozina/screens/profile/profile.dart';
 import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';
-import 'package:cozina/widgets/bottom_bar.dart';
+import 'package:cozina/widgets/buyer_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../drawer.dart';
+import '../../buyer_drawer.dart';
 
 class MyOrders extends StatefulWidget {
   const MyOrders({Key? key}) : super(key: key);
@@ -49,7 +49,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
-      drawer: MenuDrawer(),
+      drawer: BuyerMenuDrawer(),
       appBar: AppBar(
         toolbarHeight: 70,
         iconTheme: IconThemeData(color: whiteColor),
@@ -121,58 +121,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
       body: Column(
         children: [
           searchTextField(),
-          // Container(
-          //   padding: EdgeInsets.all(fixPadding * 2),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Column(
-          //         children: [
-          //           Text(
-          //             "Active Order",
-          //             style: darkBlueColor18MediumTextStyle,
-          //           ),
-          //           heightSpace,
-          //           heightSpace,
-          //           GestureDetector(
-          //             onTap: () {
-          //               setState(() {
-          //                 value = 1;
-          //               });
-          //             },
-          //             child: Container(
-          //               height: 15,
-          //               color: value == 1 ? primaryColor : greyColor,
-          //               width: 170,
-          //             ),
-          //           )
-          //         ],
-          //       ),
-          //       Column(
-          //         children: [
-          //           Text(
-          //             "Completed order",
-          //             style: darkBlueColor18MediumTextStyle,
-          //           ),
-          //           heightSpace,
-          //           heightSpace,
-          //           GestureDetector(
-          //             onTap: () {
-          //               setState(() {
-          //                 value = 2;
-          //               });
-          //             },
-          //             child: Container(
-          //               height: 15,
-          //               color: value == 2 ? primaryColor : greyColor,
-          //               width: 170,
-          //             ),
-          //           )
-          //         ],
-          //       )
-          //     ],
-          //   ),
-          // ),
+          
           DefaultTabController(
             length: 2, // length of tabs
             initialIndex: 0,
@@ -205,8 +154,8 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
               dropDownItems("To Date"),
             ],
           ),
-          Container(
-            height: 435, //height of TabBarView
+          Expanded(
+            // height: 435, //height of TabBarView
             // decoration: BoxDecoration(
             //     border: Border(
             //         top: BorderSide(color: Colors.grey, width: 0.5))),
@@ -309,7 +258,7 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
   }
 }
 
-  class OrderBottomBar extends StatefulWidget {
+class OrderBottomBar extends StatefulWidget {
   @override
   _BottomBarState createState() => _BottomBarState();
 }
@@ -409,5 +358,3 @@ class _BottomBarState extends State<BottomBar> {
     return true;
   }
 }
-
-

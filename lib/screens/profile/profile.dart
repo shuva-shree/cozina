@@ -6,7 +6,7 @@ import 'package:cozina/screens/search_screen.dart/search_city_screen.dart';
 import 'package:cozina/screens/search_screen.dart/search_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../drawer.dart';
+import '../../buyer_drawer.dart';
 import 'kitchen_details.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -28,7 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
-      drawer: MenuDrawer(),
+      drawer: BuyerMenuDrawer(),
       appBar: AppBar(
         toolbarHeight: 70,
         iconTheme: IconThemeData(color: whiteColor),
@@ -100,58 +100,6 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Column(
         children: [
           searchTextField(),
-          // Container(
-          //   padding: EdgeInsets.all(fixPadding * 2),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Column(
-          //         children: [
-          //           Text(
-          //             "Basic Details",
-          //             style: darkBlueColor18MediumTextStyle,
-          //           ),
-          //           heightSpace,
-          //           heightSpace,
-          //           GestureDetector(
-          //             onTap: () {
-          //               setState(() {
-          //                 value = 1;
-          //               });
-          //             },
-          //             child: Container(
-          //               height: 15,
-          //               color: value == 1 ? primaryColor : greyColor,
-          //               width: 170,
-          //             ),
-          //           )
-          //         ],
-          //       ),
-          //       Column(
-          //         children: [
-          //           Text(
-          //             "Kitchen Details",
-          //             style: darkBlueColor18MediumTextStyle,
-          //           ),
-          //           heightSpace,
-          //           heightSpace,
-          //           GestureDetector(
-          //             onTap: () {
-          //               setState(() {
-          //                 value = 2;
-          //               });
-          //             },
-          //             child: Container(
-          //               height: 15,
-          //               color: value == 2 ? primaryColor : greyColor,
-          //               width: 170,
-          //             ),
-          //           )
-          //         ],
-          //       )
-          //     ],
-          //   ),
-          // ),
           heightSpace,
           DefaultTabController(
             length: 2, // length of tabs
@@ -171,6 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 Container(
+                  // height: MediaQuery.of(context).size.height - 220,
                   height: 485, //height of TabBarView
                   // decoration: BoxDecoration(
                   //     border: Border(

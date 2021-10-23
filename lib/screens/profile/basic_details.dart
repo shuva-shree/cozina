@@ -8,6 +8,7 @@ class BasicDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        // height: MediaQuery.of(context).size.height,
         color: whiteColor,
         padding: EdgeInsets.symmetric(
           horizontal: fixPadding * 1.5,

@@ -9,16 +9,16 @@ import 'package:flutter/material.dart';
 
 import 'constants/constants.dart';
 
-class MenuDrawer extends StatefulWidget {
-  MenuDrawer({
+class BuyerMenuDrawer extends StatefulWidget {
+  BuyerMenuDrawer({
     Key? key,
   }) : super(key: key);
 
   @override
-  _MenuDrawerState createState() => _MenuDrawerState();
+  _BuyerMenuDrawerState createState() => _BuyerMenuDrawerState();
 }
 
-class _MenuDrawerState extends State<MenuDrawer> {
+class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
   bool _value = true;
 
   @override

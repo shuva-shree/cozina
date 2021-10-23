@@ -45,240 +45,243 @@ class _AddKitchenDetailsState extends State<AddKitchenDetails> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 40,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  padding: EdgeInsets.only(left: 20),
+          child: Container(
+            // height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                Align(
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      // border: Border.all(color: primaryColor, width: 2),
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/image16.jpg"),
-                          fit: BoxFit.cover)),
-                  height: 100,
-                  width: 100,
-                  // child: Text(
-                  //   "KITCHEN LOGO",
-                  //   style: whiteColor15BoldTextStyle,
-                  // ),
+                  child: Container(
+                    padding: EdgeInsets.only(left: 20),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        // border: Border.all(color: primaryColor, width: 2),
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/image16.jpg"),
+                            fit: BoxFit.cover)),
+                    height: 100,
+                    width: 100,
+                    // child: Text(
+                    //   "KITCHEN LOGO",
+                    //   style: whiteColor15BoldTextStyle,
+                    // ),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              userNameTextField("Kitchen Nane"),
-              // SizedBox(
-              //   height: 20,
-              // ),
-              addCuisine(),
-              // SizedBox(
-              //   height: 20,
-              // ),
-              deliveryAddress(),
-              heightSpace,
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
-                child: Text(
-                  "Home Delivery Available?",
-                  style: darkBlueColor18SemiBoldTextStyle,
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: fixPadding),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 80,
-                      width: 150,
-                      child: Row(
-                        children: [
-                          new Radio(
-                            value: 0,
-                            groupValue: yesValue,
-                            onChanged: (int? val1) {
-                              setState(() {
-                                yesValue = val1!;
-                              });
-                            },
-                            activeColor: primaryColor,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                yesValue = 0;
-                              });
-                            },
-                            child: new Text(
-                              'Yes',
-                              style: darkBlueColor15MediumTextStyle,
+                userNameTextField("Kitchen Nane"),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                addCuisine(),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                deliveryAddress(),
+                heightSpace,
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
+                  child: Text(
+                    "Home Delivery Available?",
+                    style: darkBlueColor18SemiBoldTextStyle,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: fixPadding),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 80,
+                        width: 150,
+                        child: Row(
+                          children: [
+                            new Radio(
+                              value: 0,
+                              groupValue: yesValue,
+                              onChanged: (int? val1) {
+                                setState(() {
+                                  yesValue = val1!;
+                                });
+                              },
+                              activeColor: primaryColor,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 50,
-                    ),
-                    SizedBox(
-                      height: 80,
-                      width: 130,
-                      child: Row(
-                        children: [
-                          Radio(
-                            value: 1,
-                            groupValue: yesValue,
-                            onChanged: (int? val1) {
-                              setState(() {
-                                yesValue = val1!;
-                              });
-                            },
-                            activeColor: primaryColor,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                yesValue = 1;
-                              });
-                            },
-                            child: Text(
-                              'No',
-                              style: darkBlueColor15MediumTextStyle,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              addCity(),
-              userNameTextField("Home Delivery Charge(in \u{20B9})"),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
-                child: Text(
-                  "Add Kitchen Photos",
-                  style: darkBlueColor18SemiBoldTextStyle,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 200,
-                child:
-
-                    // Expanded(
-                    //   child:
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                      CarouselSlider.builder(
-                        itemCount: imageList.length,
-                        options: CarouselOptions(
-                            aspectRatio: 16 / 7,
-                            // autoPlay: true,
-                            viewportFraction: 0.6,
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                currentPos = index;
-                              });
-                            }),
-                        itemBuilder: (context, index, _) {
-                          return Container(
-                            width: double.infinity,
-                            height: 220,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                image: AssetImage(imageList[index]),
-                                // fit: BoxFit.fill,
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  yesValue = 0;
+                                });
+                              },
+                              child: new Text(
+                                'Yes',
+                                style: darkBlueColor15MediumTextStyle,
                               ),
                             ),
-                            margin: EdgeInsets.symmetric(horizontal: 10),
-                            // child: FittedBox(
-                            //   fit: BoxFit.fill,
-                            //   child: Image.asset(listPaths[index]),
-                            // )
-                          );
-                        },
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: imageList.map((url) {
-                          int index = imageList.indexOf(url);
-                          return Container(
-                            width: 8.0,
-                            height: 8.0,
-                            margin: EdgeInsets.symmetric(
-                                vertical: 10.0, horizontal: 2.0),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: currentPos == index
-                                  ? Color.fromRGBO(0, 0, 0, 0.9)
-                                  : Color.fromRGBO(0, 0, 0, 0.4),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ]
-                        // ),
+                          ],
                         ),
-              ),
-              // GFItemsCarousel(
-              //   rowCount: 2,
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      SizedBox(
+                        height: 80,
+                        width: 130,
+                        child: Row(
+                          children: [
+                            Radio(
+                              value: 1,
+                              groupValue: yesValue,
+                              onChanged: (int? val1) {
+                                setState(() {
+                                  yesValue = val1!;
+                                });
+                              },
+                              activeColor: primaryColor,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  yesValue = 1;
+                                });
+                              },
+                              child: Text(
+                                'No',
+                                style: darkBlueColor15MediumTextStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                addCity(),
+                userNameTextField("Home Delivery Charge(in \u{20B9})"),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
+                  child: Text(
+                    "Add Kitchen Photos",
+                    style: darkBlueColor18SemiBoldTextStyle,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 200,
+                  child:
 
-              //   children: imageList.map(
-              //     (url) {
-              //       return Container(
-              //         margin: EdgeInsets.all(5.0),
-              //         child: ClipRRect(
-              //           borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              //           child: Image.network(url,
-              //               fit: BoxFit.cover, width: 1000.0),
-              //         ),
-              //       );
-              //     },
-              //   ).toList(),
-              // ),
-              // GFCarousel(
-              //   viewportFraction: 0.4,
-              //   pagination: true,
-              //   enableInfiniteScroll: true,
-              //   items: imageList.map(
-              //     (url) {
-              //       return Container(
-              //         margin: EdgeInsets.all(8.0),
-              //         child: ClipRRect(
-              //           borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              //           child: Image.network(url,
-              //               fit: BoxFit.cover, width: 1000.0),
-              //         ),
-              //       );
-              //     },
-              //   ).toList(),
-              //   onPageChanged: (index) {
-              //     setState(() {
-              //       index;
-              //     });
-              //   },
-              // ),
-              SizedBox(
-                height: 30,
-              ),
-              addKitchenButton(context)
-            ],
+                      // Expanded(
+                      //   child:
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                        CarouselSlider.builder(
+                          itemCount: imageList.length,
+                          options: CarouselOptions(
+                              aspectRatio: 16 / 7,
+                              // autoPlay: true,
+                              viewportFraction: 0.6,
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  currentPos = index;
+                                });
+                              }),
+                          itemBuilder: (context, index, _) {
+                            return Container(
+                              width: double.infinity,
+                              height: 220,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: AssetImage(imageList[index]),
+                                  // fit: BoxFit.fill,
+                                ),
+                              ),
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              // child: FittedBox(
+                              //   fit: BoxFit.fill,
+                              //   child: Image.asset(listPaths[index]),
+                              // )
+                            );
+                          },
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: imageList.map((url) {
+                            int index = imageList.indexOf(url);
+                            return Container(
+                              width: 8.0,
+                              height: 8.0,
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 2.0),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: currentPos == index
+                                    ? Color.fromRGBO(0, 0, 0, 0.9)
+                                    : Color.fromRGBO(0, 0, 0, 0.4),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ]
+                          // ),
+                          ),
+                ),
+                // GFItemsCarousel(
+                //   rowCount: 2,
+
+                //   children: imageList.map(
+                //     (url) {
+                //       return Container(
+                //         margin: EdgeInsets.all(5.0),
+                //         child: ClipRRect(
+                //           borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                //           child: Image.network(url,
+                //               fit: BoxFit.cover, width: 1000.0),
+                //         ),
+                //       );
+                //     },
+                //   ).toList(),
+                // ),
+                // GFCarousel(
+                //   viewportFraction: 0.4,
+                //   pagination: true,
+                //   enableInfiniteScroll: true,
+                //   items: imageList.map(
+                //     (url) {
+                //       return Container(
+                //         margin: EdgeInsets.all(8.0),
+                //         child: ClipRRect(
+                //           borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                //           child: Image.network(url,
+                //               fit: BoxFit.cover, width: 1000.0),
+                //         ),
+                //       );
+                //     },
+                //   ).toList(),
+                //   onPageChanged: (index) {
+                //     setState(() {
+                //       index;
+                //     });
+                //   },
+                // ),
+                SizedBox(
+                  height: 30,
+                ),
+                addKitchenButton(context)
+              ],
+            ),
           ),
         ));
   }
