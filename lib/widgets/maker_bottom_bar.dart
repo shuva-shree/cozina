@@ -1,8 +1,9 @@
 import 'dart:io';
 
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/food_makers_account/earnings.dart';
+
 import 'package:cozina/maker_orders/maker_order_screen.dart';
+import 'package:cozina/screens/food_makers_account/earnings.dart';
 import 'package:cozina/screens/home/buyer_home_page.dart';
 import 'package:cozina/screens/home/maker_home_page.dart';
 import 'package:cozina/screens/orders/my_orders.dart';
