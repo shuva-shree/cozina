@@ -1,5 +1,4 @@
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/screens/home/buyer_home_page.dart';
 import 'package:cozina/widgets/buyer_bottom_bar.dart';
 import 'package:flutter/material.dart';
 

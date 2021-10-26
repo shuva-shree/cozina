@@ -1,31 +1,86 @@
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/maker_order_status/accepted.dart';
+import 'package:cozina/screens/maker_order_status/approval.dart';
+import 'package:cozina/screens/maker_order_status/food_prep_started.dart';
+import 'package:cozina/screens/maker_order_status/food_prepared.dart';
 import 'package:flutter/material.dart';
 
-class MakerOrderRequest extends StatelessWidget {
-  const MakerOrderRequest({Key? key}) : super(key: key);
+class MakerActiveOrder extends StatefulWidget {
+  const MakerActiveOrder({Key? key}) : super(key: key);
+
+  @override
+  _MakerActiveOrderState createState() => _MakerActiveOrderState();
+}
+
+class _MakerActiveOrderState extends State<MakerActiveOrder> {
+  late double height;
+  late double width;
+  String _value = 'one';
+  var banner_page = 1.0;
+  var value = 1;
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: [
-            orderBox(context, "Waiting for approval"),
-            orderBox(context, "Waiting for approval"),
-            orderBox(context, "Waiting for approval"),
-            orderBox(context, "Waiting for approval"),
-          ],
-        ),
+    return Container(
+      // height: MediaQuery.of(context).size.height,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              dropDownItems("All Status"),
+              dropDownItems("From Date"),
+              dropDownItems("To Date"),
+            ],
+          ),
+          SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: [
+                  orderBox(context, "Approved", AcceptedOrder()),
+                  orderBox(
+                      context, "Food Preparation Started", FoodPrepStarted()),
+                  orderBox(context, "Food Prepared, Waiting for pick up",
+                      FoodPreparationCompleted()),
+                  // orderBox(context, "Out for Delivery"),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
 
-  orderBox(context, String title) {
+  dropDownItems(String title) {
+    return DropdownButton<String>(
+      dropdownColor: bgColor,
+      value: _value,
+      items: <DropdownMenuItem<String>>[
+        DropdownMenuItem(
+          child: Text(
+            title,
+            style: blackColor15SemiBoldTextStyle,
+          ),
+          value: 'one',
+        ),
+        // DropdownMenuItem(
+        //     child: Text(
+        //       "FoodMaker's account",
+        //       style: whiteColor15BoldTextStyle,
+        //     ),
+        //     value: 'two'),
+      ],
+      onChanged: (String? value) {
+        setState(() => _value = value!);
+      },
+    );
+  }
+
+  orderBox(context, String title, Widget screen) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //     context, MaterialPageRoute(builder: (ctx) => ConfirmedOrder()));
+        Navigator.push(context, MaterialPageRoute(builder: (ctx) => screen));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(

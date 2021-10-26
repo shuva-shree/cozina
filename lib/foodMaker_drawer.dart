@@ -1,8 +1,15 @@
 // import 'package:cozina/ants/ants.dart';s
 import 'package:cozina/screens/auth/login.dart';
+import 'package:cozina/screens/food_makers_account/add_maker_kitchen.dart';
+import 'package:cozina/screens/food_makers_account/earnings.dart';
+import 'package:cozina/screens/food_makers_account/help_and_support.dart';
+import 'package:cozina/screens/food_makers_account/maker_food_list.dart';
+import 'package:cozina/screens/food_makers_account/maker_profile_details.dart';
 import 'package:cozina/screens/list_screens/all_foods.dart';
-import 'package:cozina/screens/list_screens/cuisine_food_list.dart';
+import 'package:cozina/screens/maker_orders/maker_order_screen.dart';
 import 'package:cozina/screens/orders/my_orders.dart';
+import 'package:cozina/screens/profile/add_kitchen_screen.dart';
+import 'package:cozina/screens/profile/kitchen_details.dart';
 import 'package:cozina/screens/profile/profile.dart';
 import 'package:cozina/screens/transactions/transaction_list.dart';
 import 'package:flutter/material.dart';
@@ -114,8 +121,8 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
                 color: darkBlueColor,
               ),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (ctx) => AllFoods()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => MakerProfilePage()));
               },
             ),
           ),
@@ -128,8 +135,8 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
                 color: darkBlueColor,
               ),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (ctx) => AllFoods()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => MakerFoodList()));
               },
             ),
           ),
@@ -142,8 +149,8 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
                 color: darkBlueColor,
               ),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (ctx) => MyOrders()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => MakerOrderScreen()));
               },
             ),
           ),
@@ -158,7 +165,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
               ),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (ctx) => TransactionList()));
+                    MaterialPageRoute(builder: (ctx) => MakerEarnings()));
               },
             ),
           ),
@@ -188,7 +195,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
               ),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (ctx) => ProfilePage()));
+                    MaterialPageRoute(builder: (ctx) => MakerProfilePage()));
               },
             ),
           ),
@@ -202,8 +209,8 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
                 color: darkBlueColor,
               ),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (ctx) => SignIn()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => HelpAndSuppport()));
               },
             ),
           ),

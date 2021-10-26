@@ -1,13 +1,15 @@
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/maker_orders/maker_active_orders.dart';
-import 'package:cozina/maker_orders/maker_completed_orders.dart';
-import 'package:cozina/maker_orders/maker_order_request.dart';
+
+import 'package:cozina/screens/maker_orders/maker_active_orders.dart';
+import 'package:cozina/screens/maker_orders/maker_completed_orders.dart';
 import 'package:cozina/screens/orders/active_order.dart';
 import 'package:cozina/screens/orders/completed_order.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../foodMaker_drawer.dart';
+import '../../foodMaker_drawer.dart';
+
+import 'maker_order_request.dart';
 
 class MakerOrderScreen extends StatefulWidget {
   const MakerOrderScreen({Key? key}) : super(key: key);

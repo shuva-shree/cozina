@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late double height;
   late double width;
   String _value = 'one';
-  var banner_page = 1.0;
+
 
   @override
   Widget build(BuildContext context) {

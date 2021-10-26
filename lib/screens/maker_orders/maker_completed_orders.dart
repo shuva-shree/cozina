@@ -1,14 +1,15 @@
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/screens/maker_order_status/order_completed.dart';
 import 'package:flutter/material.dart';
 
-class MakerActiveOrder extends StatefulWidget {
-  const MakerActiveOrder({Key? key}) : super(key: key);
+class MakeOrderComplete extends StatefulWidget {
+  const MakeOrderComplete({Key? key}) : super(key: key);
 
   @override
-  _MakerActiveOrderState createState() => _MakerActiveOrderState();
+  _MakeOrderCompleteState createState() => _MakeOrderCompleteState();
 }
 
-class _MakerActiveOrderState extends State<MakerActiveOrder> {
+class _MakeOrderCompleteState extends State<MakeOrderComplete> {
   late double height;
   late double width;
   String _value = 'one';
@@ -33,9 +34,9 @@ class _MakerActiveOrderState extends State<MakerActiveOrder> {
             child: Container(
               child: Column(
                 children: [
-                  orderBox(context, "Approved"),
-                  orderBox(context, "Food Preparation Started"),
-                  orderBox(context, "Food Prepared, Waiting for pick up"),
+                  orderBox(context, "Completed"),
+                  orderBox(context, "Completed"),
+                  orderBox(context, "Completed"),
                   // orderBox(context, "Out for Delivery"),
                 ],
               ),
@@ -74,8 +75,8 @@ class _MakerActiveOrderState extends State<MakerActiveOrder> {
   orderBox(context, String title) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //     context, MaterialPageRoute(builder: (ctx) => ConfirmedOrder()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (ctx) => OrderCompleted()));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(

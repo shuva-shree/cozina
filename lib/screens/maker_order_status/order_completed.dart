@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/screens/maker_order_status/completion_confirmation.dart';
 import 'package:cozina/screens/orders/food_complete.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +59,10 @@ class _OrderCompletedState extends State<OrderCompleted> {
   orderBox() {
     return Padding(
       padding: EdgeInsets.all(fixPadding),
+    
       child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: fixPadding * 1.5, vertical: fixPadding * 2),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
@@ -72,50 +74,36 @@ class _OrderCompletedState extends State<OrderCompleted> {
             ),
           ],
         ),
-        child: Padding(
-          padding: EdgeInsets.all(fixPadding * 2),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Order Status",
-                    style: greyColor14MediumTextStyle,
-                  ),
-                  SizedBox(
-                    width: 120,
-                  ),
-                  Text(
-                    "Full Details",
-                    style: TextStyle(color: accentColor, fontSize: 17),
-                  ),
-                ],
-              ),
-
-              heightSpace,
-              Text(
-                "Food is Prepared | Waiting for PickUp",
-                style: darkBlueColor20BoldTextStyle,
-              ),
-              // heightSpace,
-              heightSpace,
-              Divider(
-                  // color: primaryColor,
-                  // thickness: 2,
-                  ),
-              heightSpace,
-              // heightSpace,
-
-              approvalButton(context, "Request Order Completion"),
-
-              // heightSpace,
-              // orderDetails(),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Order Status",
+                  style: greyColor14MediumTextStyle,
+                ),
+                SizedBox(
+                  width: 120,
+                ),
+                Text(
+                  "Full Details",
+                  style: TextStyle(color: accentColor, fontSize: 17),
+                ),
+              ],
+            ),
+            heightSpace,
+            heightSpace,
+            Text(
+              "Order Completed",
+              style: darkBlueColor18MediumTextStyle,
+            ),
+            heightSpace,
+          ],
         ),
       ),
+     
     );
   }
 
@@ -158,12 +146,10 @@ class _OrderCompletedState extends State<OrderCompleted> {
             style: greyColor15SemiBoldTextStyle,
           ),
           heightSpace,
-
           Text(
             "\u{20B9} 550 ",
             style: darkBlueColor18SemiBoldTextStyle,
           ),
-
           SizedBox(
             height: 30,
           ),
@@ -191,20 +177,6 @@ class _OrderCompletedState extends State<OrderCompleted> {
           SizedBox(
             height: 30,
           ),
-          // Text(
-          //   "Pick-up Address",
-          //   style: greyColor16SemiBoldTextStyle,
-          // ),
-          // SizedBox(
-          //   height: 20,
-          // ),
-          // Text(
-          //   "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
-          //   style: darkBlueColor18SemiBoldTextStyle,
-          // ),
-          // SizedBox(
-          //   height: 20,
-          // ),
         ],
       ),
     );
@@ -345,12 +317,9 @@ class _OrderCompletedState extends State<OrderCompleted> {
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(10.0),
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => CompletionConfirmation()));
-        },
+        // onTap: () {
+        //   _showDialog(context);
+        // },
         child: Container(
           // margin: EdgeInsets.fromLTRB(
           //   fixPadding,

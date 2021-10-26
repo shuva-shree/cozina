@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:cozina/constants/constants.dart';
-import 'package:cozina/screens/maker_order_status/food_prepared.dart';
+import 'package:cozina/screens/maker_order_status/completion_confirmation.dart';
 import 'package:cozina/screens/orders/food_complete.dart';
 import 'package:flutter/material.dart';
 
-class FoodPrepStarted extends StatefulWidget {
-  const FoodPrepStarted({Key? key}) : super(key: key);
+class FoodPreparationCompleted extends StatefulWidget {
+  const FoodPreparationCompleted({Key? key}) : super(key: key);
 
   @override
-  _FoodPrepStartedState createState() => _FoodPrepStartedState();
+  _FoodPreparationCompletedState createState() => _FoodPreparationCompletedState();
 }
 
-class _FoodPrepStartedState extends State<FoodPrepStarted> {
+class _FoodPreparationCompletedState extends State<FoodPreparationCompleted> {
   // @override
   // void initState() {
   //   Timer(Duration(seconds: 5), () {
@@ -39,10 +39,12 @@ class _FoodPrepStartedState extends State<FoodPrepStarted> {
             size: 22,
           ),
         ),
-        actions: [Padding(
+        actions: [
+          Padding(
             padding: const EdgeInsets.only(right: fixPadding),
             child: Icon(Icons.warning_outlined),
-          ),],
+          )
+        ],
       ),
       body: ListView(
         children: [
@@ -94,7 +96,7 @@ class _FoodPrepStartedState extends State<FoodPrepStarted> {
 
               heightSpace,
               Text(
-                "Food Preparation Started",
+                "Food is Prepared | Waiting for PickUp",
                 style: darkBlueColor20BoldTextStyle,
               ),
               // heightSpace,
@@ -106,7 +108,7 @@ class _FoodPrepStartedState extends State<FoodPrepStarted> {
               heightSpace,
               // heightSpace,
 
-              approvalButton(context, "Update Status : Food Is Prepared"),
+              approvalButton(context, "Request Order Completion"),
 
               // heightSpace,
               // orderDetails(),
@@ -344,8 +346,10 @@ class _FoodPrepStartedState extends State<FoodPrepStarted> {
       child: InkWell(
         borderRadius: BorderRadius.circular(10.0),
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => FoodPreparationCompleted()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CompletionConfirmation()));
         },
         child: Container(
           // margin: EdgeInsets.fromLTRB(
