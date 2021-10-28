@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/foodMaker_drawer.dart';
 import 'package:cozina/screens/cart/cart_details.dart';
 import 'package:cozina/screens/food_makers_account/bank_details.dart';
 import 'package:cozina/screens/food_makers_account/earnings_details.dart';
@@ -52,7 +51,7 @@ class _MakerEarningsState extends State<MakerEarnings>
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
-      drawer: BuyerMenuDrawer(),
+      drawer: FoodMakerMenuDrawer(),
       appBar: AppBar(
         toolbarHeight: 70,
         iconTheme: IconThemeData(color: whiteColor),
@@ -103,22 +102,22 @@ class _MakerEarningsState extends State<MakerEarnings>
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
             },
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.notifications),
             iconSize: 35,
             color: whiteColor,
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => CartDetails()));
-            },
-            icon: Icon(Icons.shopping_cart),
-            iconSize: 33,
-            color: whiteColor,
-          )
+          // IconButton(
+          //   onPressed: () {
+          //     Navigator.of(context)
+          //         .push(MaterialPageRoute(builder: (ctx) => CartDetails()));
+          //   },
+          //   icon: Icon(Icons.shopping_cart),
+          //   iconSize: 33,
+          //   color: whiteColor,
+          // )
         ],
       ),
       body: Column(

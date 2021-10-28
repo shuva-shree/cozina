@@ -14,7 +14,7 @@ class CartDetails extends StatefulWidget {
 class _CartDetailsState extends State<CartDetails> {
   int delValue = -1;
   int foodValue = -1;
-  bool _value = false;
+
 
   @override
   Widget build(BuildContext context) {

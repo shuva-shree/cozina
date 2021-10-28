@@ -11,7 +11,7 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
   int val = -1;
-  bool _value = false;
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

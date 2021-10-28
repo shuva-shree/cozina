@@ -20,8 +20,6 @@ class MakerProfilePage extends StatefulWidget {
 class _MakerProfilePageState extends State<MakerProfilePage> {
   late double height;
   late double width;
-  String _value = 'one';
-  var banner_page = 1.0;
   var value = 1;
 
   @override

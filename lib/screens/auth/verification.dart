@@ -1,11 +1,15 @@
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/provider/provider.dart';
+import 'package:cozina/screens/home/main_page.dart';
 import 'package:cozina/widgets/buyer_bottom_bar.dart';
+import 'package:cozina/widgets/maker_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AccountVerificaton extends StatelessWidget {
+class AccountVerificaton extends ConsumerWidget {
   const AccountVerificaton({Key? key}) : super(key: key);
 
-  resendButton(context) {
+  resendButton(context, watch) {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: fixPadding * 2.0,
@@ -16,7 +20,12 @@ class AccountVerificaton extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => BottomBar()),
+            MaterialPageRoute(
+                builder: (context) =>
+                    // context.read(postProvider).categoryOnChanged('two') == 'one'
+                    //     ? BottomBar()
+                    //     : MakerBottomBar()
+                    MainPage()),
           );
         },
         child: Container(
@@ -43,7 +52,7 @@ class AccountVerificaton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, watch) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
@@ -107,7 +116,7 @@ class AccountVerificaton extends StatelessWidget {
           //   style: ElevatedButton.styleFrom(
           //       primary: Theme.of(context).primaryColor),
           // )
-          resendButton(context),
+          resendButton(context, watch),
         ],
       ),
     );
