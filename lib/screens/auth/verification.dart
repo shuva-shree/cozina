@@ -1,8 +1,8 @@
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/provider/provider.dart';
-import 'package:cozina/screens/home/main_page.dart';
+
 import 'package:cozina/widgets/buyer_bottom_bar.dart';
-import 'package:cozina/widgets/maker_bottom_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -25,7 +25,7 @@ class AccountVerificaton extends ConsumerWidget {
                     // context.read(postProvider).categoryOnChanged('two') == 'one'
                     //     ? BottomBar()
                     //     : MakerBottomBar()
-                    MainPage()),
+                    BottomBar()),
           );
         },
         child: Container(

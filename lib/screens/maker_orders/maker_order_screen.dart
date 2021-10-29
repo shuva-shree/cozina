@@ -25,63 +25,63 @@ class _MakerOrderScreenState extends State<MakerOrderScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
-      drawer: FoodMakerMenuDrawer(),
-      appBar: AppBar(
-        toolbarHeight: 70,
-        iconTheme: IconThemeData(color: whiteColor),
-        title: Container(
-          height: 47,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Cozina",
-                style: whiteColor26BoldTextStyle,
-              ),
-              Expanded(
-                child: new DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    dropdownColor: primaryColor,
-                    iconEnabledColor: whiteColor,
-                    value: _value,
-                    items: <DropdownMenuItem<String>>[
-                      DropdownMenuItem(
-                        child: Text(
-                          "Buyer's Account",
-                          style: whiteColor15BoldTextStyle,
-                        ),
-                        value: 'one',
-                      ),
-                      DropdownMenuItem(
-                          child: Text(
-                            "FoodMaker's account",
-                            style: whiteColor15BoldTextStyle,
-                          ),
-                          value: 'two'),
-                    ],
-                    onChanged: (String? value) {
-                      setState(() => _value = value!);
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
-            },
-            icon: Icon(Icons.notifications),
-            iconSize: 35,
-            color: whiteColor,
-          ),
-        ],
-      ),
+      // backgroundColor: bgColor,
+      // drawer: FoodMakerMenuDrawer(),
+      // appBar: AppBar(
+      //   toolbarHeight: 70,
+      //   iconTheme: IconThemeData(color: whiteColor),
+      //   title: Container(
+      //     height: 47,
+      //     child: Column(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       crossAxisAlignment: CrossAxisAlignment.start,
+      //       children: [
+      //         Text(
+      //           "Cozina",
+      //           style: whiteColor26BoldTextStyle,
+      //         ),
+      //         Expanded(
+      //           child: new DropdownButtonHideUnderline(
+      //             child: DropdownButton<String>(
+      //               dropdownColor: primaryColor,
+      //               iconEnabledColor: whiteColor,
+      //               value: _value,
+      //               items: <DropdownMenuItem<String>>[
+      //                 DropdownMenuItem(
+      //                   child: Text(
+      //                     "Buyer's Account",
+      //                     style: whiteColor15BoldTextStyle,
+      //                   ),
+      //                   value: 'one',
+      //                 ),
+      //                 DropdownMenuItem(
+      //                     child: Text(
+      //                       "FoodMaker's account",
+      //                       style: whiteColor15BoldTextStyle,
+      //                     ),
+      //                     value: 'two'),
+      //               ],
+      //               onChanged: (String? value) {
+      //                 setState(() => _value = value!);
+      //               },
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         // Navigator.of(context)
+      //         //     .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
+      //       },
+      //       icon: Icon(Icons.notifications),
+      //       iconSize: 35,
+      //       color: whiteColor,
+      //     ),
+      //   ],
+      // ),
       body: Column(
         children: [
           DefaultTabController(

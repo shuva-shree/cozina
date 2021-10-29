@@ -1,5 +1,4 @@
 import 'package:cozina/widgets/buyer_bottom_bar.dart';
-import 'package:cozina/widgets/maker_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChangeValue extends ChangeNotifier {
   var value = 'one';
+  var startPrep = false;
 
   changeDropValue(String val) async {
     this.value = val;
@@ -16,5 +16,10 @@ class ChangeValue extends ChangeNotifier {
     // pref.setString('str', this.value);
     notifyListeners();
     return this.value;
+  }
+
+  startPrepFood(){
+    startPrep = true;
+    notifyListeners();
   }
 }

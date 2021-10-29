@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:cozina/constants/constants.dart';
+import 'package:cozina/provider/provider.dart';
 import 'package:cozina/screens/maker_order_status/food_prep_started.dart';
 import 'package:cozina/screens/orders/food_complete.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AcceptedOrder extends StatefulWidget {
   const AcceptedOrder({Key? key}) : super(key: key);
@@ -21,6 +23,9 @@ class _AcceptedOrderState extends State<AcceptedOrder> {
   //   });
   //   super.initState();
   // }
+  final valueProvider = ChangeNotifierProvider<ChangeValue>((ref) {
+    return ChangeValue();
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -344,50 +349,107 @@ class _AcceptedOrderState extends State<AcceptedOrder> {
   }
 
   approvalButton(context, String title) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: fixPadding / 2,
-        vertical: fixPadding,
-      ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(10.0),
-        onTap: () {
-          setState(() {
-            //   // Navigator.of(context).pop();
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FoodPrepStarted()));
+    return Consumer(builder: (context, watch, _) {
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: fixPadding / 2,
+          vertical: fixPadding,
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10.0),
+          onTap: () {
+            // setState(() {
+            //   //   // Navigator.of(context).pop();
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => FoodPrepStarted()));
             //   // Navigator.of(context).pop();
             // _showDialog(context);
-          });
-        },
-        child: Container(
-          margin: EdgeInsets.fromLTRB(
-            fixPadding,
-            fixPadding,
-            fixPadding, 0,
-            // fixPadding,
-          ),
-          height: 45,
-          width: MediaQuery.of(context).size.width,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: primaryColor,
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color: primaryColor.withOpacity(0.2),
-                spreadRadius: 2.5,
-                blurRadius: 2.5,
-              ),
-            ],
-          ),
-          child: Text(
-            title,
-            style: whiteColor20BoldTextStyle,
+            // });
+            watch(valueProvider).startPrep == false
+                ? _showDialog(context)
+                : Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => FoodPrepStarted()));
+          },
+          child: Container(
+            margin: EdgeInsets.fromLTRB(
+              fixPadding,
+              fixPadding,
+              fixPadding, 0,
+              // fixPadding,
+            ),
+            height: 45,
+            width: MediaQuery.of(context).size.width,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: primaryColor.withOpacity(0.2),
+                  spreadRadius: 2.5,
+                  blurRadius: 2.5,
+                ),
+              ],
+            ),
+            child: Text(
+              title,
+              style: whiteColor20BoldTextStyle,
+            ),
           ),
         ),
-      ),
-    );
+      );
+    });
+  }
+
+  dialogButton(context, String title) {
+    return Consumer(builder: (context, watch, _) {
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: fixPadding / 2,
+          vertical: fixPadding,
+        ),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10.0),
+          onTap: () {
+            // setState(() {
+            //   //   // Navigator.of(context).pop();
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => FoodPrepStarted()));
+            //   // Navigator.of(context).pop();
+            // _showDialog(context);
+            // });
+
+            context.read(valueProvider).startPrepFood();
+          },
+          child: Container(
+            margin: EdgeInsets.fromLTRB(
+              fixPadding,
+              fixPadding,
+              fixPadding, 0,
+              // fixPadding,
+            ),
+            height: 45,
+            width: MediaQuery.of(context).size.width,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: primaryColor.withOpacity(0.2),
+                  spreadRadius: 2.5,
+                  blurRadius: 2.5,
+                ),
+              ],
+            ),
+            child: Text(
+              title,
+              style: whiteColor20BoldTextStyle,
+            ),
+          ),
+        ),
+      );
+    });
   }
 
   Future<void> _showDialog(context) {
@@ -430,19 +492,7 @@ class _AcceptedOrderState extends State<AcceptedOrder> {
                   // SizedBox(
                   //   height: 25,
                   // ),
-                  InkWell(
-                      borderRadius: BorderRadius.circular(10.0),
-                      onTap: () {
-                        setState(() {
-                          Navigator.of(context).pop();
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => FoodPrepStarted()));
-                          // Navigator.of(context).pop();
-                        });
-                      },
-                      child: approvalButton(context, "Start Preparing Food")),
+                  dialogButton(context, "Start Preparing Food"),
                 ],
               ),
             ),

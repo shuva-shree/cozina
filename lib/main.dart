@@ -1,6 +1,6 @@
 import 'package:cozina/splash_screen.dart';
 import 'package:cozina/widgets/buyer_bottom_bar.dart';
-import 'package:cozina/widgets/maker_bottom_bar.dart';
+
 // import 'package:cozina/screens/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

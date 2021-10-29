@@ -41,53 +41,56 @@ class _MakerProfilePageState extends State<MakerProfilePage> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          heightSpace,
-          DefaultTabController(
-            length: 2, // length of tabs
-            initialIndex: 0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  child: TabBar(
-                    indicatorColor: primaryColor,
-                    labelColor: primaryColor,
-                    unselectedLabelColor: Colors.black,
-                    tabs: [
-                      Tab(text: 'Basic Details'),
-                      Tab(text: 'Kitchen Details'),
-                    ],
-                  ),
-                ),
-                // Flexible(
-                //   fit: FlexFit.tight,
-                //   flex: 1,
-                //   child:
-                SingleChildScrollView(
-                  child: Container(
-                    // height: MediaQuery.of(context).size.height - 220,
-                    height: MediaQuery.of(context).size.height -
-                        135, //height of TabBarView
-                    // decoration: BoxDecoration(
-                    //     border: Border(
-                    //         top: BorderSide(color: Colors.grey, width: 0.5))),
-                    child: TabBarView(
-                      children: <Widget>[
-                        MakerBasicDetails(),
-                        //  AddKitchenScreen()
-                        KitchenDetails()
+      body: Container(
+        color: whiteColor,
+        child: Column(
+          children: [
+            heightSpace,
+            DefaultTabController(
+              length: 2, // length of tabs
+              initialIndex: 0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    child: TabBar(
+                      indicatorColor: primaryColor,
+                      labelColor: primaryColor,
+                      unselectedLabelColor: Colors.black,
+                      tabs: [
+                        Tab(text: 'Basic Details'),
+                        Tab(text: 'Kitchen Details'),
                       ],
                     ),
                   ),
-                ),
+                  // Flexible(
+                  //   fit: FlexFit.tight,
+                  //   flex: 1,
+                  //   child:
+                  SingleChildScrollView(
+                    child: Container(
+                      // height: MediaQuery.of(context).size.height - 220,
+                      height: MediaQuery.of(context).size.height -
+                          135, //height of TabBarView
+                      // decoration: BoxDecoration(
+                      //     border: Border(
+                      //         top: BorderSide(color: Colors.grey, width: 0.5))),
+                      child: TabBarView(
+                        children: <Widget>[
+                          MakerBasicDetails(),
+                          //  AddKitchenScreen()
+                          KitchenDetails()
+                        ],
+                      ),
+                    ),
+                  ),
 
-                // ),
-              ],
+                  // ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
     //       Expanded(child: value == 1 ? MakerBasicDetails() : KitchenDetails()),
