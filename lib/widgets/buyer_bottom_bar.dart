@@ -39,6 +39,7 @@ class _BottomBarState extends State<BottomBar> {
             ? BuyerMenuDrawer()
             : FoodMakerMenuDrawer(),
         appBar: AppBar(
+          backgroundColor: primaryColor,
           toolbarHeight: 70,
           iconTheme: IconThemeData(color: whiteColor),
           title: Container(
@@ -49,7 +50,7 @@ class _BottomBarState extends State<BottomBar> {
               children: [
                 Text(
                   "Cozina",
-                  style: whiteColor26BoldTextStyle,
+                  style: whiteColor24BoldTextStyle,
                 ),
                 Expanded(
                   child: new DropdownButtonHideUnderline(

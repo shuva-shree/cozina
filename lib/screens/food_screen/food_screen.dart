@@ -43,6 +43,7 @@ class _FoodScreenState extends State<FoodScreen> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "Food Item",
