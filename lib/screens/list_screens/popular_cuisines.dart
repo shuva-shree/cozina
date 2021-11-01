@@ -23,13 +23,14 @@ class _PopularCuisineState extends State<PopularCuisine> {
             onPressed: () => Navigator.pop(context),
             icon: Icon(
               Icons.arrow_back_ios,
+              size: 22,
             ),
           ),
           title: Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Text(
               "Cuisines",
-              style: whiteColor26BoldTextStyle,
+              style: whiteColor22BoldTextStyle,
             ),
           ),
           actions: [
@@ -104,89 +105,63 @@ class _PopularCuisineListState extends State<PopularCuisineList> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
 
-    return GridView.builder(
-        itemCount: foodCategoryList.length,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 2.5 / 3,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20),
-        itemBuilder: (BuildContext ctx, index) {
-          final item = foodCategoryList[index];
-          return Stack(children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: height * 0.3,
-                width: 200,
-                decoration: BoxDecoration(
-                  //
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: AssetImage(item["image"]!),
-                    fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+          horizontal: fixPadding / 2, vertical: fixPadding / 2),
+      child: GridView.builder(
+          itemCount: foodCategoryList.length,
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: height * 0.5,
+              childAspectRatio: 2.5 / 3,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5),
+          itemBuilder: (BuildContext ctx, index) {
+            final item = foodCategoryList[index];
+            return Stack(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: height * 0.3,
+                  width: width * 0.7,
+                  decoration: BoxDecoration(
+                    //
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: AssetImage(item["image"]!),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-                // child: Opacity(
-                //   opacity: 0.8,
-                //   child: Image.asset(
-                //     item["image"]!,
-                //     fit: BoxFit.cover,
-                //   ),
-                // ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 7),
-                height: height * 0.3,
-                width: 200,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      colors: [
-                        blackColor.withOpacity(0.15),
-                        blackColor.withOpacity(0.7),
-                        blackColor
-                      ],
-                      stops: [0.2, 0.5, 0.85],
-                      end: Alignment.bottomCenter),
-                  borderRadius: BorderRadius.circular(10),
-                  // image: DecorationImage(
-                  //   image: AssetImage(item["image"]!),
-                  //   fit: BoxFit.cover,
-                  // ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 7),
+                  height: height * 0.3,
+                  width: width * 0.7,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        colors: [
+                          blackColor.withOpacity(0.15),
+                          blackColor.withOpacity(0.7),
+                          blackColor
+                        ],
+                        stops: [0.2, 0.5, 0.85],
+                        end: Alignment.bottomCenter),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-                // child: Image.asset(item["image"]!)
               ),
-            ),
 
-            Positioned(
-              bottom: 30,
-              left: 20,
-              // child: Padding(
-              //   padding: EdgeInsets.only(
-              //     left: index == 0 ? fixPadding * 2.0 : 0.0,
-              //     right: index == foodCategoryList.length - 1
-              //         ? fixPadding * 2.0
-              //         : fixPadding * 1.5,
-              //   ),
-              child: InkWell(
-                // onTap: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                // ),
+              Positioned(
+                bottom: height * 0.04,
+                left: width * 0.055,
                 child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 4),
-                      // decoration: BoxDecoration(
-                      //   borderRadius: BorderRadius.circular(5),
-                      //   color: Colors.black26,
-                      // ),
                       child: Text(
                         "Cuisine",
                         style: whiteColor15BoldTextStyle,
@@ -195,17 +170,13 @@ class _PopularCuisineListState extends State<PopularCuisineList> {
                     heightSpace,
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 4),
-                      // decoration: BoxDecoration(
-                      //   borderRadius: BorderRadius.circular(5),
-                      //   color: Colors.black26,
-                      // ),
                       child: Text(
                         item['category']!,
                         style: whiteColor20BoldTextStyle,
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: height * 0.025,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -214,8 +185,8 @@ class _PopularCuisineListState extends State<PopularCuisineList> {
                       },
                       child: Container(
                         alignment: Alignment.center,
-                        height: 30,
-                        width: 145,
+                        height: height * 0.045,
+                        width: width * 0.38,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: primaryColor,
@@ -229,9 +200,10 @@ class _PopularCuisineListState extends State<PopularCuisineList> {
                   ],
                 ),
               ),
-            ),
-            // ),
-          ]);
-        });
+
+              // ),
+            ]);
+          }),
+    );
   }
 }

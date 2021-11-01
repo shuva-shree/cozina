@@ -13,101 +13,101 @@ class _SignUpState extends State<SignUp> {
   bool passwordvisible = false;
   bool confirmpasswordvisible = false;
   late double width;
+  late double height;
 
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: bgColor,
-      body: Stack(
+      body: Column(
+        // physics:
+        //     BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         children: [
-          // cornerImage(),
-          ListView(
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            children: [
-              heightSpace,
-              heightSpace,
-              SizedBox(
-                height: 20,
+          heightSpace,
+          heightSpace,
+          SizedBox(
+            height: height * 0.06,
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "Cozina",
+              style: TextStyle(
+                  fontSize: 40,
+                  color: primaryColor,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(
+            height: height * 0.025,
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(fixPadding * 2.0, fixPadding,
+                  fixPadding * 2.0, fixPadding * 2.0),
+              child: Text(
+                'Register',
+                style: darkBlueColor22BoldTextStyle,
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "Cozina",
-                  style: TextStyle(
-                      fontSize: 40,
-                      color: primaryColor,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(fixPadding * 2.0,
-                      fixPadding, fixPadding * 2.0, fixPadding * 2.0),
-                  child: Text(
-                    'Register',
-                    style: darkBlueColor22BoldTextStyle,
-                  ),
-                ),
-              ),
-              userNameTextField(),
-              emailTextField(),
-              phoneNumberTextField(),
-              passwordTextField(),
-              confirmPasswordTextField(),
+            ),
+          ),
+          userNameTextField(),
+          emailTextField(),
+          phoneNumberTextField(),
+          passwordTextField(),
+          confirmPasswordTextField(),
 
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.check_box),
-                    color: primaryColor,
-                  ),
-                  Text(
-                    "I agree to all",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                  widthSpace,
-                  Text(
-                    "T & C",
-                    style: TextStyle(color: accentColor, fontSize: 15),
-                  )
-                ],
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.check_box),
+                color: primaryColor,
               ),
-              SizedBox(
-                height: 15,
+              Text(
+                "I agree to all",
+                style: TextStyle(fontSize: 15),
               ),
-              signupButton(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Already a member?", style: greyColor16MediumTextStyle),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignIn()),
-                    ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: accentColor,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  )
-                ],
+              widthSpace,
+              Text(
+                "T & C",
+                style: TextStyle(color: accentColor, fontSize: 15),
               )
-              // otherSigninOptions(),
             ],
           ),
+          SizedBox(
+            height: height * 0.02,
+          ),
+          signupButton(),
+          SizedBox(
+            height: height * 0.01,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Already a member?", style: greyColor16MediumTextStyle),
+              SizedBox(
+                width: 5,
+              ),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignIn()),
+                ),
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: accentColor,
+                      fontWeight: FontWeight.w600),
+                ),
+              )
+            ],
+          )
+          // otherSigninOptions(),
         ],
       ),
     );
@@ -392,7 +392,7 @@ class _SignUpState extends State<SignUp> {
         borderRadius: BorderRadius.circular(10.0),
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => AccountVerificaton()));
+              MaterialPageRoute(builder: (context) => AccountVerification()));
         },
         child: Container(
           height: 50,

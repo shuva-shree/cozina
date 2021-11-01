@@ -41,77 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, watch, _) {
         return Scaffold(
           backgroundColor: bgColor,
-          // drawer: BuyerMenuDrawer(),
-          // appBar: AppBar(
-          //   toolbarHeight: 70,
-          //   iconTheme: IconThemeData(color: whiteColor),
-          //   title: Container(
-          //     height: 47,
-          //     child: Column(
-          //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: [
-          //         Text(
-          //           "Cozina",
-          //           style: whiteColor26BoldTextStyle,
-          //         ),
-          //         Expanded(
-          //           child: new DropdownButtonHideUnderline(
-          //             child: DropdownButton<String>(
-          //                 dropdownColor: primaryColor,
-          //                 iconEnabledColor: whiteColor,
-          //                 value: watch(valueProvider).value,
-          //                 items: <DropdownMenuItem<String>>[
-          //                   DropdownMenuItem(
-          //                     child: Text(
-          //                       "Buyer's Account",
-          //                       style: whiteColor15BoldTextStyle,
-          //                     ),
-          //                     value: 'one',
-          //                   ),
-          //                   DropdownMenuItem(
-          //                       child: Text(
-          //                         "FoodMaker's account",
-          //                         style: whiteColor15BoldTextStyle,
-          //                       ),
-          //                       value: 'two'),
-          //                 ],
-          //                 onChanged: (String? value) {
-          //                   context.read(valueProvider).changeDropValue(value!);
-          //                   // setState(() {
-          //                   //   _value = value!;
-          //                   // });
-          //                 }),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          //   // bottom: PreferredSize(
-          //   //   preferredSize: Size.fromHeight(70),
-          //   //   child:
-          //   // ),
-          //   actions: [
-          //     IconButton(
-          //       onPressed: () {
-          //         Navigator.of(context).push(
-          //             MaterialPageRoute(builder: (ctx) => SearchScreen()));
-          //       },
-          //       icon: Icon(Icons.search),
-          //       iconSize: 35,
-          //       color: whiteColor,
-          //     ),
-          //     IconButton(
-          //       onPressed: () {
-          //         Navigator.of(context)
-          //             .push(MaterialPageRoute(builder: (ctx) => CartDetails()));
-          //       },
-          //       icon: Icon(Icons.shopping_cart),
-          //       iconSize: 33,
-          //       color: whiteColor,
-          //     )
-          //   ],
-          // ),
           body: Column(
             children: [
               searchTextField(),
@@ -128,43 +57,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         title('Popular Cuisines'),
-                        InkWell(
-                          // onTap: () => Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                          // ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: fixPadding),
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (ctx) => PopularCuisine()));
-                              },
-                              child: Text(
-                                'View all',
-                                style: TextStyle(
-                                    color: accentColor,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    foodsCategoryList(context),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        title('Popular Food Near You'),
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) => CuisinieFood()));
-                          },
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(right: fixPadding * 2.0),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              right: fixPadding, top: fixPadding),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (ctx) => PopularCuisine()));
+                            },
                             child: Text(
                               'View all',
                               style: TextStyle(
@@ -176,6 +76,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+
+                    foodsCategoryList(context),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        title('Popular Food Near You'),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (ctx) => CuisinieFood()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                right: fixPadding * 2.0, top: fixPadding),
+                            child: Text(
+                              'View all',
+                              style: TextStyle(
+                                  color: accentColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    heightSpace,
+                    // SizedBox(
+                    //   height: 25,
+                    // ),
                     popularFoods(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,8 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (ctx) => FoodMakerScreen()));
                           },
                           child: Padding(
-                            padding:
-                                const EdgeInsets.only(right: fixPadding * 2.0),
+                            padding: const EdgeInsets.only(
+                                right: fixPadding * 2.0, top: fixPadding),
                             child: Text(
                               'View all',
                               style: TextStyle(
@@ -270,12 +202,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       children: [
         Container(
-          height: 220,
-          child:
-
-              // Expanded(
-              //   child:
-              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          height: height * 0.3,
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             CarouselSlider.builder(
               itemCount: foodList.length,
               options: CarouselOptions(
@@ -290,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index, _) {
                 return Container(
                   width: double.infinity,
-                  height: 220,
+                  // height: 220,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
@@ -324,8 +252,8 @@ class _HomeScreenState extends State<HomeScreen> {
               }).toList(),
             ),
           ]
-                  // ),
-                  ),
+              // ),
+              ),
         ),
       ],
     );
@@ -353,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // width: 200,
       // child: SizedBox(
       height: height * 0.3,
-      width: 200,
+      width: width * 0.51,
       child: ListView.builder(
         physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         scrollDirection: Axis.horizontal,
@@ -365,7 +293,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 height: height * 0.3,
-                width: 200,
+                width: width * 0.51,
                 decoration: BoxDecoration(
                   //
                   borderRadius: BorderRadius.circular(10),
@@ -388,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 7),
                 height: height * 0.3,
-                width: 200,
+                width: width * 0.51,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -412,88 +340,70 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               bottom: 25,
               left: 20,
-              // child: Padding(
-              //   padding: EdgeInsets.only(
-              //     left: index == 0 ? fixPadding * 2.0 : 0.0,
-              //     right: index == foodCategoryList.length - 1
-              //         ? fixPadding * 2.0
-              //         : fixPadding * 1.5,
-              //   ),
-              child: InkWell(
-                // onTap: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => AllRestaurants()),
-                // ),
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 4),
-                      // decoration: BoxDecoration(
-                      //   borderRadius: BorderRadius.circular(5),
-                      //   color: Colors.black26,
-                      // ),
-                      child: Text(
-                        "Cuisine",
-                        style: whiteColor15BoldTextStyle,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 4),
+                    // decoration: BoxDecoration(
+                    //   borderRadius: BorderRadius.circular(5),
+                    //   color: Colors.black26,
+                    // ),
+                    child: Text(
+                      "Cuisine",
+                      style: whiteColor15BoldTextStyle,
+                    ),
+                  ),
+                  heightSpace,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 4),
+                    // decoration: BoxDecoration(
+                    //   borderRadius: BorderRadius.circular(5),
+                    //   color: Colors.black26,
+                    // ),
+                    child: Text(
+                      item['category']!,
+                      style: whiteColor20BoldTextStyle,
+                    ),
+                  ),
+                  SizedBox(
+                    height: height * 0.03,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (ctx) => CuisinieFood()));
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: height * 0.05,
+                      width: width * 0.45,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: primaryColor,
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Icon(Icons.remove_red_eye, color: whiteColor),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "View Foods",
+                            style: whiteColor18BoldTextStyle,
+                          ),
+                        ],
                       ),
                     ),
-                    heightSpace,
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 4),
-                      // decoration: BoxDecoration(
-                      //   borderRadius: BorderRadius.circular(5),
-                      //   color: Colors.black26,
-                      // ),
-                      child: Text(
-                        item['category']!,
-                        style: whiteColor20BoldTextStyle,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => CuisinieFood()));
-                      },
-                      // => Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (ctx) => CuisinieFood(),
-                      //   ),
-                      // ),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 35,
-                        width: 178,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: primaryColor,
-                        ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Icon(Icons.remove_red_eye, color: whiteColor),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "View Foods",
-                              style: whiteColor18BoldTextStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
+
             // ),
           ]);
         },
@@ -612,7 +522,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             SizedBox(
-                              height: 10,
+                              height: height * 0.015,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -654,7 +564,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   foodMakersList() {
     return Container(
-      height: 340,
+      height: height * 0.5,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: popularFoodMakersList.length,
@@ -663,29 +573,19 @@ class _HomeScreenState extends State<HomeScreen> {
           return Padding(
             padding: const EdgeInsets.fromLTRB(
               fixPadding * 2.0,
-              fixPadding * 2.0,
-              fixPadding,
+              fixPadding * 2.0, 0,
+              // fixPadding,
               fixPadding,
             ),
-            // child: InkWell(
-            //   onTap: () {
-            //     Navigator.of(context).push(MaterialPageRoute(
-            //         builder: (ctx) => PopularCuisineScreen()));
-            //   },
-            child:
-                // Column(
-                //   children: [
-                Container(
-              height: 200,
-              width: 200,
+
+            child: Container(
+              height: height * 0.5,
+              width: width * 0.5,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
                 children: [
-                  // Hero(
-                  //   tag: popularFoodMakersList[index],
-                  //   child:
                   Container(
                     height: height * 0.19,
                     decoration: BoxDecoration(
@@ -701,8 +601,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   // ),
                   Container(
-                    height: height * 0.22,
-                    width: 200,
+                    height: height * 0.24,
+                    width: width * 0.5,
                     padding: EdgeInsets.all(fixPadding),
                     decoration: BoxDecoration(
                       color: whiteColor,
@@ -714,10 +614,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Padding(
-                        //   padding:
-                        //       const EdgeInsets.only(right: fixPadding * 12.0),
-                        //   child:
                         Text(
                           item['name']!,
                           style: darkBlueColor18SemiBoldTextStyle,
@@ -757,10 +653,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         )),
                         heightSpace,
+                        heightSpace,
                         Text(
                           item["distance"]!,
                           style: greyColor13MediumTextStyle,
                         ),
+                        heightSpace,
                         heightSpace,
                         Row(
                           children: [
@@ -805,8 +703,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           alignment: Alignment.center,
                           child: Container(
                             alignment: Alignment.center,
-                            height: 35,
-                            width: 150,
+                            height: height * 0.05,
+                            width: width * 0.4,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
                               color: primaryColor,

@@ -10,6 +10,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool visible = false;
   late double width;
+  late double height;
 
   resetButton() {
     return Padding(
@@ -51,7 +52,6 @@ class _SignInState extends State<SignIn> {
 
   Future<void> _showDialog(context) {
     return showDialog(
-      
         context: context,
         builder: (BuildContext context) {
           return Dialog(
@@ -100,79 +100,77 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: bgColor,
-      body: Stack(
-        alignment: Alignment.center,
+      body: Column(
+        // physics:
+        //     BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         children: [
-          // cornerImage(),
-          ListView(
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            children: [
-              heightSpace,
-              heightSpace,
-              SizedBox(
-                height: 50,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "Cozina",
-                  style: TextStyle(
-                      fontSize: 40,
-                      color: primaryColor,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(fixPadding * 2.0,
-                      fixPadding, fixPadding * 2.0, fixPadding * 2.0),
-                  child: Text(
-                    'Log In',
-                    style: darkBlueColor22BoldTextStyle,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              userNameTextField(),
-              passwordTextField(),
-              SizedBox(
-                height: 60,
-              ),
-              signinButton(),
-              // otherSigninOptions(),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Not a memeber Already?",
-                    style: greyColor16MediumTextStyle,
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
-                    ),
-                    child: Text(
-                      " Register",
-                      style: TextStyle(fontSize: 17, color: accentColor),
-                    ),
-                  ),
-                ],
-              )
-            ],
+          heightSpace,
+          heightSpace,
+          SizedBox(
+            height: height * 0.095,
           ),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "Cozina",
+              style: TextStyle(
+                  fontSize: 40,
+                  color: primaryColor,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(
+            height: height * 0.06,
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(fixPadding * 2.0, fixPadding,
+                  fixPadding * 2.0, fixPadding * 2.0),
+              child: Text(
+                'Log In',
+                style: darkBlueColor22BoldTextStyle,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: height * 0.06,
+          ),
+          userNameTextField(),
+          passwordTextField(),
+          SizedBox(
+            height: height * 0.09,
+          ),
+          signinButton(),
+          // otherSigninOptions(),
+          SizedBox(
+            height: height * 0.035,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Not a member Already?",
+                style: greyColor16MediumTextStyle,
+              ),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignUp()),
+                ),
+                child: Text(
+                  " Register",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: accentColor,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
