@@ -16,22 +16,26 @@ class _MakerActiveOrderState extends State<MakerActiveOrder> {
   late double height;
   late double width;
   String _value = 'one';
-  var banner_page = 1.0;
   var value = 1;
 
   @override
   Widget build(BuildContext context) {
+     height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return Container(
-      // height: MediaQuery.of(context).size.height,
+     
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              dropDownItems("All Status"),
-              dropDownItems("From Date"),
-              dropDownItems("To Date"),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                dropDownItems("All Status"),
+                dropDownItems("From Date"),
+                dropDownItems("To Date"),
+              ],
+            ),
           ),
           SingleChildScrollView(
             child: Container(
@@ -127,7 +131,8 @@ class _MakerActiveOrderState extends State<MakerActiveOrder> {
                           style: darkBlueColor20BoldTextStyle,
                         ),
                         SizedBox(
-                          width: 120,
+                          // width: 120,
+                          width: width * 0.31,
                         ),
                         Text(
                           "\u{20B9}${550}",
@@ -144,7 +149,7 @@ class _MakerActiveOrderState extends State<MakerActiveOrder> {
                           style: darkBlueColor14MediumTextStyle,
                         ),
                         SizedBox(
-                          width: 145,
+                          width: width * 0.37,
                         ),
                         Text(
                           "Amount",

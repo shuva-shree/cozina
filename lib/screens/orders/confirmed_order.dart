@@ -14,13 +14,13 @@ class ConfirmedOrder extends StatefulWidget {
 
 class _ConfirmedOrderState extends State<ConfirmedOrder> {
   @override
-  void initState() {
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => FoodPrepOrder()));
-    });
-    super.initState();
-  }
+  // void initState() {
+  //   Timer(Duration(seconds: 5), () {
+  //     Navigator.pushReplacement(
+  //         context, MaterialPageRoute(builder: (context) => FoodPrepOrder()));
+  //   });
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
     return Padding(
       padding: EdgeInsets.all(fixPadding),
       child: Container(
-         decoration: BoxDecoration(
+        decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
@@ -76,7 +76,6 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
             ),
           ],
         ),
-        
         child: Padding(
           padding: const EdgeInsets.all(fixPadding * 2),
           child: Column(
@@ -137,141 +136,158 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
   }
 
   orderDetails() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: fixPadding * 2, vertical: fixPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 25,
-          ),
-          Text(
-            "Order No.",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "ORD12345678",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Date & Time of Order",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "12.08.21 10:00am",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Amount",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "550 Success",
-                style: darkBlueColor18SemiBoldTextStyle,
-              ),
-              Text(
-                "View Transaction",
-                style: TextStyle(color: accentColor, fontSize: 17),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered From",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "John Foods",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Order Type",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "Self Pick-Up",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Pick-up Address",
-            style: greyColor16SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-        ],
+    return Padding(
+      padding: EdgeInsets.all(fixPadding),
+      child: Container(
+        padding: EdgeInsets.all(fixPadding),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Order No.",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "ORD12345678",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Date & Time of Order",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "12.08.21 10:00am",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Amount",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "550 Success",
+                  style: darkBlueColor18SemiBoldTextStyle,
+                ),
+                Text(
+                  "View Transaction",
+                  style: TextStyle(color: accentColor, fontSize: 17),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered From",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "John Foods",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Order Type",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "Self Pick-Up",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Pick-up Address",
+              style: greyColor16SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
     );
   }
 
   billSummary() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(fixPadding),
       child: Container(
-        // decoration:
-        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: fixPadding * 2),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Bill Summary",
-                      style: greyColor15MediumTextStyle,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                billDetails(240, 2),
-                heightSpace,
-                billDetails(120, 1),
-                SizedBox(
-                  height: 10,
-                ),
-                totalAmount(),
-                // heightSpace,
-              ],
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
             ),
-          ),
+          ],
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: fixPadding * 2),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Bill Summary",
+                  style: greyColor15MediumTextStyle,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            billDetails(240, 2),
+            heightSpace,
+            billDetails(120, 1),
+            SizedBox(
+              height: 10,
+            ),
+            totalAmount(),
+            // heightSpace,
+          ],
         ),
       ),
     );
@@ -279,7 +295,8 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
 
   billDetails(int amount, int quantity) {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 2, vertical: fixPadding),
       child: Column(
         children: [
           Row(
@@ -308,7 +325,8 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
 
   totalAmount() {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 2, vertical: fixPadding),
       child: Column(
         children: [
           Row(
@@ -333,7 +351,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               // thickness: 1.5,
               ),
           SizedBox(
-            height: 30,
+            height: 10,
           ),
           heightSpace,
           Row(
@@ -349,6 +367,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               ),
             ],
           ),
+          heightSpace,
         ],
       ),
     );

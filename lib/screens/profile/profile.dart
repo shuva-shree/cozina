@@ -27,76 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: bgColor,
-      // drawer: BuyerMenuDrawer(),
-      // appBar: AppBar(
-      //   toolbarHeight: 70,
-      //   iconTheme: IconThemeData(color: whiteColor),
-      //   title: Container(
-      //     height: 47,
-      //     child: Column(
-      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //       crossAxisAlignment: CrossAxisAlignment.start,
-      //       children: [
-      //         Text(
-      //           "Cozina",
-      //           style: whiteColor26BoldTextStyle,
-      //         ),
-      //         Expanded(
-      //           child: new DropdownButtonHideUnderline(
-      //             child: DropdownButton<String>(
-      //               dropdownColor: primaryColor,
-      //               iconEnabledColor: whiteColor,
-      //               value: _value,
-      //               items: <DropdownMenuItem<String>>[
-      //                 DropdownMenuItem(
-      //                   child: Text(
-      //                     "Buyer's Account",
-      //                     style: whiteColor15BoldTextStyle,
-      //                   ),
-      //                   value: 'one',
-      //                 ),
-      //                 DropdownMenuItem(
-      //                     child: Text(
-      //                       "FoodMaker's account",
-      //                       style: whiteColor15BoldTextStyle,
-      //                     ),
-      //                     value: 'two'),
-      //               ],
-      //               onChanged: (String? value) {
-      //                 setState(() => _value = value!);
-      //               },
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      //   // bottom: PreferredSize(
-      //   //   preferredSize: Size.fromHeight(70),
-      //   //   child:
-      //   // ),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         Navigator.of(context)
-      //             .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
-      //       },
-      //       icon: Icon(Icons.search),
-      //       iconSize: 35,
-      //       color: whiteColor,
-      //     ),
-      //     IconButton(
-      //       onPressed: () {
-      //         Navigator.of(context)
-      //             .push(MaterialPageRoute(builder: (ctx) => CartDetails()));
-      //       },
-      //       icon: Icon(Icons.shopping_cart),
-      //       iconSize: 33,
-      //       color: whiteColor,
-      //     )
-      //   ],
-      // ),
+      backgroundColor: whiteColor,
       body: Column(
         children: [
           searchTextField(),
@@ -161,6 +92,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 decoration: BoxDecoration(
                   color: whiteColor,
                   // borderRadius: BorderRadius.circular(10),
+                  border: Border(
+                    bottom: BorderSide(width: 0.5, color: greyColor),
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: greyColor.withOpacity(0.1),

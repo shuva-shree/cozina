@@ -14,19 +14,28 @@ class CartDetails extends StatefulWidget {
 class _CartDetailsState extends State<CartDetails> {
   int delValue = -1;
   int foodValue = -1;
-
+  late double width;
+  late double height;
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        titleSpacing: 0,
+        leadingWidth: 40,
+        centerTitle: false,
         iconTheme: IconThemeData(color: whiteColor),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 22,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 22,
+            ),
           ),
         ),
         title: Padding(
@@ -280,7 +289,7 @@ class _CartDetailsState extends State<CartDetails> {
                       ),
                     ),
                     SizedBox(
-                      width: 175,
+                      width: width * 0.45,
                     ),
                     Text(
                       "Free",
@@ -315,7 +324,7 @@ class _CartDetailsState extends State<CartDetails> {
                       ),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: width * 0.39,
                     ),
                     Text(
                       "+ \u{20B9}${50}",

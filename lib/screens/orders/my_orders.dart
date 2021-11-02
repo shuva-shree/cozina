@@ -146,13 +146,16 @@ class _MyOrdersState extends State<MyOrders> with TickerProviderStateMixin {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              dropDownItems("All Status"),
-              dropDownItems("From Date"),
-              dropDownItems("To Date"),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                dropDownItems("All Status"),
+                dropDownItems("From Date"),
+                dropDownItems("To Date"),
+              ],
+            ),
           ),
           Expanded(
             // height: 435, //height of TabBarView

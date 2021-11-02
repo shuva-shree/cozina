@@ -34,7 +34,15 @@ class BasicDetails extends StatelessWidget {
                 child: Container(
                   height: 100,
                   width: 100,
-                  child: Image.asset('assets/images/profile2.png'),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/man1.jpg'),
+                        fit: BoxFit.cover),
+                  ),
+                  // radius: 50,
+                  // backgroundColor: whiteColor,
+                  // child: Image.asset('assets/images/man1.jpg'),
                 )),
             SizedBox(
               height: 25,

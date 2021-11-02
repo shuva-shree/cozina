@@ -5,44 +5,66 @@ import 'package:cozina/screens/orders/confirmed_order.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSuccess extends StatelessWidget {
-  const PaymentSuccess({Key? key}) : super(key: key);
+  PaymentSuccess({Key? key}) : super(key: key);
+  late double height;
+  late double width;
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
         // elevation: 0,
         // backgroundColor: bgColor,
         iconTheme: IconThemeData(color: whiteColor),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 22,
+        titleSpacing: 0,
+        leadingWidth: 40,
+        centerTitle: false,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 22,
+            ),
           ),
         ),
-        title: Padding(
-          padding: EdgeInsets.only(right: 20),
-          child: Text(
-            "Payment Success",
-            style: whiteColor22BoldTextStyle,
-          ),
+        title: Text(
+          "Payment Success",
+          style: whiteColor22BoldTextStyle,
         ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 10),
-          Card(
-            child: Padding(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Container(
+              height: height * 0.41,
+              width: width,
               padding: const EdgeInsets.symmetric(
-                  horizontal: fixPadding * 2, vertical: fixPadding * 2),
+                  horizontal: fixPadding, vertical: fixPadding * 2),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: greyColor.withOpacity(0.1),
+                    spreadRadius: 2.5,
+                    blurRadius: 2.5,
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
                   Container(
-                      height: 130,
-                      width: 130,
+                      height: height * 0.16,
+                      width: width * 0.4,
                       child: Image.asset(
                         "assets/images/success.png",
                       )),
@@ -74,17 +96,28 @@ class PaymentSuccess extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Card(
-              // child:
-              //  Padding(
-              //   padding:
-              //       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Container(
+              height: height * 0.41,
+              width: width,
+              padding: const EdgeInsets.symmetric(
+                  horizontal: fixPadding * 1.5, vertical: fixPadding * 1.5),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: greyColor.withOpacity(0.1),
+                    spreadRadius: 2.5,
+                    blurRadius: 2.5,
+                  ),
+                ],
+              ),
               child: Column(
                 children: [
                   Container(
-                      height: 130,
-                      width: 130,
+                      height: height * 0.16,
+                      width: width * 0.4,
                       child: Image.asset(
                         "assets/images/success.png",
                       )),
@@ -95,14 +128,14 @@ class PaymentSuccess extends StatelessWidget {
                   heightSpace,
                   heightSpace,
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: fixPadding * 2),
+                    padding: EdgeInsets.symmetric(horizontal: fixPadding),
                     child: Text(
                         "Your order is confirmed by the Food Seller. ETA or Pick-up: 10 am Today ",
                         style: darkBlueColor18MediumTextStyle),
                   ),
                   heightSpace,
                   SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
                   TextButton(
                     onPressed: () {
@@ -120,8 +153,8 @@ class PaymentSuccess extends StatelessWidget {
                       ),
                     ),
                   ),
-                  heightSpace,
-                  heightSpace,
+                  // heightSpace,
+                  // heightSpace,
                 ],
               ),
             ),

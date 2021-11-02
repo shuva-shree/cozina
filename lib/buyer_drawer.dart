@@ -39,8 +39,8 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage('assets/images/profile2.png'),
-                    ),
+                        image: AssetImage('assets/images/man1.jpg'),
+                        fit: BoxFit.cover),
                   ),
                 ),
                 heightSpace,
@@ -58,7 +58,9 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
               child: Container(
                 height: 80,
                 decoration: BoxDecoration(
-                    border: Border.all(color: primaryColor, width: 2)),
+                  color: greyColor.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -83,9 +85,13 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
               ),
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('All Foods', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.fastfood,
@@ -100,6 +106,7 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title:
                   Text('All Cuisines', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
@@ -115,6 +122,7 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Orders', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.checklist,
@@ -129,6 +137,7 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Transactions',
                   style: darkBlueColor16MediumTextStyle),
               leading: Icon(
@@ -144,6 +153,7 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('Profile', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.supervised_user_circle_sharp,
@@ -158,6 +168,7 @@ class _BuyerMenuDrawerState extends State<BuyerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('Log Out', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.logout,

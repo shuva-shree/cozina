@@ -41,6 +41,7 @@ class _BottomBarState extends State<BottomBar> {
         appBar: AppBar(
           backgroundColor: primaryColor,
           toolbarHeight: 70,
+          leadingWidth: 30,
           iconTheme: IconThemeData(color: whiteColor),
           title: Container(
             height: 47,
@@ -95,7 +96,7 @@ class _BottomBarState extends State<BottomBar> {
                     .push(MaterialPageRoute(builder: (ctx) => SearchScreen()));
               },
               icon: Icon(Icons.search),
-              iconSize: 35,
+              iconSize: 28,
               color: whiteColor,
             ),
             IconButton(
@@ -104,7 +105,7 @@ class _BottomBarState extends State<BottomBar> {
                     .push(MaterialPageRoute(builder: (ctx) => CartDetails()));
               },
               icon: Icon(Icons.shopping_cart),
-              iconSize: 33,
+              iconSize: 28,
               color: whiteColor,
             )
           ],

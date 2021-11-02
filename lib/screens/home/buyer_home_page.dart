@@ -471,7 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Text(
                               item['restaurant']!,
-                              style: darkBlueColor15MediumTextStyle,
+                              style: darkBlueColor15RegularTextStyle,
                             ),
                             heightSpace,
                             heightSpace,
@@ -652,11 +652,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ],
                         )),
+                        // heightSpace,
                         heightSpace,
-                        heightSpace,
-                        Text(
-                          item["distance"]!,
-                          style: greyColor13MediumTextStyle,
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: blackColor,
+                              size: 20,
+                            ),
+                            Text(
+                              item["distance"]!,
+                              style: greyColor13MediumTextStyle,
+                            ),
+                          ],
                         ),
                         heightSpace,
                         heightSpace,

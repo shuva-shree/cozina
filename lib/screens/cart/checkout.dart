@@ -11,26 +11,34 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
   int val = -1;
- 
+  late double width;
+  late double height;
+
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        titleSpacing: 0,
+        leadingWidth: 40,
+        centerTitle: false,
         iconTheme: IconThemeData(color: whiteColor),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 22,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 22,
+            ),
           ),
         ),
-        title: Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Text(
-            "Checkout : John Foods",
-            style: whiteColor22BoldTextStyle,
-          ),
+        title: Text(
+          "Checkout : John Foods",
+          style: whiteColor22BoldTextStyle,
         ),
       ),
       body: Container(
@@ -66,7 +74,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   billDetails(240, 2),
                   heightSpace,
@@ -146,7 +154,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             //   thickness: 2,
             // ),
             SizedBox(
-              height: 70,
+              height: height * 0.2,
             ),
             paymentButton(),
           ],
@@ -157,7 +165,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   billDetails(int amount, int quantity) {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 2, vertical: fixPadding),
       child: Column(
         children: [
           Row(
@@ -186,7 +195,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   totalAmount() {
     return Padding(
-      padding: const EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 2, vertical: fixPadding),
       child: Column(
         children: [
           Row(

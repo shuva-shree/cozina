@@ -10,8 +10,12 @@ class EarningDetails extends StatefulWidget {
 }
 
 class _EarningDetailsState extends State<EarningDetails> {
+  late double height;
+  late double width;
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -116,7 +120,7 @@ class _EarningDetailsState extends State<EarningDetails> {
                           style: darkBlueColor20BoldTextStyle,
                         ),
                         SizedBox(
-                          width: 210,
+                          width: width * 0.53,
                         ),
                         Text(
                           "\u{20B9}${550}",
@@ -133,7 +137,7 @@ class _EarningDetailsState extends State<EarningDetails> {
                           style: darkBlueColor14MediumTextStyle,
                         ),
                         SizedBox(
-                          width: 140,
+                          width: width * 0.35,
                         ),
                         Text(
                           "Amount",
@@ -172,7 +176,7 @@ class _EarningDetailsState extends State<EarningDetails> {
                           style: darkBlueColor16MediumTextStyle,
                         ),
                         SizedBox(
-                          width: 115,
+                          width: width * 0.3,
                         ),
                         Text(
                           "View Order",
@@ -198,8 +202,14 @@ class _EarningDetailsState extends State<EarningDetails> {
         context: context,
         builder: (BuildContext context) {
           return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
             child: Container(
-              color: bgColor,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: bgColor,
+              ),
               height: 320,
               padding: EdgeInsets.symmetric(horizontal: 7),
               child: Column(
@@ -323,7 +333,7 @@ class _EarningDetailsState extends State<EarningDetails> {
       child: Row(
         children: [
           Icon(
-            Icons.person_outline,
+            Icons.timer_sharp,
             color: greyColor,
             size: 20,
           ),

@@ -13,19 +13,25 @@ class CuisinieFood extends StatelessWidget {
           // elevation: 0,
           backgroundColor: primaryColor,
           iconTheme: IconThemeData(color: whiteColor),
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(
-              Icons.arrow_back_ios,
-              size: 22,
+          titleSpacing: 0,
+          leadingWidth: 40,
+          centerTitle: false,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 22,
+              ),
             ),
           ),
-          title: Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Text(
-              "Cuisine: South Indian",
-              style: whiteColor20BoldTextStyle,
-            ),
+          title:
+              
+              Text(
+            "Cuisine: South Indian",
+            style: whiteColor22BoldTextStyle,
+            // ),
           )),
       body: Column(
         children: [

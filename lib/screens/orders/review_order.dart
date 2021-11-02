@@ -49,12 +49,8 @@ class ReviewOrder extends StatelessWidget {
 
   orderBox(context) {
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: fixPadding, vertical: fixPadding),
+      padding: EdgeInsets.all(fixPadding),
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: fixPadding * 1.5,
-        ),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
@@ -223,107 +219,119 @@ class ReviewOrder extends StatelessWidget {
   }
 
   orderDetails(context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: fixPadding * 2, vertical: fixPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 25,
-          ),
-          Text(
-            "Order No.",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "ORD12345678",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Date & Time of Order",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "12.08.21 10:00am",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Amount",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "\u{20B9} 550 Success",
-                style: darkBlueColor18SemiBoldTextStyle,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => TransactionList()));
-                },
-                child: Text(
-                  "View Transaction",
-                  style: TextStyle(color: accentColor, fontSize: 17),
+    return Padding(
+      padding: EdgeInsets.all(fixPadding),
+      child: Container(
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 25,
+            ),
+            Text(
+              "Order No.",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "ORD12345678",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Date & Time of Order",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "12.08.21 10:00am",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Amount",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "\u{20B9} 550 Success",
+                  style: darkBlueColor18SemiBoldTextStyle,
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered From",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "John Foods",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Order Type",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "Self Pick-Up",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Pick-up Address",
-            style: greyColor16SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-        ],
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TransactionList()));
+                  },
+                  child: Text(
+                    "View Transaction",
+                    style: TextStyle(color: accentColor, fontSize: 17),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered From",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "John Foods",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Order Type",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "Self Pick-Up",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Pick-up Address",
+              style: greyColor16SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -353,7 +361,7 @@ class ReviewOrder extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 billDetails(240, 2),
                 heightSpace,
@@ -373,7 +381,8 @@ class ReviewOrder extends StatelessWidget {
 
   billDetails(int amount, int quantity) {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          vertical: fixPadding, horizontal: fixPadding * 1.5),
       child: Column(
         children: [
           Row(
@@ -402,7 +411,8 @@ class ReviewOrder extends StatelessWidget {
 
   totalAmount() {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          vertical: fixPadding, horizontal: fixPadding * 1.5),
       child: Column(
         children: [
           Row(

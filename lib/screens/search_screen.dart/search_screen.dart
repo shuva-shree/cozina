@@ -20,19 +20,22 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: whiteColor),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 22,
+        titleSpacing: 0,
+        leadingWidth: 40,
+        centerTitle: false,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 22,
+            ),
           ),
         ),
-        title: Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Text(
-            "Search",
-            style: whiteColor22BoldTextStyle,
-          ),
+        title: Text(
+          "Search",
+          style: whiteColor22BoldTextStyle,
         ),
         bottom: extendedAppBar(),
       ),

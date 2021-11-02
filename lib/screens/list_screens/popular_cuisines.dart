@@ -18,12 +18,18 @@ class _PopularCuisineState extends State<PopularCuisine> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          titleSpacing: 0,
+          leadingWidth: 40,
+          centerTitle: false,
           iconTheme: IconThemeData(color: whiteColor),
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(
-              Icons.arrow_back_ios,
-              size: 22,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 22,
+              ),
             ),
           ),
           title: Padding(

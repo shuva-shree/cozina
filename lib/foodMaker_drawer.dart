@@ -65,7 +65,9 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
               child: Container(
                 height: 80,
                 decoration: BoxDecoration(
-                    border: Border.all(color: primaryColor, width: 2)),
+                  color: greyColor.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -96,6 +98,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title:
                   Text('Kitchen Online', style: darkBlueColor16MediumTextStyle),
               trailing: Switch(
@@ -115,6 +118,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Kitchen', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.kitchen,
@@ -129,6 +133,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Foods', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.fastfood,
@@ -143,6 +148,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Orders', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.checklist,
@@ -157,6 +163,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Earning & Bank Details',
                   style: darkBlueColor16MediumTextStyle),
               leading: Icon(
@@ -172,6 +179,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Transactions',
                   style: darkBlueColor16MediumTextStyle),
               leading: Icon(
@@ -188,6 +196,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('My Profile', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.supervised_user_circle_sharp,
@@ -202,6 +211,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title:
                   Text('Help & Support', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
@@ -217,6 +227,7 @@ class _FoodMakerMenuDrawerState extends State<FoodMakerMenuDrawer> {
           Padding(
             padding: EdgeInsets.only(left: fixPadding),
             child: ListTile(
+              minLeadingWidth: 0,
               title: Text('Log Out', style: darkBlueColor16MediumTextStyle),
               leading: Icon(
                 Icons.logout,

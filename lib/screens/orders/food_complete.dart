@@ -12,6 +12,8 @@ class FoodPrepComplete extends StatefulWidget {
 }
 
 class _FoodPrepCompleteState extends State<FoodPrepComplete> {
+  late double height;
+  late double width;
   @override
   void initState() {
     Timer(Duration(seconds: 5), () {
@@ -23,6 +25,8 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
@@ -35,8 +39,7 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
           onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.arrow_back_ios,
-            size: 
-            22,
+            size: 22,
           ),
         ),
       ),
@@ -134,99 +137,115 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
   }
 
   orderDetails() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: fixPadding * 2, vertical: fixPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 25,
-          ),
-          Text(
-            "Order No.",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "ORD12345678",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Date & Time of Order",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "12.08.21 10:00am",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Amount",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "550 Success",
-                style: darkBlueColor18SemiBoldTextStyle,
-              ),
-              Text(
-                "View Transaction",
-                style: TextStyle(color: accentColor, fontSize: 17),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered From",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "John Foods",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Order Type",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "Self Pick-Up",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Pick-up Address",
-            style: greyColor16SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: Container(
+        height: height * 0.41,
+        width: width,
+        padding: const EdgeInsets.symmetric(
+            horizontal: fixPadding * 1.5, vertical: fixPadding * 1.5),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: greyColor.withOpacity(0.1),
+              spreadRadius: 2.5,
+              blurRadius: 2.5,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 25,
+            ),
+            Text(
+              "Order No.",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "ORD12345678",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Date & Time of Order",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "12.08.21 10:00am",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Amount",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "550 Success",
+                  style: darkBlueColor18SemiBoldTextStyle,
+                ),
+                Text(
+                  "View Transaction",
+                  style: TextStyle(color: accentColor, fontSize: 17),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered From",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "John Foods",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Order Type",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "Self Pick-Up",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Pick-up Address",
+              style: greyColor16SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -311,7 +330,8 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
 
   billDetails(int amount, int quantity) {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 2, vertical: fixPadding),
       child: Column(
         children: [
           Row(
@@ -340,7 +360,8 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
 
   totalAmount() {
     return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
+      padding: EdgeInsets.symmetric(
+          horizontal: fixPadding * 2, vertical: fixPadding),
       child: Column(
         children: [
           Row(
@@ -365,7 +386,7 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
               // thickness: 1.5,
               ),
           SizedBox(
-            height: 30,
+            height: 10,
           ),
           heightSpace,
           Row(
@@ -381,6 +402,7 @@ class _FoodPrepCompleteState extends State<FoodPrepComplete> {
               ),
             ],
           ),
+          heightSpace,
         ],
       ),
     );

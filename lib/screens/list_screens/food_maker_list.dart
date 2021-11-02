@@ -3,6 +3,8 @@ import 'package:cozina/screens/food_screen/food_maker_screen.dart';
 import 'package:cozina/screens/food_screen/food_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'cuisine_food_list.dart';
+
 class FoodMakersList extends StatefulWidget {
   const FoodMakersList({Key? key}) : super(key: key);
 
@@ -73,15 +75,15 @@ class _FoodMkaersListState extends State<FoodMakersList> {
         child: GridView.builder(
             itemCount: popularFoodMakersList.length,
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 1 / 1.75,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20),
+                maxCrossAxisExtent: width * 0.5,
+                childAspectRatio: 1 / 1.8,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10),
             itemBuilder: (BuildContext ctx, index) {
               final item = popularFoodMakersList[index];
               return Container(
-                height: 200,
-                width: 200,
+                height: height * 0.43,
+                width: width * 0.5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -89,146 +91,175 @@ class _FoodMkaersListState extends State<FoodMakersList> {
                   children: [
                     // Hero(
                     //   tag: popularFoodMakersList[index],
-                    //   child:
+                    // child:
+                    // child:
                     Container(
-                      height: height * 0.19,
+                      height: height * 0.43,
+                      width: width * 0.5,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10.0),
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(item['image']!),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    // ),
-                    Container(
-                      height: height * 0.22,
-                      width: 200,
-                      padding: EdgeInsets.all(fixPadding),
-                      decoration: BoxDecoration(
-                        color: whiteColor,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10.0),
-                        ),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Padding(
-                          //   padding:
-                          //       const EdgeInsets.only(right: fixPadding * 12.0),
-                          //   child:
-                          Text(
-                            item['name']!,
-                            style: darkBlueColor18SemiBoldTextStyle,
-                            softWrap: true,
-                            // maxLines: 1,
+                          Container(
+                            height: height * 0.19,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10.0),
+                              ),
+                              image: DecorationImage(
+                                image: AssetImage(item['image']!),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           // ),
-                          heightSpace,
                           Container(
-                              child: Row(
-                            children: [
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
+                            height: height * 0.24,
+                            width: width * 0.5,
+                            padding: EdgeInsets.all(fixPadding),
+                            decoration: BoxDecoration(
+                              color: whiteColor,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10.0),
                               ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                              Icon(
-                                Icons.star,
-                                size: 20,
-                                color: primaryColor,
-                              ),
-                            ],
-                          )),
-                          heightSpace,
-                          Text(
-                            item["distance"]!,
-                            style: greyColor13MediumTextStyle,
-                          ),
-                          heightSpace,
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
-                                  color: Colors.black54.withOpacity(0.2),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  item['name']!,
+                                  style: darkBlueColor18SemiBoldTextStyle,
+                                  softWrap: true,
+                                  // maxLines: 1,
                                 ),
-                                child: Text(
-                                  "South Indian",
-                                  style: darkBlueColor15MediumTextStyle,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
-                                  color: Colors.black54.withOpacity(0.2),
-                                ),
-                                child: Text(
-                                  "Veg",
-                                  style: darkBlueColor15MediumTextStyle,
-                                ),
-                              ),
-                            ],
-                          ),
-                          heightSpace,
-                          heightSpace,
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => FoodMakerScreen()));
-                            },
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 35,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: primaryColor,
-                                ),
-                                child: Row(
+                                // ),
+                                heightSpace,
+                                Container(
+                                    child: Row(
                                   children: [
-                                    SizedBox(
-                                      width: 10,
+                                    Icon(
+                                      Icons.star,
+                                      size: 20,
+                                      color: primaryColor,
                                     ),
-                                    Icon(Icons.remove_red_eye,
-                                        color: whiteColor),
-                                    SizedBox(
-                                      width: 10,
+                                    Icon(
+                                      Icons.star,
+                                      size: 20,
+                                      color: primaryColor,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      size: 20,
+                                      color: primaryColor,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      size: 20,
+                                      color: primaryColor,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      size: 20,
+                                      color: primaryColor,
+                                    ),
+                                  ],
+                                )),
+                                // heightSpace,
+                                heightSpace,
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.location_on,
+                                      color: blackColor,
+                                      size: 20,
                                     ),
                                     Text(
-                                      "View Foods",
-                                      style: whiteColor18BoldTextStyle,
+                                      item["distance"]!,
+                                      style: greyColor13MediumTextStyle,
                                     ),
                                   ],
                                 ),
-                              ),
+                                heightSpace,
+                                heightSpace,
+                                Row(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(4),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: blackColor,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
+                                        child: Text(
+                                          "South Indian",
+                                          style: whiteColor15BoldTextStyle,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(4),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: blackColor,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
+                                        child: Text(
+                                          "Veg",
+                                          style: whiteColor15BoldTextStyle,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                heightSpace,
+                                heightSpace,
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: height * 0.05,
+                                    width: width * 0.4,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      color: primaryColor,
+                                    ),
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (ctx) =>
+                                                    CuisinieFood()));
+                                      },
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Icon(Icons.remove_red_eye,
+                                              color: whiteColor),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "View Foods",
+                                            style: whiteColor18BoldTextStyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],

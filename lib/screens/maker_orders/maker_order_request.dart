@@ -2,11 +2,21 @@ import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/maker_order_status/approval.dart';
 import 'package:flutter/material.dart';
 
-class MakerOrderRequest extends StatelessWidget {
+class MakerOrderRequest extends StatefulWidget {
   const MakerOrderRequest({Key? key}) : super(key: key);
 
   @override
+  _MakerOrderRequestState createState() => _MakerOrderRequestState();
+}
+
+class _MakerOrderRequestState extends State<MakerOrderRequest> {
+  late double height;
+  late double width;
+
+  @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
       child: Container(
         height: MediaQuery.of(context).size.height,
@@ -73,7 +83,8 @@ class MakerOrderRequest extends StatelessWidget {
                           style: darkBlueColor20BoldTextStyle,
                         ),
                         SizedBox(
-                          width: 120,
+                          // width: 120,
+                          width: width * 0.31,
                         ),
                         Text(
                           "\u{20B9}${550}",
@@ -90,7 +101,7 @@ class MakerOrderRequest extends StatelessWidget {
                           style: darkBlueColor14MediumTextStyle,
                         ),
                         SizedBox(
-                          width: 145,
+                          width: width * 0.37,
                         ),
                         Text(
                           "Amount",

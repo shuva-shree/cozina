@@ -14,6 +14,8 @@ class FoodScreen extends StatefulWidget {
 }
 
 class _FoodScreenState extends State<FoodScreen> {
+  late double width;
+  late double height;
   final reviewsList = [
     {
       'image': 'assets/images/man1.jpg',
@@ -40,20 +42,28 @@ class _FoodScreenState extends State<FoodScreen> {
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
         backgroundColor: primaryColor,
+        titleSpacing: 0,
+        leadingWidth: 40,
+        centerTitle: false,
         iconTheme: IconThemeData(color: whiteColor),
         title: Text(
           "Food Item",
           style: whiteColor22BoldTextStyle,
         ),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 22,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 22,
+            ),
           ),
         ),
         actions: [
@@ -70,33 +80,7 @@ class _FoodScreenState extends State<FoodScreen> {
         child: ListView(
           children: [
             CustomIndicator(),
-            // GFCarousel(
-            //   passiveIndicator: whiteColor,
-            //   activeIndicator: primaryColor,
-            //   pagination: true,
-            //   enableInfiniteScroll: true,
-            //   pagerSize: 6,
-            //   height: 250,
-            //   scrollDirection: Axis.horizontal,
-            //   items: imageList.map(
-            //     (url) {
-            //       return Container(
-            //         width: MediaQuery.of(context).size.width,
-            //         margin: EdgeInsets.all(8.0),
-            //         child: ClipRRect(
-            //           borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            //           child: Image.asset(url, fit: BoxFit.fill, width: 1400.0),
-            //         ),
-            //       );
-            //     },
-            //   ).toList(),
-            //   onPageChanged: (index) {
-            //     setState(() {
-            //       // ignore: unnecessary_statements
-            //       index;
-            //     });
-            //   },
-            // ),
+
             heightSpace,
             Text(
               "Paneer Masala Dosa",
@@ -121,9 +105,9 @@ class _FoodScreenState extends State<FoodScreen> {
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(4),
+                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 6),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(10),
                     color: blackColor,
                   ),
                   child: Text(
@@ -135,9 +119,9 @@ class _FoodScreenState extends State<FoodScreen> {
                   width: 8,
                 ),
                 Container(
-                  padding: EdgeInsets.all(4),
+                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 6),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(10),
                     color: blackColor,
                   ),
                   child: Text(
@@ -146,7 +130,7 @@ class _FoodScreenState extends State<FoodScreen> {
                   ),
                 ),
                 SizedBox(
-                  width: 135,
+                  width: width * 0.32,
                 ),
                 Container(
                     child: Row(

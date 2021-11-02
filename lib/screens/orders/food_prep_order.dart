@@ -75,60 +75,57 @@ class _FoodPrepOrderState extends State<FoodPrepOrder> {
             ),
           ],
         ),
-        child: Padding(
-          padding: EdgeInsets.all(fixPadding * 2),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Order Status",
-                    style: greyColor14MediumTextStyle,
-                  ),
-                  SizedBox(
-                    width: 120,
-                  ),
-                  Text(
-                    "Full Details",
-                    style: TextStyle(color: accentColor, fontSize: 17),
-                  ),
-                ],
-              ),
-              heightSpace,
-              Text(
-                "Food Preparation Started",
-                style: darkBlueColor20BoldTextStyle,
-              ),
-              // heightSpace,
-              heightSpace,
-              Divider(
-                  // color: primaryColor,
-                  // thickness: 2,
-                  ),
-              heightSpace,
-              // heightSpace,
-              Row(
-                children: [
-                  Icon(
-                    Icons.access_time_sharp,
-                    color: primaryColor,
-                    size: 30,
-                  ),
-                  widthSpace,
-                  widthSpace,
-                  Text(
-                    "ETA : Food will prepare in 15 minutes \ni.e 10:25 am",
-                    style: darkBlueColor16MediumTextStyle,
-                  ),
-                ],
-              ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Order Status",
+                  style: greyColor14MediumTextStyle,
+                ),
+                SizedBox(
+                  width: 120,
+                ),
+                Text(
+                  "Full Details",
+                  style: TextStyle(color: accentColor, fontSize: 17),
+                ),
+              ],
+            ),
+            heightSpace,
+            Text(
+              "Food Preparation Started",
+              style: darkBlueColor20BoldTextStyle,
+            ),
+            // heightSpace,
+            heightSpace,
+            Divider(
+                // color: primaryColor,
+                // thickness: 2,
+                ),
+            heightSpace,
+            // heightSpace,
+            Row(
+              children: [
+                Icon(
+                  Icons.access_time_sharp,
+                  color: primaryColor,
+                  size: 30,
+                ),
+                widthSpace,
+                widthSpace,
+                Text(
+                  "ETA : Food will prepare in 15 minutes \ni.e 10:25 am",
+                  style: darkBlueColor16MediumTextStyle,
+                ),
+              ],
+            ),
 
-              heightSpace,
-              // orderDetails(),
-            ],
-          ),
+            heightSpace,
+            // orderDetails(),
+          ],
         ),
       ),
     );
