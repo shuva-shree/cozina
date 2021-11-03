@@ -121,7 +121,7 @@ class _CartDetailsState extends State<CartDetails> {
           Row(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.12,
+                height: MediaQuery.of(context).size.height * 0.11,
                 width: MediaQuery.of(context).size.width * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),

@@ -58,6 +58,8 @@ class _BottomBarState extends State<BottomBar> {
                     child: DropdownButton<String>(
                         dropdownColor: primaryColor,
                         iconEnabledColor: whiteColor,
+                        // isExpanded: true,
+                        isDense: true,
                         value: watch(valueProvider).value,
                         items: <DropdownMenuItem<String>>[
                           DropdownMenuItem(
@@ -69,7 +71,7 @@ class _BottomBarState extends State<BottomBar> {
                           ),
                           DropdownMenuItem(
                               child: Text(
-                                "FoodMaker's account",
+                                "FoodMaker's Account",
                                 style: whiteColor15BoldTextStyle,
                               ),
                               value: 'two'),

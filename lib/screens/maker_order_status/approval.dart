@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/maker_order_status/accepted.dart';
 import 'package:cozina/screens/orders/food_complete.dart';
+import 'package:cozina/widgets/bill_summary.dart';
 import 'package:flutter/material.dart';
 
 class ApprovalOrder extends StatefulWidget {
@@ -55,7 +56,7 @@ class _ApprovalOrderState extends State<ApprovalOrder> {
           //     ),
           //   ),
           // ),
-          billSummary(),
+         BillSummary(),
           heightSpace,
         ],
       ),
@@ -103,7 +104,7 @@ class _ApprovalOrderState extends State<ApprovalOrder> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  approvalButton(context, "Deny Order"),
+                  denyButton(context, "Deny Order"),
                   approvalButton(context, "Accept Order"),
                 ],
               ),
@@ -118,102 +119,10 @@ class _ApprovalOrderState extends State<ApprovalOrder> {
   }
 
   orderDetails() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: fixPadding * 2, vertical: fixPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 25,
-          ),
-          Text(
-            "Order No.",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "ORD12345678",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Date & Time of Order",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "12.08.21 10:00am",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Amount you will earn",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-
-          Text(
-            "\u{20B9} 550 ",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered By",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "John Smith",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered Type",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "Self Pick-Up",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          // Text(
-          //   "Pick-up Address",
-          //   style: greyColor16SemiBoldTextStyle,
-          // ),
-          // SizedBox(
-          //   height: 20,
-          // ),
-          // Text(
-          //   "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
-          //   style: darkBlueColor18SemiBoldTextStyle,
-          // ),
-          // SizedBox(
-          //   height: 20,
-          // ),
-        ],
-      ),
-    );
-  }
-
-  billSummary() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: fixPadding),
       child: Container(
-        // decoration:
-        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+        padding: const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
@@ -225,112 +134,90 @@ class _ApprovalOrderState extends State<ApprovalOrder> {
             ),
           ],
         ),
-
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 20,
+              height: 25,
             ),
-            Padding(
-              padding: EdgeInsets.only(left: fixPadding * 2),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Bill",
-                  style: greyColor15MediumTextStyle,
-                ),
-              ),
+            Text(
+              "Order No.",
+              style: greyColor15SemiBoldTextStyle,
             ),
-            SizedBox(
-              height: 20,
-            ),
-            billDetails(240, 2),
             heightSpace,
-            billDetails(120, 1),
-            SizedBox(
-              height: 10,
+            Text(
+              "ORD12345678",
+              style: darkBlueColor18SemiBoldTextStyle,
             ),
-            totalAmount(),
-            // heightSpace,
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Date & Time of Order",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "12.08.21 10:00am",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Amount you will earn",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+
+            Text(
+              "\u{20B9} 550 ",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered By",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "John Smith",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered Type",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "Self Pick-Up",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            // Text(
+            //   "Pick-up Address",
+            //   style: greyColor16SemiBoldTextStyle,
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // Text(
+            //   "111A, 3rd Floor, Galaxy Apartment, M.P Nagar, Zone II, Near Mata Mandir , Bhopal, \nPin:1110234",
+            //   style: darkBlueColor18SemiBoldTextStyle,
+            // ),
+            // SizedBox(
+            //   height: 20,
+            // ),
           ],
         ),
-      ),
-    );
-  }
-
-  billDetails(int amount, int quantity) {
-    return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Paneer Dosa Masala",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Text(
-                '\u{20B9}$amount',
-                style: darkBlueColor16MediumTextStyle,
-              ),
-            ],
-          ),
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Quantity: x 0${quantity}",
-                style: darkBlueColor13RegularTextStyle,
-              )),
-        ],
-      ),
-    );
-  }
-
-  totalAmount() {
-    return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Tax",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Text(
-                '\u{20B9}${10}',
-                style: darkBlueColor16MediumTextStyle,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          heightSpace,
-          Divider(
-              // color: primaryColor,
-              // thickness: 1.5,
-              ),
-          SizedBox(
-            height: 30,
-          ),
-          heightSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Total Amout Payable",
-                style: primaryColor18SemiBoldTextStyle,
-              ),
-              Text(
-                '\u{20B9}${550}',
-                style: primaryColor18SemiBoldTextStyle,
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }
@@ -365,6 +252,44 @@ class _ApprovalOrderState extends State<ApprovalOrder> {
           child: Text(
             title,
             style: whiteColor20BoldTextStyle,
+          ),
+        ),
+      ),
+    );
+  }
+
+  denyButton(context, String title) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: fixPadding / 2,
+        vertical: fixPadding,
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10.0),
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AcceptedOrder()));
+        },
+        child: Container(
+          height: 45,
+          width: MediaQuery.of(context).size.width / 2.7,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            // color: greyColor.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(10.0),
+            border: Border.all(color: blackColor, width: 2),
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: greyColor.withOpacity(0.2),
+            //     spreadRadius: 2.5,
+            //     blurRadius: 2.5,
+            //   ),
+            // ],
+          ),
+          child: Text(
+            title,
+            style: TextStyle(
+                color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
       ),

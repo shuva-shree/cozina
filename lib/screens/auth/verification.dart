@@ -1,3 +1,4 @@
+import 'package:cozina/buyer_drawer.dart';
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/provider/provider.dart';
 
@@ -161,7 +162,7 @@ class _AccountVerificationState extends State<AccountVerification> {
           )
         ],
       ),
-      drawer: Drawer(),
+      drawer: BuyerMenuDrawer(),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisAlignment: MainAxisAlignment.center,

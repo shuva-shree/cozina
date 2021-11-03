@@ -3,10 +3,13 @@ import 'package:cozina/screens/transactions/transaction_details.dart';
 import 'package:flutter/material.dart';
 
 class TransactionList extends StatelessWidget {
-  const TransactionList({Key? key}) : super(key: key);
-
+  TransactionList({Key? key}) : super(key: key);
+  late double height;
+  late double width;
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
@@ -15,11 +18,17 @@ class TransactionList extends StatelessWidget {
           "My Transaction",
           style: whiteColor22BoldTextStyle,
         ),
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 22,
+        titleSpacing: 0,
+        leadingWidth: 40,
+        centerTitle: false,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: 22,
+            ),
           ),
         ),
       ),
@@ -87,7 +96,7 @@ class TransactionList extends StatelessWidget {
                           style: darkBlueColor20BoldTextStyle,
                         ),
                         SizedBox(
-                          width: 95,
+                          width: width * 0.25,
                         ),
                         Text(
                           "\u{20B9}${550}",
@@ -104,7 +113,7 @@ class TransactionList extends StatelessWidget {
                           style: darkBlueColor14MediumTextStyle,
                         ),
                         SizedBox(
-                          width: 145,
+                          width: width * 0.37,
                         ),
                         Text(
                           "Amount",

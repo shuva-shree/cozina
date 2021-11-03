@@ -332,11 +332,11 @@ class _EarningDetailsState extends State<EarningDetails> {
       ),
       child: Row(
         children: [
-          Icon(
-            Icons.timer_sharp,
-            color: greyColor,
-            size: 20,
-          ),
+          // Icon(
+          //   Icons.timer_sharp,
+          //   color: greyColor,
+          //   size: 20,
+          // ),
           widthSpace,
           Expanded(
             child: TextField(

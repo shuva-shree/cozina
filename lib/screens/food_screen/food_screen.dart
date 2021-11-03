@@ -112,25 +112,25 @@ class _FoodScreenState extends State<FoodScreen> {
                   ),
                   child: Text(
                     "South Indian",
-                    style: whiteColor15BoldTextStyle,
+                    style: whiteColor14BoldTextStyle,
                   ),
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: blackColor,
                   ),
                   child: Text(
                     "Veg",
-                    style: whiteColor15BoldTextStyle,
+                    style: whiteColor14BoldTextStyle,
                   ),
                 ),
                 SizedBox(
-                  width: width * 0.32,
+                  width: width * 0.33,
                 ),
                 Container(
                     child: Row(
@@ -374,7 +374,7 @@ class _FoodScreenState extends State<FoodScreen> {
                 heightSpace,
                 Text(
                   item['review'].toString(),
-                  style: greyColor11MediumTextStyle,
+                  style: darkBlueColor15MediumTextStyle,
                 ),
               ],
             ),

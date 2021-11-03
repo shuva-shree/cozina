@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cozina/constants/constants.dart';
 import 'package:cozina/screens/orders/food_complete.dart';
+import 'package:cozina/widgets/bill_summary.dart';
 import 'package:flutter/material.dart';
 
 class CompletionConfirmation extends StatefulWidget {
@@ -49,7 +50,7 @@ class _CompletionConfirmationState extends State<CompletionConfirmation> {
         children: [
           orderBox(),
           orderDetails(),
-          billSummary(),
+         BillSummary(),
           heightSpace,
         ],
       ),
@@ -59,7 +60,6 @@ class _CompletionConfirmationState extends State<CompletionConfirmation> {
   orderBox() {
     return Padding(
       padding: EdgeInsets.all(fixPadding),
-    
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: fixPadding * 1.5, vertical: fixPadding * 2),
@@ -103,91 +103,14 @@ class _CompletionConfirmationState extends State<CompletionConfirmation> {
           ],
         ),
       ),
-     
     );
   }
 
   orderDetails() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: fixPadding * 2, vertical: fixPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 25,
-          ),
-          Text(
-            "Order No.",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "ORD12345678",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Date & Time of Order",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "12.08.21 10:00am",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Amount you will earn",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "\u{20B9} 550 ",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered By",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "John Smith",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            "Ordered Type",
-            style: greyColor15SemiBoldTextStyle,
-          ),
-          heightSpace,
-          Text(
-            "Self Pick-Up",
-            style: darkBlueColor18SemiBoldTextStyle,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-        ],
-      ),
-    );
-  }
-
-  billSummary() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: fixPadding),
       child: Container(
-        // decoration:
-        //     BoxDecoration(border: Border.all(color: primaryColor, width: 2)),
+        padding: const EdgeInsets.symmetric(horizontal: fixPadding * 1.5),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
@@ -199,115 +122,79 @@ class _CompletionConfirmationState extends State<CompletionConfirmation> {
             ),
           ],
         ),
-
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 20,
+              height: 25,
             ),
-            Padding(
-              padding: EdgeInsets.only(left: fixPadding * 2),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Bill",
-                  style: greyColor15MediumTextStyle,
-                ),
-              ),
+            Text(
+              "Order No.",
+              style: greyColor15SemiBoldTextStyle,
             ),
-            SizedBox(
-              height: 20,
-            ),
-            billDetails(240, 2),
             heightSpace,
-            billDetails(120, 1),
-            SizedBox(
-              height: 10,
+            Text(
+              "ORD12345678",
+              style: darkBlueColor18SemiBoldTextStyle,
             ),
-            totalAmount(),
-            // heightSpace,
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Date & Time of Order",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "12.08.21 10:00am",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Amount you will earn",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "\u{20B9} 550 ",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered By",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "John Smith",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Ordered Type",
+              style: greyColor15SemiBoldTextStyle,
+            ),
+            heightSpace,
+            Text(
+              "Self Pick-Up",
+              style: darkBlueColor18SemiBoldTextStyle,
+            ),
+            SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
     );
   }
 
-  billDetails(int amount, int quantity) {
-    return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Paneer Dosa Masala",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Text(
-                '\u{20B9}$amount',
-                style: darkBlueColor16MediumTextStyle,
-              ),
-            ],
-          ),
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Quantity: x 0${quantity}",
-                style: darkBlueColor13RegularTextStyle,
-              )),
-        ],
-      ),
-    );
-  }
-
-  totalAmount() {
-    return Container(
-      padding: EdgeInsets.all(fixPadding * 2),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Tax",
-                style: darkBlueColor18MediumTextStyle,
-              ),
-              Text(
-                '\u{20B9}${10}',
-                style: darkBlueColor16MediumTextStyle,
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          heightSpace,
-          Divider(
-              // color: primaryColor,
-              // thickness: 1.5,
-              ),
-          SizedBox(
-            height: 30,
-          ),
-          heightSpace,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Total Amout Payable",
-                style: primaryColor18SemiBoldTextStyle,
-              ),
-              Text(
-                '\u{20B9}${550}',
-                style: primaryColor18SemiBoldTextStyle,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+ 
 
   approvalButton(context, String title) {
     return Padding(

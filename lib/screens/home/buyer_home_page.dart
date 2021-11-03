@@ -109,6 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     //   height: 25,
                     // ),
                     popularFoods(),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -479,14 +482,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.all(4),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8, vertical: 4),
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: blackColor,
                                   ),
                                   child: Text(
-                                    item['type']!,
-                                    style: whiteColor13BoldTextStyle,
+                                    "South Indian",
+                                    style: whiteColor14BoldTextStyle,
                                   ),
                                 ),
                                 Container(
@@ -662,7 +666,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               size: 20,
                             ),
                             Text(
-                              item["distance"]!,
+                              "3 kms away",
                               style: greyColor13MediumTextStyle,
                             ),
                           ],
@@ -672,36 +676,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             Container(
-                              padding: EdgeInsets.all(4),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 color: blackColor,
                               ),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 6),
-                                child: Text(
-                                  "South Indian",
-                                  style: whiteColor15BoldTextStyle,
-                                ),
+                              child: Text(
+                                "South Indian",
+                                style: whiteColor14BoldTextStyle,
                               ),
                             ),
                             SizedBox(
                               width: 8,
                             ),
                             Container(
-                              padding: EdgeInsets.all(4),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 color: blackColor,
                               ),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 6),
-                                child: Text(
-                                  "Veg",
-                                  style: whiteColor15BoldTextStyle,
-                                ),
+                              child: Text(
+                                "Veg",
+                                style: whiteColor14BoldTextStyle,
                               ),
                             ),
                           ],

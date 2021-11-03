@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class ChangeValue extends ChangeNotifier {
   var value = 'one';
   var startPrep = false;
+  var setVal = false;
 
   changeDropValue(String val) async {
     this.value = val;
@@ -20,6 +21,11 @@ class ChangeValue extends ChangeNotifier {
 
   startPrepFood(){
     startPrep = true;
+    notifyListeners();
+  }
+
+  setAccount(bool val){
+    setVal = val;
     notifyListeners();
   }
 }
